@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<!-- Import info form -->
+        <record model="ir.ui.view" id="hmtk_import_info_form_view">
+            <field name="name">import.info.form</field>
+            <field name="model">import.info</field>
+            <field name="inherit_id" ref="l10n_mx_import_info.view_import_info_form"/>
+            <field name="arch" type="xml">
+            	<xpath expr="//form/notebook/page[@string='Invoices']/field[@name='invoice_ids']" position="replace">
+            		<field name="invoice_ids" nolabel="1"/>
+            	</xpath>
+            	<xpath expr="//form/group/field[@name='supplier_id']" position="replace">
+            	</xpath>
+            </field>
+        </record>
+        <record id="view_custom_form" model="ir.ui.view">
+            <field name="name">import.info.custom.form</field>
+            <field name="model">import.info.custom</field>
+            <field name="arch" type="xml">
+                <form string="Custom" version="7.0">
+                    <group col="4">
+                        <field name="custom_name"/>
+                        <field name="number"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+	</data>
+</openerp>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+        <!-- 03/06/2015 (felix) Modificaciones en vista search de productos -->
+        <record id="product_tree_view_inherit_1" model="ir.ui.view">
+            <field name="name">product_tree_view_inherit_1</field>
+            <field name="model">product.product</field>
+            <field name="priority" eval="500"/>
+            <field name="inherit_id" ref="product.product_product_tree_view"/>
+            <field name="arch" type="xml">
+            
+                <!-- 03/06/2015 (felix) Agregar campo "Modelo" -->
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="modelo_tec" string="Modelo (especificaciones técnicas de magento)"/>
+                </xpath>
+                
+            </field>
+        </record>
+                
+        <!-- 03/06/2015 (felix) Agregar campo "modelo_tec" en vista kanban -->
+        <record id="product.product_kanban_view" model="ir.ui.view">
+            <field name="name">Product Kanban</field>
+            <field name="model">product.product</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="color"/>
+                    <field name="type"/>
+                    <field name="list_price"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_vignette oe_semantic_html_override">
+                                <a type="open"><img t-att-src="kanban_image('product.product', 'image_small', record.id.value)" class="oe_kanban_image"/></a>
+                                <div class="oe_kanban_details">
+                                    <h4>
+                                        <a type="open">
+                                             <t t-if="record.code.raw_value">[<field name="code"/>]</t> <field name="name"/>
+                                        </a>
+                                    </h4>
+                                    <h4>
+                                        <a type="open">
+                                             <field name="modelo_tec"/>
+                                        </a>
+                                    </h4>
+                                    <div name="tags"/>
+                                    <ul>
+                                        <li>Price: <field name="lst_price"></field></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        
+        <!-- 03/06/2015 (felix) Agregar campo "modelo_tec" en vista search -->
+        <record id="product.product_search_form_view" model="ir.ui.view">
+            <field name="name">product.search.form</field>
+            <field name="model">product.product</field>
+            <field name="arch" type="xml">
+                <search string="Product">
+                    <!--<field name="name" string="Product" filter_domain="['|',('name','ilike',self),('default_code','ilike',self)]"/>-->
+                    <field name="name" string="Product" filter_domain="[('modelo_tec','ilike',self)]"/>
+                    <filter string="Services" icon="terp-accessories-archiver" domain="[('type','=','service')]"/>
+                    <filter string="Consumable" name="consumable" icon="terp-accessories-archiver" domain="[('type','=','consu')]" help="Consumable products"/>
+                <separator/>
+                <filter string="Can be Sold" name="filter_to_sell" icon="terp-accessories-archiver-minus" domain="[('sale_ok','=',1)]"/>
+                <field name="categ_id"/>
+                <group expand="0" string="Context...">
+                   <field name="pricelist_id" widget="selection" context="{'pricelist': self}" filter_domain="[]" groups="product.group_sale_pricelist"/>
+                   <field name="company_id" groups="base.group_multi_company"/>
+                </group>
+                <group  expand='0' string='Group by...'>
+                   <filter string='Category' icon="terp-stock_symbol-selection" domain="[]" context="{'group_by' : 'categ_id'}"/>
+                   <filter string='Default Unit of Measure' icon="terp-mrp" domain="[]" context="{'group_by' : 'uom_id'}"/>
+                   <filter string='Type' icon="terp-stock_symbol-selection" domain="[]" context="{'group_by' : 'type'}"/>
+                   <filter string='Company' icon="terp-go-home" domain="[]" context="{'group_by' : 'company_id'}" groups="base.group_multi_company"/>
+                </group>
+                </search>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

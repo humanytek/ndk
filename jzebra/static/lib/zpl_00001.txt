@@ -1,0 +1,8 @@
+^XA
+^XFexhibitor^FS
+^FN01^FD^FS
+^FN02^FDasdasdas asdasd^FS
+^FN03^FDTest Visitor^FS
+^FN04^FDAlgeria^FS
+^FN05^FDQA,http://ft.su.vc/?cf1=asdasdas&cf2=asdasd&cf3=00001^FS
+^XZ

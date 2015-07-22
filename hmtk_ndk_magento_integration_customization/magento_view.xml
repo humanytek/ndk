@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		
+		<!-- Cron -->
+		<!-- Import and update products -->
+		<record model="ir.cron" id="ir_cron_import_and_update_products">
+            <field name="name">Import and Update Products</field>
+            <field name="interval_number">6</field>
+            <field name="interval_type">hours</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="model" eval="'magento.instance.website'"/>
+            <field name="function" eval="'import_and_update_products'"/>
+            <field name="args" eval="'()'"/>
+        </record>
+        
+        <!-- Export and update products -->
+        <record model="ir.cron" id="ir_cron_export_and_update_products">
+            <field name="name">Export and Update Products</field>
+            <field name="interval_number">6</field>
+            <field name="interval_type">hours</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="model" eval="'magento.instance.website'"/>
+            <field name="function" eval="'export_and_update_products'"/>
+            <field name="args" eval="'()'"/>
+        </record>
+	</data>
+</openerp>

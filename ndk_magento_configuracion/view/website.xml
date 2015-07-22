@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+        <!-- 29/05/2015 (felix) Magento/Configuración/Website -->
+        <record id="instance_website_form_view_inherit_1" model="ir.ui.view">
+            <field name="name">instance.website.form.view.inherit.1</field>
+            <field name="model">magento.instance.website</field>
+            <field name="inherit_id" ref="magento_integration.instance_website_form_view"/>
+            <field name="priority" eval="200"/>
+            <field name="arch" type="xml">
+            
+                <!-- 05/07/2015 (felix) Ocultar botón "Import Product Category" -->
+                <xpath expr="//button[@name='%(magento_integration.action_magento_import_catalog)d']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                
+                <!-- 07/07/2015 (felix) Ocultar botón "Import and Update Products" -->
+                <xpath expr="//button[@name='%(magento_integration.action_import_and_update_products)d']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                
+                <!-- 07/07/2015 (felix) Ocultar campo "last_updated_magento_to_openerp" -->
+                <xpath expr="//field[@name='last_updated_magento_to_openerp']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                
+                <!-- 08/07/2015 (felix) Ocultar botón "action_link_products_openerp_and_magento" -->
+                <xpath expr="//button[@name='%(magento_integration.action_link_products_openerp_and_magento)d']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                
+                <!-- 08/07/2015 (felix) Ocultar botón "action_link_categories_openerp_and_magento" -->
+                <xpath expr="//button[@name='%(magento_integration.action_link_categories_openerp_and_magento)d']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                
+                <!-- 09/07/2015 (felix) Ocultar botón "action_link_categories_openerp_and_magento" -->
+                <xpath expr="//button[@name='%(magento_integration.action_magento_export_category)d']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                
+                <!-- 09/07/2015 (felix) Ocultar botón "action_export_and_update_products" -->
+                <xpath expr="//button[@name='%(magento_integration.action_export_and_update_products)d']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                
+                <!-- 09/07/2015 (felix) Ocultar campo "last_updated_openerp_to_magento" -->
+                <xpath expr="//field[@name='last_updated_openerp_to_magento']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                
+                <!-- 09/07/2015 (felix) Ocultar botón "action_magento_export_inventory" -->
+                <xpath expr="//button[@name='%(magento_integration.action_magento_export_inventory)d']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                
+                <!-- 09/07/2015 (felix) Ocultar botón "action_magento_export_catalog" -->
+                <xpath expr="//button[@name='%(magento_integration.action_magento_export_catalog)d']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                
+                <!-- 09/07/2015 (felix) Ocultar botón "action_magento_export_customer" -->
+                <xpath expr="//button[@name='%(magento_integration.action_magento_export_customer)d']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                
+                <!-- 16/07/2015 (felix) Agregar botones: 
+                    "Transferencia Categorías Magento->OpenERP"
+                    "Transferencia Productos Magento->OpenERP"
+                    "Transferencia Clientes Magento->OpenERP"
+                -->
+                <xpath expr="//form/sheet/group[1]" position="after">
+                    <group col="2">
+                        <group string="Synchronize to OpenERP from Magento">
+                            <button name="trans_categ_magento_openerp" string="Categories of Products Magento->OpenERP" type="object" class="oe_highlight"
+                                help="Synchronize categories of products to OpenERP from Magento"/><br />
+                            <button name="trans_prod_magento_openerp" string="Products Magento->OpenERP" type="object" class="oe_highlight"
+                                help="Synchronize products to OpenERP from Magento"/><br />
+                            <button name="trans_customers_magento_openerp" string="Customers Magento->OpenERP" type="object" class="oe_highlight"
+                                help="Synchronize sales to OpenERP from Magento"/><br />
+                            <button name="trans_sales_magento_openerp" string="Sale orders Magento->OpenERP" type="object" class="oe_highlight"
+                                help="Synchronize sale orders to OpenERP from Magento"/>
+                        </group>
+                        <group>
+                        </group>
+                    </group>
+                </xpath>
+            
+            </field>
+        </record>
+    
+    </data>
+</openerp>

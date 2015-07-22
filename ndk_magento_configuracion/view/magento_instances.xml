@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+        <!-- 04/07/2015 (felix) Vista form de "Magento/Configuración/Magento instances" -->
+        <record id="magento_instance_form_view_inherit_1" model="ir.ui.view">
+            <field name="name">magento.instance.form.view.inherit.1</field>
+            <field name="model">magento.instance</field>
+            <field name="inherit_id" ref="magento_integration.magento_instance_form_view"/>
+            <field name="priority" eval="300"/>
+            <field name="arch" type="xml">
+            
+                <!-- 04/07/2015 (felix) Quitar etiqueta div -->
+                <xpath expr="//div[@class='oe_horizontal_separator oe_clear ']" position="replace"/>
+                
+                <!-- 04/07/2015 (felix) Quitar etiqueta div -->
+                <xpath expr="//div[@class='oe_clear']" position="replace"/>
+                
+                <!-- 04/07/2015 (felix) Modificar vista campo "url" -->
+                <xpath expr="//label[@for='url']" position="replace">
+                    <label for="url" invisible="1"/>
+                    <field name="url" invisible="1"/>
+                </xpath>
+                
+                <!-- 04/07/2015 (felix) Modificar grupo de vista para datos de conexión Magento -->
+                <xpath expr="//form/sheet/group[1]" position="replace">
+                    <group col="2">
+                        <group string="API Settings">
+                            <field name="url"/>
+                            <field name="api_user"/>
+                            <field name="api_key" widget="password"/>
+                            <field name="order_prefix"/>
+                        </group>
+                        <group string="Magento connector">
+                            <field name="mage_user" string="User root Magento" required="1"/>
+                            <field name="mage_pass" string="Password user root Magento" password="True" required="1"/>
+                            <field name="mage_host" string="Host connection to Magento" required="1"/>
+                            <field name="mage_db" string="DB Magento to connect" required="1"/>
+                        </group>
+                    </group>
+                </xpath>
+            
+            </field>
+        </record>
+    
+    </data>
+</openerp>

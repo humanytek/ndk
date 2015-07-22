@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <!-- Opportunity to Phonecall view -->
+
+        <record model="ir.ui.view" id="load_pos_view">
+            <field name="name">load.pos.line.form</field>
+            <field name="model">load.pos.lines</field>
+            <field name="arch" type="xml">
+                <form string="Schedule/Log a Call" version="7.0">
+                    <group>
+                        <field name="po_lines" nolabel="1"/>
+                    </group>
+                    <footer>
+                        <button name="import_pos" type="object" string="Import" class="oe_highlight"/>
+                        or
+                        <button name="action_cancel" string="Cancel" class="oe_link" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- Opportunity to Phonecall action -->
+
+         <record model="ir.actions.act_window" id="action_load_pos_view">
+            <field name="name">Import Purchase Order Lines</field>
+            <field name="res_model">load.pos.lines</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="load_pos_view"/>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</openerp>

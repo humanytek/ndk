@@ -1,0 +1,133 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#   * esc_almacen_albaranes
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-02-20 11:44+0000\n"
+"PO-Revision-Date: 2015-02-20 11:44+0000\n"
+"Last-Translator: Humanytek <info@humanytek.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2014-10-07 06:57+0000\n"
+"X-Generator: Launchpad (build 17196)\n"
+
+#. module: ndk_magento_configuracion
+#: view:magento.instance:0
+msgid "User root Magento"
+msgstr "Usuario root de Magento"
+
+#. module: ndk_magento_configuracion
+#: view:magento.instance:0
+msgid "Password user root Magento"
+msgstr "Contraseña usuario root de Magento"
+
+#. module: ndk_magento_configuracion
+#: view:magento.instance:0
+msgid "Host connection to Magento"
+msgstr "Conexión Host a Magento"
+
+#. module: ndk_magento_configuracion
+#: view:magento.instance:0
+msgid "DB Magento to connect"
+msgstr "Conectar a base de datos Magento"
+
+#. module: ndk_magento_configuracion
+#: view:product.product:0
+msgid "ID Category"
+msgstr "ID de categoría en Magento"
+
+#. module: ndk_magento_configuracion
+#: view:product.product:0
+msgid "ID Product Magento"
+msgstr "ID de producto en Magento"
+
+#. module: ndk_magento_configuracion
+#: view:product.product:0
+msgid "URL key Magento"
+msgstr "Clave URL de producto en Magento"
+
+#. module: ndk_magento_configuracion
+#: view:product.product:0
+msgid "URL path Magento"
+msgstr "Ruta URL de producto en Magento"
+
+#. module: ndk_magento_configuracion
+#: view:product.product:0
+msgid "Update Magento->OpenERP"
+msgstr "Actualizar Magento->OpenERP"
+
+#. module: ndk_magento_configuracion
+#: view:product.product:0
+msgid "Update attributes of this product from Magento to OpenERP"
+msgstr "Actualizar atributos de éste produto, desde Magento a OpenERP"
+
+#. module: ndk_magento_configuracion
+#: view:res.partner:0
+msgid "ID Customer Magento"
+msgstr "ID cliente en Magento"
+
+#. module: ndk_magento_configuracion
+#: view:res.partner:0
+msgid "Update Magento->OpenERP"
+msgstr "Actualizar Magento->OpenERP"
+
+#. module: ndk_magento_configuracion
+#: view:res.partner:0
+msgid "Update attributes of this customer from Magento to OpenERP"
+msgstr "Actualizar atributos de éste cliente desde Magento a OpenERP"
+
+#. module: ndk_magento_configuracion
+#: view:magento.instance.website:0
+msgid "Customers Magento->OpenERP"
+msgstr "Clientes Magento->OpenERP"
+
+#. module: ndk_magento_configuracion
+#: view:magento.instance.website:0
+msgid "Synchronize customers to OpenERP from Magento"
+msgstr "Sincronizar clientes de Magento a OpenERP"
+
+#. module: ndk_magento_configuracion
+#: view:magento.instance.website:0
+msgid "Products Magento->OpenERP"
+msgstr "Productos Magento->OpenERP"
+
+#. module: ndk_magento_configuracion
+#: view:magento.instance.website:0
+msgid "Synchronize products to OpenERP from Magento"
+msgstr "Sincronizar productos de Magento a OpenERP"
+
+#. module: ndk_magento_configuracion
+#: view:magento.instance.website:0
+msgid "Categories of Products Magento->OpenERP"
+msgstr "Categorías de Productos Magento->OpenERP"
+
+#. module: ndk_magento_configuracion
+#: view:magento.instance.website:0
+msgid "Synchronize categories of products to OpenERP from Magento"
+msgstr "Sincronizar categorías de productos de Magento a OpenERP"
+
+#. module: ndk_magento_configuracion
+#: view:magento.instance.website:0
+msgid "Synchronize to OpenERP from Magento"
+msgstr "Sincronizar datos de Magento a OpenERP"
+
+#. module: ndk_magento_configuracion
+#: view:magento.instance.website:0
+msgid "Sale orders Magento->OpenERP"
+msgstr "Órdenes de ventas Magento->OpenERP"
+
+#. module: ndk_magento_configuracion
+#: view:magento.instance.website:0
+msgid "Synchronize sale orders to OpenERP from Magento"
+msgstr "Sincronizar órdenes de ventas de Magento a OpenERP"
+
+#. module: ndk_magento_configuracion
+#: view:sale.order:0
+msgid "Ref. Number Order Magento"
+msgstr "N° de orden de venta en Magento"
+

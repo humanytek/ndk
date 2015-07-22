@@ -1,0 +1,8 @@
+^XA
+^XFexhibitor^FS
+^FN01^FD^FS
+^FN02^FDasdas asdasd^FS
+^FN03^FDTest Visitor 2^FS
+^FN04^FDÅland Islands^FS
+^FN05^FDQA,http://ft.su.vc/?cf1=asdas&cf2=asdasd&cf3=00002^FS
+^XZ

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+        <!-- 14/07/2015 (felix) Formulario de clientes -->
+        <record id="view_partner_form_magento_inherit_1" model="ir.ui.view">
+            <field name="name">view.partner.form.magento.inherit.1</field>
+            <field name="model">res.partner</field>
+            <field name="priority" eval="300"/>
+            <field name="inherit_id" ref="magento_integration.view_partner_form_magento_inherit"/>
+            <field name="arch" type="xml">
+            
+                <!-- 14/07/2015 (felix) Ocultar campos generados por "Magento Integration" -->
+                <xpath expr="//notebook/page[@string='Magento']/field[@name='magento_ids']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                
+                <!-- 14/07/2015 (felix) Agregar campos referencias de Magento para la sincronización de datos -->
+                <xpath expr="//notebook/page[@string='Magento']" position="inside">
+                    <group col="2">
+                        <group>
+                            <field name="mage_id_customer" string="ID Customer Magento"/>
+                        </group>
+                        <group />
+                    </group>
+                </xpath>
+                
+                <!-- 14/07/2015 (felix) Agregar botón para sincronización de datos del cliente actual -->
+                <xpath expr="//div[@name='buttons']" position="before">
+                    <div class="oe_right oe_button_box" attrs="{'invisible':[('mage_id_customer', '=', 0)]}">
+                        <button name="update_customer_magento_openerp" type="object" class="oe_highlight" 
+                            string="Update Magento->OpenERP" help="Update attributes of this customer from Magento to OpenERP"/>
+                    </div>
+                </xpath>
+            
+            </field>
+        </record>     
+            
+    </data>
+</openerp>

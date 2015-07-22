@@ -1,0 +1,8 @@
+^XA
+^XFexhibitor^FS
+^FN01^FDTEST^FS
+^FN02^FDsadsadasdsad asdasdsd^FS
+^FN03^FDasda^FS
+^FN04^FDAmerican Samoa^FS
+^FN05^FDQA,http://ft.su.vc/?cf1=sadsadasdsad&cf2=asdasdsd&cf3=00006^FS
+^XZ

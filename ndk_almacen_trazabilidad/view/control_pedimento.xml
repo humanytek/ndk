@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+        <!-- 01/04/2015 (felix) Modificaciones en vista form de Trazabilidad/Control de pedimentos -->
+        <record id="view_import_info_form_inherit_1" model="ir.ui.view">
+            <field name="name">view.import.info.form.inherit.1</field>
+            <field name="model">import.info</field>
+            <field name="priority" eval="500"/>
+            <field name="inherit_id" ref="l10n_mx_import_info.view_import_info_form"/>
+            <field name="arch" type="xml">
+            
+                <!-- 01/04/2015 (felix) (+) Hacer obligatorio campo "Número de pedimento" -->
+                <xpath expr="//field[@name='name']" position="replace">
+                    <field name="name" required="1"/>
+                </xpath>
+            
+                <!-- 01/04/2015 (felix) (+) Agregar campo "Referencia de paquete" -->
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="ref_paquete" string="Referencia de paquete" required="1"/>
+                </xpath>
+                        
+                <!-- 01/04/2015 (felix) (+) Ocultar vista tree "Track Lots" -->
+                <xpath expr="//page[@string='Track Lots']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                
+                <!-- 01/04/2015 (felix) (+) Ocultar vista tree "Track Lots" -->
+                <xpath expr="//field[@name='product_info_ids']" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </xpath>
+		        		        
+	        </field>
+        </record>
+                    
+    </data>
+</openerp>

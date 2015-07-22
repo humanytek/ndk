@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<lots>
+    <lot-line type="fields" name="id">
+        <code type="field" name="code"/>
+        <product type="field" name="name"/>
+        <variant type="field" name="variants"/>
+        <price type="field" name="list_price"/>
+        <ean13 type="field" name="ean13"/>
+        <currency type="field" name="company_id.currency_id.name"/>
+        <businessimporter type="field" name="company_id.partner_id.name"/>
+        <street type="field" name="company_id.street"/>
+        <street2 type="field" name="company_id.street2"/>
+        <mxcity2 type="field" name="company_id.l10n_mx_city2"/>
+        <city type="field" name="company_id.city"/>
+        <state type="field" name="company_id.state_id.name"/>
+        <country type="field" name="company_id.country_id.name"/>
+        <default_code type="field" name="company_id.country_id.code"/>
+        <zip type="field" name="company_id.zip"/>
+        <made_in type="field" name="made_in"/>
+        <brand type="field" name="brand"/>
+        <content type="field" name="content"/>
+        <model type="field" name="model"/>
+        <electrical_properties type="field" name="electrical_properties"/>
+    </lot-line>
+</lots>

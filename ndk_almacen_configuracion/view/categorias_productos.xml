@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+        <!-- 04/07/2015 (felix) Modificaciones para transferencia de catálogas Magento->OpenERP -->
+        <record id="product_category_form_view_inherit_1" model="ir.ui.view">
+            <field name="name">product.category.form.view.inherit.1</field>
+            <field name="model">product.category</field>
+            <field name="inherit_id" ref="magento_integration.product_category_form_view"/>
+            <field name="priority" eval="300"/>
+            <field name="arch" type="xml">
+            
+                <!-- 04/07/2015 (felix) Ocultar campo "active" de donde está -->
+                <xpath expr="//field[@name='active']" position="replace">
+                    <field name="active" invisible="1"/>
+                </xpath>
+                
+                <!-- 04/07/2015 (felix) Ocultar campo "exported_to_magento" de donde está -->
+                <xpath expr="//field[@name='exported_to_magento']" position="replace">
+                    <field name="exported_to_magento" invisible="1"/>
+                </xpath>
+                
+                <!-- 04/07/2015 (felix) Ocultar campo "magento_ids" de donde está -->
+                <xpath expr="//notebook/page[@string='Magento']/field[@name='magento_ids']" position="replace">
+                    <field name="magento_ids" invisible="1"/>
+                </xpath>
+                
+                <!-- 04/07/2015 (felix) Añadir información relacionada con Magento -->
+                <xpath expr="//notebook/page[@string='Magento']" position="inside">
+                    <group col="2">
+                        <group>
+                            <field name="active" string="Actived category in Magento"/>
+                            <field name="exported_to_magento" string="Export to Magento"/>
+                            <field name="import_from_magento" string="Import from Magento"/>
+                        </group>
+                        <group>
+                            <field name="mage_categ_id" string="Magento category ID"/>
+                            <field name="mage_parent_categ_id" string="Magento parent category ID" readonly="1"/>
+                            <field name="mage_path" string="Magento path" readonly="1"/>
+                            <field name="mage_url_key" string="Magento URL key" readonly="1"/>
+                            <field name="mage_url_path" string="Magento URL path" readonly="1"/>
+                        </group>
+                    </group>
+                </xpath>
+                
+            </field>
+        </record>
+        
+    </data>
+</openerp>

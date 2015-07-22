@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+        <!-- 03/04/2015 (felix) Modificaciones en vista form de Albaranes de salida -->
+        <record id="view_move_picking_form_inherit_1" model="ir.ui.view">
+            <field name="name">view.move.picking.form.inherit.1</field>
+            <field name="model">stock.move</field>
+            <field name="priority" eval="500"/>
+            <field name="inherit_id" ref="stock.view_move_picking_form"/>
+            <field name="arch" type="xml">
+                
+                <!-- 03/04/2015 (felix) Asociar un filtro con productos -->
+                <xpath expr="//field[@name='tracking_id']" position="replace">
+                    <field name="tracking_id" groups="stock.group_tracking_lot" class="oe_inline" domain="[('import_id.product_info_ids.product_id','=?', product_id)]"/>
+                </xpath>
+                
+                <!-- 03/04/2015 (felix) Asociar un filtro con paquete -->
+                <xpath expr="//field[@name='prodlot_id']" position="replace">
+                    <field name="prodlot_id" groups="stock.group_production_lot"
+                        context="{'location_id':location_id, 'product_id':product_id}"
+                        domain="[('product_id','=?',product_id), ('move_ids.tracking_id', '=?', tracking_id)]"
+                        on_change="onchange_lot_id(prodlot_id,product_qty, location_id, product_id, product_uom)" class="oe_inline"/>
+                </xpath>
+                    
+	        </field>
+        </record>
+                    
+    </data>
+</openerp>

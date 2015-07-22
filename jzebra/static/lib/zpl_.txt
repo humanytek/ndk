@@ -1,0 +1,8 @@
+^XA
+^XFexhibitor^FS
+^FN01^FDEXHIBITOR^FS
+^FN02^FD... ...^FS
+^FN03^FDCrystal Tip^FS
+^FN04^FDUnited States^FS
+^FN05^FDQA,http://ft.su.vc/?cf1=...&cf2=...&cf3=False^FS
+^XZ

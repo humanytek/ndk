@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+        <!-- 01/06/2015 (felix) Formulario de productos -->
+        <record id="product_normal_form_view_inherit_1" model="ir.ui.view">
+            <field name="name">product.normal.form.view.inherit.1</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="priority" eval="200"/>
+            <field name="arch" type="xml">
+            
+                <!-- 01/06/2015 (felix) Agregar campo "modelo" en la vista de productos -->
+                <xpath expr="//field[@name='description']" position="after">
+                    <label for="modelo_tec" string="Modelo (especificaciones técnicas de magento)"/>
+                    <field name="modelo_tec" string="Modelo"/>
+                </xpath>
+                
+                <!-- 08/07/2015 (felix) Agregar botón "update_prod_magento_openerp" -->
+                <xpath expr="//div[@name='buttons']" position="before">
+                    <div class="oe_right oe_button_box" attrs="{'invisible':[('mage_product_id', '=', 0)]}">
+                        <button name="update_prod_magento_openerp" type="object" class="oe_highlight" 
+                            string="Update Magento->OpenERP" help="Update attributes of this product from Magento to OpenERP"/>
+                    </div>
+                </xpath>
+                            
+            </field>
+        </record>
+        
+        <!-- 05/07/2015 (felix) Modifación de vista form de Productos para atributos de Magento -->
+        <record id="product_normal_form_inherit_2" model="ir.ui.view">
+            <field name="name">product.normal.form.inherit.2</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="magento_integration.product_normal_form_view"/>
+            <field name="priority" eval="300"/>
+            <field name="arch" type="xml">
+            
+                <!-- 05/07/2015 (felix) Agregar campos adicionales para trabajar los productos migrados de Magento -->
+                <xpath expr="//form/sheet/notebook/page[@string='Magento']/group[1]" position="replace">
+                    <group col="2">
+                        <group>
+                            <field name="magento_product_type"/>
+                            <field name="short_description"/>
+                        </group>
+                        <group>
+                            <field name="mage_product_id" string="ID Product Magento"/>
+                            <field name="mage_url_key" string="URL key Magento" readonly="1"/>
+                            <field name="mage_url_path" string="URL path Magento" readonly="1"/>
+                            <field name="mage_categ_id" string="ID Category" readonly="1"/>
+                        </group>
+                    </group>
+                </xpath>
+                
+                <!-- 07/07/2015 (felix) Ocultar tabla de "Magento IDs" y "Price Tiers" -->
+                <xpath expr="//form/sheet/notebook/page[@string='Magento']/group[2]" position="replace"/>
+                <!--
+                    <group col="2">
+                        <group>
+                            <separator colspan="2" string="Price Tiers"/>
+                            <field name= "price_tiers" colspan="2" nolabel="1">
+                                <form string="Price Tiers" version="7.0">
+                                    <group>
+                                        <group>
+                                            <label for="quantity"/>
+                                            <h3><field name="quantity"/></h3>
+                                        </group>
+                                    </group>
+                                </form>
+                                    <tree editable="bottom">
+                                    <field name="quantity"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group />
+                    </group>
+                </xpath>
+                -->
+                                
+            </field>
+        </record>
+        
+        <!-- 07/07/2015 (felix) Campo de la lista de imágenes -->
+        <record id="view_product_form_img_inh_inherit_1" model="ir.ui.view">
+            <field name="name">view.product.form.img.inh.inherit.1</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="magento_integration.view_product_form_img_inh" />
+            <field name="priority" eval="300"/>
+            <field name="arch" type="xml">
+            
+                <!-- 07/07/2015 (felix) Agregar atributo "class list view" -->
+                <xpath expr="//form/sheet/notebook/page[@string='Images']/field[@name='image_ids']" position="attributes">
+                    <attribute name="class">oe_view oe_list</attribute>
+                </xpath>
+                
+            </field>
+        </record>        
+            
+    </data>
+</openerp>

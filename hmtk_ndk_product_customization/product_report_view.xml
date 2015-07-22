@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<report menu="False" id="product.report_product_label" model="product.product" name="product.product.label.custom" string="Products Labels" xml="hmtk_ndk_product_customization/report/product_label.xml" xsl="hmtk_ndk_product_customization/report/product_label.xsl"/>
+		<report menu="False" id="report_import_label" model="product.product" name="product.import.label" string="Package Labels" xml="hmtk_ndk_product_customization/report/import_label.xml" xsl="hmtk_ndk_product_customization/report/import_label.xsl"/>
+	</data>
+</openerp>

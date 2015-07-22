@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<!--Product View to add new fields-->
+        <record model="ir.ui.view" id="ndk_product_view_inherit">
+            <field name="name">product.product.form</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+            	<xpath expr="//div[@name='ean']" position="after">
+            		<field name="type_lighting"/>
+            	</xpath>
+            	<field name="description" position="before">
+            		<group>
+            			<field name="made_in"/>
+            			<field name="brand"/>
+            			<field name="model"/>
+            			<field name="content"/>
+            			<field name="enable_ep"/>
+            		</group>
+            		<group colspan="4" string="Electrical Characterisitcs" attrs="{'invisible':[('enable_ep', '!=', True)]}">
+            			<field name="electrical_properties" nolabel="1"/>
+            		</group>
+            	</field>	
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_hmtk_ndk_product_tree">
+        	<field name="name">product.product.tree</field>
+        	<field name="model">product.product</field>
+        	<field name="priority" eval="50"/>
+        	<field name="arch" type="xml">
+        		<tree string="Product Labels" editable="bottom" create="false">
+        			<field name="name"/>
+        			<field name="default_code"/>
+        		</tree>
+        	</field>
+        </record>
+        <record id="action_product_print_badge" model="ir.actions.act_window">
+         	<field name="context">{'custom_tree_view': True}</field>
+            <field name="name">Print Label</field>
+            <field name="res_model">product.product</field>
+            <field name="view_id" ref="view_hmtk_ndk_product_tree" />
+            <field name="view_mode">tree_jzebra_quick_edit</field>
+        </record>
+        <menuitem name="Product Labels" id="menu_product_label" action="action_product_print_badge" parent="stock.menu_stock_product"/>
+        
+	</data>
+</openerp>

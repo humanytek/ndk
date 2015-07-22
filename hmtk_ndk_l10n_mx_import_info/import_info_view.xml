@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<!-- Import info form -->
+        <record model="ir.ui.view" id="hmtk_import_info_form_view_inherit">
+            <field name="name">import.info.form</field>
+            <field name="model">import.info</field>
+            <field name="inherit_id" ref="hmtk_l10n_mx_import_info_custom.hmtk_import_info_form_view"/>
+            <field name="arch" type="xml">
+            	<xpath expr="//form/notebook/page[@string='Invoices']" position="after">
+            		<page string="Containers">
+            			<newline/>
+            			<group string="Purchase Order Lines">
+            				<button name="%(action_load_pos_view)d" type="action" string="Import Purchase Orders" class="oe_highlight"/>
+            				<newline/>
+            				<field name="po_ids" nolabel="1">
+            					<tree editable="bottom" create="false">
+            						<field name="name"/>
+            						<field name="product_id"/>
+            						<field name="cubic_metres" sum="total"/>
+            						<field name="order_id" options='{"no_open":True}' string="Reference"/>
+            						<field name="supplier_id"/>
+            						<field name="price_unit" sum="total"/>
+            						<field name="product_qty" sum="total"/>
+            						<field name="taxes_id"/>
+            						<field name="amount_igi" sum="total"/>
+            						<field name="price_subtotal" sum="total"/>
+            						<field name="impact" string="Impact(percentage)" sum="total"/>
+            						<field name="amount_of_expend" sum="total"/>
+            						<field name="amount_with_expense" sum="total"/>
+            						
+            					</tree>
+            				</field>
+            				<newline/>
+            				<button name="calculate_button_all" type="object" string="Calculate" class="oe_highlight"/>
+            			</group>
+            			<group colspan="4" col="4">
+            				<field name="impact" string="Expended Amount"/>
+            				<field name="expense_amount"/>
+            				<field name="total_expense"/>
+            				<field name="grand_total"/>
+            				<field name="cost_total"/>
+            			</group>
+            		</page>
+            	</xpath>
+            	<xpath expr="//form/notebook/page[@string='Products']/field[@name='product_info_ids']" position="before">
+					<button name="load_purchase_products" type="object" string="Import Products" class="oe_highlight"/>            		
+            	</xpath>
+            </field>
+        </record>
+	</data>
+</openerp>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+        <!-- 16/07/2015 (felix) Formulario de cotizaciones: vista form -->
+        <record id="view_order_form_inherit_1" model="ir.ui.view">
+            <field name="name">view.order.form.inherit.1</field>
+            <field name="model">sale.order</field>
+            <field name="priority" eval="300"/>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+            
+                <!-- 16/07/2015 (felix) Agregar campo de orden de venta de Magento -->
+                <xpath expr="//field[@name='date_order']" position="before">
+                    <field name="mage_order_ref" string="Ref. Number Order Magento" readonly="1"
+                        attrs="{'invisible':[('mage_order_id','=',0)]}"/>
+                    <field name="mage_order_id" invisible="1"/>
+                </xpath>
+            
+            </field>
+        </record>
+        
+        <!-- 16/07/2015 (felix) Formulario de cotizaciones: vista tree -->
+        <record id="view_quotation_tree_inherit_1" model="ir.ui.view">
+            <field name="name">view.quotation.tree.inherit.1</field>
+            <field name="model">sale.order</field>
+            <field name="priority" eval="300"/>
+            <field name="inherit_id" ref="sale.view_quotation_tree"/>
+            <field name="arch" type="xml">
+                
+                <!-- 16/07/2015 (felix) Agregar campo de orden de venta de Magento -->
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="mage_order_ref" string="Ref. Number Order Magento"/>
+                </xpath>
+            
+            </field>
+        </record>
+            
+    </data>
+</openerp>

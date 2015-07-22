@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+        <!-- 01/04/2015 (felix) Modificaciones en vista tree de búsqueda de paquetes -->
+        <record id="view_tracking_tree_inherit_1" model="ir.ui.view">
+            <field name="name">stock.tracking.tree.inherit.1</field>
+            <field name="model">stock.tracking</field>
+            <field name="priority" eval="500"/>
+            <field name="inherit_id" ref="stock.lot_line_tree"/>
+            <field name="arch" type="xml">
+            
+                <!-- 01/04/2015 (felix) (-) Agregar campo "Número de pedimento" -->
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="import_id"/>
+                </xpath>
+                
+            </field>
+        </record>
+                    
+    </data>
+</openerp>
