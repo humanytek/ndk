@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+        
+        <!-- 04/08/2015 (felix) Grupo para editar tarifas -->
+        <record id="module_pricelist_category" model="ir.module.category">
+            <field name="name">Editor tarifas</field>
+            <field name="description">Seleccionar si es usuario o administrador en módulo tarifas</field>
+        </record>
+        
+        <!-- Permisos para editar -->
+        <record id="group_pricelist_editor" model="res.groups">
+            <field name="name">Editar nombre de tarifas</field>
+            <field name="category_id" ref="module_pricelist_category"/>
+        </record>
+        
+        <!-- Permisos para visualizar -->
+        <record id="group_pricelist_viewer" model="res.groups">
+            <field name="name">Visualizar nombre de tarifas</field>
+            <field name="category_id" ref="module_pricelist_category"/>
+        </record>
+        
+    </data>
+</openerp>

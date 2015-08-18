@@ -36,6 +36,7 @@ Detalles:
     'depends': [
         'base',
         'product',
+        'stock',
         'magento_integration'
     ],
     'data': [

@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pricelist_editor,data_pricelist editor,product.model_product_pricelist,ndk_ventas_configuracion.group_pricelist_editor,1,1,1,0
+access_pricelist_viewer,data_pricelist viewer,product.model_product_pricelist,ndk_ventas_configuracion.group_pricelist_viewer,1,0,0,0

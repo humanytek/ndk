@@ -19,38 +19,33 @@
         </record>
                 
         <!-- 03/06/2015 (felix) Agregar campo "modelo_tec" en vista kanban -->
-        <record id="product.product_kanban_view" model="ir.ui.view">
+        <record id="product_kanban_view_inherit_1" model="ir.ui.view">
             <field name="name">Product Kanban</field>
             <field name="model">product.product</field>
+            <field name="priority" eval="500"/>
+            <field name="inherit_id" ref="product.product_kanban_view"/>
             <field name="arch" type="xml">
-                <kanban>
-                    <field name="color"/>
-                    <field name="type"/>
-                    <field name="list_price"/>
-                    <templates>
-                        <t t-name="kanban-box">
-                            <div class="oe_kanban_vignette oe_semantic_html_override">
-                                <a type="open"><img t-att-src="kanban_image('product.product', 'image_small', record.id.value)" class="oe_kanban_image"/></a>
-                                <div class="oe_kanban_details">
-                                    <h4>
-                                        <a type="open">
-                                             <t t-if="record.code.raw_value">[<field name="code"/>]</t> <field name="name"/>
-                                        </a>
-                                    </h4>
-                                    <h4>
-                                        <a type="open">
-                                             <field name="modelo_tec"/>
-                                        </a>
-                                    </h4>
-                                    <div name="tags"/>
-                                    <ul>
-                                        <li>Price: <field name="lst_price"></field></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </t>
-                    </templates>
-                </kanban>
+            
+                <xpath expr="//kanban/templates/t/div[1]/div[@class='oe_kanban_details']" position="replace">
+                    <div class="oe_kanban_details">
+                        <h4>
+                            <a type="open">
+                                 <t t-if="record.code.raw_value">[<field name="code"/>]</t> <field name="name"/>
+                            </a>
+                        </h4>
+                        <h4>
+                            <a type="open">
+                                 <field name="modelo_tec"/>
+                            </a>
+                        </h4>
+                        <div name="tags"/>
+                        <ul>
+                            <li>Price: <field name="lst_price"></field></li>
+                            <li>Stock real: <field name="qty_available"></field></li>
+                        </ul>
+                    </div>
+                </xpath>
+                
             </field>
         </record>
         
@@ -58,10 +53,11 @@
         <record id="product.product_search_form_view" model="ir.ui.view">
             <field name="name">product.search.form</field>
             <field name="model">product.product</field>
+            <field name="priority" eval="500"/>
             <field name="arch" type="xml">
                 <search string="Product">
                     <!--<field name="name" string="Product" filter_domain="['|',('name','ilike',self),('default_code','ilike',self)]"/>-->
-                    <field name="name" string="Product" filter_domain="[('modelo_tec','ilike',self)]"/>
+                    <field name="name" string="Product" filter_domain="['|',('default_code','ilike',self),('modelo_tec','ilike',self)]"/>
                     <filter string="Services" icon="terp-accessories-archiver" domain="[('type','=','service')]"/>
                     <filter string="Consumable" name="consumable" icon="terp-accessories-archiver" domain="[('type','=','consu')]" help="Consumable products"/>
                 <separator/>

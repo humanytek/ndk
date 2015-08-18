@@ -21,6 +21,9 @@
 
 # OpenERP
 from openerp.osv import fields, osv
+from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT
+from openerp.tools.translate import _
+import openerp.addons.decimal_precision as dp
 
 # Python
 import logging

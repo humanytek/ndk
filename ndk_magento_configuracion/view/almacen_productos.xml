@@ -32,7 +32,7 @@
             <field name="name">product.normal.form.inherit.2</field>
             <field name="model">product.product</field>
             <field name="inherit_id" ref="magento_integration.product_normal_form_view"/>
-            <field name="priority" eval="300"/>
+            <field name="priority" eval="200"/>
             <field name="arch" type="xml">
             
                 <!-- 05/07/2015 (felix) Agregar campos adicionales para trabajar los productos migrados de Magento -->
@@ -84,7 +84,7 @@
             <field name="name">view.product.form.img.inh.inherit.1</field>
             <field name="model">product.product</field>
             <field name="inherit_id" ref="magento_integration.view_product_form_img_inh" />
-            <field name="priority" eval="300"/>
+            <field name="priority" eval="200"/>
             <field name="arch" type="xml">
             
                 <!-- 07/07/2015 (felix) Agregar atributo "class list view" -->

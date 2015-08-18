@@ -28,7 +28,7 @@ from openerp.osv import fields, osv
 from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT
 from openerp.tools.translate import _
 import openerp.addons.decimal_precision as dp
-import magento
+#import magento
 #from .api import OrderConfig
 
 import logging

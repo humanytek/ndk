@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+        <!-- 04/08/2015 (felix) Vista form: Ventas/Configuración/Tarifas/Tarifas -->
+        <record id="product_pricelist_view_inherit_1" model="ir.ui.view">
+            <field name="name">product.pricelist.view.inherit.1</field>
+            <field name="model">product.pricelist</field>
+            <field name="inherit_id" ref="product.product_pricelist_view"/>
+            <field name="arch" type="xml">
+            
+                <!-- 04/08/2015 (felix) Agregar permisos a campo "name" -->
+                <xpath expr="//form/h1/field[@name='name']" position="attributes">
+                    <attribute name="groups">ndk_ventas_configuracion.group_pricelist_editor,ndk_ventas_configuracion.group_pricelist_viewer</attribute>
+                </xpath>
+            
+            </field>
+        </record>
+        
+    </data>
+</openerp>

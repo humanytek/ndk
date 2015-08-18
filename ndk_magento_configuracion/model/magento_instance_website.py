@@ -35,7 +35,7 @@ from openerp.osv import fields, osv
 from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT
 from openerp.tools.translate import _
 import openerp.addons.decimal_precision as dp
-import magento
+#import magento
 
 class magento_instance_website_ndk(osv.Model):
 
@@ -44,10 +44,14 @@ class magento_instance_website_ndk(osv.Model):
     
     # 29/95/2015 (felix) Metodo para transferir informacion campo "metodo" de Magento a OpenERP
     #def trans_magento_openerp(self, cr, uid, ids, context=None):
-    def trans_categ_magento_openerp(self, cr, uid, ids, context=None):
+    def trans_categ_magento_openerp(self, cr, uid, ids=None, context=None):
     
         # Datos de instancia web
-        id_root_category = self.browse(cr, uid, ids[0], context)['magento_root_category_id']
+        if ids:
+            id_root_category = self.browse(cr, uid, ids[0], context)['magento_root_category_id']
+        else:
+            src_root_category = self.search(cr, uid, [('name','=','Nordika')])
+            id_root_category = self.browse(cr, uid, src_root_category[0], context)['magento_root_category_id']
     
         # Datos de conexion
         obj_magento_instance = self.pool.get('magento.instance')
@@ -131,10 +135,15 @@ class magento_instance_website_ndk(osv.Model):
         return True
                   
     # 13/07/2015 (felix) Metodo para transferir informacion de productos de Magento a OpenERP
-    def trans_prod_magento_openerp(self, cr, uid, ids, context=None):
-        # Datos de instancia web
-        id_root_category = self.browse(cr, uid, ids[0], context)['magento_root_category_id']
+    def trans_prod_magento_openerp(self, cr, uid, ids=None, context=None):
     
+        # Datos de instancia web
+        if ids:
+            id_root_category = self.browse(cr, uid, ids[0], context)['magento_root_category_id']
+        else:
+            src_root_category = self.search(cr, uid, [('name','=','Nordika')])
+            id_root_category = self.browse(cr, uid, src_root_category[0], context)['magento_root_category_id']
+            
         # Datos de conexion
         obj_magento_instance = self.pool.get('magento.instance')
         src_magento_instance = obj_magento_instance.search(cr, uid, [('active', '=', True)], limit=1)
@@ -178,7 +187,6 @@ class magento_instance_website_ndk(osv.Model):
             prod_images_all = []
             for p in productos:
                 if p[0] <> None:
-                
                     # Valores propios del producto de Magento
                     prod_id = p[0]
                     prod_name = p[1]
@@ -223,6 +231,22 @@ class magento_instance_website_ndk(osv.Model):
                                 prod_modelo_tec = a[1]
                             elif a[1] <> None:
                                 prod_description_sale += codecs.encode(a[1],'utf8')+'; '
+                    
+                    # Obtener valores de atributos alternativos venidos de ComboBox de Magento
+                    q_attrs_1 = ("SELECT t2.value \n"
+                        "FROM mage_catalog_product_entity_int AS t1 \n"
+                        "INNER JOIN mage_eav_attribute_option_value AS t2 \n"
+                        "ON t1.entity_id = "+str(prod_id)+" \n"
+                        "AND t1.value = t2.option_id \n"
+                        "AND t1.store_id = t2.store_id \n"
+                        "AND t2.value <> 'Female' \n"
+                        "AND t2.value <> 'Male' \n"
+                        "ORDER BY t2.value_id ASC")
+                    cursor.execute(q_attrs_1)
+                    attrs_1 = cursor.fetchall()
+                    for a in attrs_1:
+                        if a[0] <> None:
+                            prod_description_sale += codecs.encode(a[0],'utf8')+'; '
                                 
                     # Obtener ID de categoria del Producto en Magento
                     prod_mage_categ_id = id_root_category
@@ -260,7 +284,7 @@ class magento_instance_website_ndk(osv.Model):
                     if prod_image_url:
                         prod_image = base64.encodestring(prod_image_url.read())
                         prod_image_url.close()
-                        q_image_update = "UPDATE product_product SET image='"+prod_image+"',image_small='"+prod_image+"',image_medium='"+prod_image+"' WHERE mage_product_id="+str(prod_id)
+                        q_image_update = "UPDATE product_product SET image='"+prod_image+"',image_small='"+prod_image+"',image_medium='"+prod_image+"' WHERE mage_product_id LIKE '"+str(prod_id)+"'"
                         cr.execute(q_image_update)
                     
                     # Valores para llenar en OpenERP
@@ -301,11 +325,12 @@ class magento_instance_website_ndk(osv.Model):
             # Cargar datos en base OpenERP
             for p in prod_result:
                 #src_product_product = obj_product_product.search(cr, uid, [('default_code', '=', p['default_code'])])
-                src_product_product = obj_product_product.search(cr, uid, [('mage_product_id','=',p['mage_product_id']),('active','=',True)])
+                src_product_product = obj_product_product.search(cr, uid, [('mage_product_id','=',p['mage_product_id'])])
                 if src_product_product:
                     id_product_product = obj_product_product.browse(cr, uid, src_product_product[0], context)['id']
                     obj_product_product.write(cr, uid, [id_product_product], p, context)
-                elif p['mage_product_id'] <> None:
+                    _logger.info('Transferencia de producto ID Magento: %s', p['mage_product_id'])
+                else:
                     obj_product_product.create(cr, uid, p, context)
                 
         else:
@@ -319,9 +344,14 @@ class magento_instance_website_ndk(osv.Model):
         return True
         
     # 14/07/2015 (felix) Metodo para transferir informacion de clientes de Magento a OpenERP
-    def trans_customers_magento_openerp(self, cr, uid, ids, context=None):
+    def trans_customers_magento_openerp(self, cr, uid, ids=None, context=None):
+        
         # Datos de instancia web
-        id_root_category = self.browse(cr, uid, ids[0], context)['magento_root_category_id']
+        if ids:
+            id_root_category = self.browse(cr, uid, ids[0], context)['magento_root_category_id']
+        else:
+            src_root_category = self.search(cr, uid, [('name','=','Nordika')])
+            id_root_category = self.browse(cr, uid, src_root_category[0], context)['magento_root_category_id']
     
         # Datos de conexion
         obj_magento_instance = self.pool.get('magento.instance')
@@ -823,9 +853,14 @@ class magento_instance_website_ndk(osv.Model):
         return res
     
     # 16/07/2015 (felix) Metodo para transferir informacion de ventas de Magento a OpenERP
-    def trans_sales_magento_openerp(self, cr, uid, ids, context=None):
+    def trans_sales_magento_openerp(self, cr, uid, ids=None, context=None):
+        
         # Datos de instancia web
-        id_root_category = self.browse(cr, uid, ids[0], context)['magento_root_category_id']
+        if ids:
+            id_root_category = self.browse(cr, uid, ids[0], context)['magento_root_category_id']
+        else:
+            src_root_category = self.search(cr, uid, [('name','=','Nordika')])
+            id_root_category = self.browse(cr, uid, src_root_category[0], context)['magento_root_category_id']
     
         # Datos de conexion
         obj_magento_instance = self.pool.get('magento.instance')
@@ -853,16 +888,16 @@ class magento_instance_website_ndk(osv.Model):
             obj_res_partner = self.pool.get('res.partner')
             obj_sale_order = self.pool.get('sale.order')
             obj_sale_order_line = self.pool.get('sale.order.line')
-            obj_product_pricelist = self.pool.get('product.pricelist')            
+            obj_product_pricelist = self.pool.get('product.pricelist')
                         
             #####################################################################
             # Tomar y cargar ventas y sus respectivos atributos
             #####################################################################
-            q_orders = ("SELECT entity_id,increment_id,customer_id,created_at,state FROM mage_sales_flat_order ORDER BY entity_id ASC")
+            q_orders = ("SELECT entity_id,increment_id,customer_id,created_at,state,status FROM mage_sales_flat_order ORDER BY entity_id ASC")
             cursor.execute(q_orders)
             orders = cursor.fetchall()
             for so in orders:
-                if so[0] <> None and so[4] in ['processing','new']:
+                if so[0] <> None and so[4] in ['complete','new'] and so[5] in ['complete']:
                     orders_result = []
                     orders_lines_result = []
                     so_mage_order_id = so[0]
@@ -878,9 +913,11 @@ class magento_instance_website_ndk(osv.Model):
                         id_customer = self._create_new_customer(cr, uid, so_mage_id_customer, context)
                     
                     if id_customer <> 0:
+                    
                         # Obtener dato de Tarifa (Divisa)
                         src_product_pricelist = obj_product_pricelist.search(cr, uid, [('name','like','Dolares'),('type','=','sale')])
-                        id_pricelist = obj_product_pricelist.browse(cr, uid, src_product_pricelist[0], context)['id']
+                        if src_product_pricelist:
+                            id_pricelist = obj_product_pricelist.browse(cr, uid, src_product_pricelist[0], context)['id']
                         
                         # Datos de pedido de venta
                         so_values = {
@@ -896,69 +933,74 @@ class magento_instance_website_ndk(osv.Model):
                             'shop_id': 1,
                             'state': 'draft'
                         }
-                        order_id = obj_sale_order.create(cr, uid, so_values, context)
+                        # Revisa si no existe
+                        src_so = obj_sale_order.search(cr, uid, [('mage_order_id', '=', so_mage_order_id)])
+                        if not src_so:
+                            order_id = obj_sale_order.create(cr, uid, so_values, context)
                         
-                        # Obtener datos especificos de venta, productos, cantidad, precios, impuestos para linea de producto
-                        q_so_lines = ("SELECT product_id,qty_ordered,base_price,tax_percent,discount_percent, \n"
-                            "sku,name,product_type,price \n"
-                            "FROM mage_sales_flat_order_item WHERE order_id="+str(so_mage_order_id))
-                        cursor.execute(q_so_lines)
-                        order_lines = cursor.fetchall()
-                        for so_lines in order_lines:
-                            if so_lines[0] <> None:
-                                mage_product_id = so_lines[0]
-                                mage_cant_prod = so_lines[1]
-                                mage_price = so_lines[2]
-                                mage_tax_percent = so_lines[3]
-                                mage_discount_percent = so_lines[4]
-                                mage_sku = so_lines[5]
-                                mage_name = so_lines[6]
-                                mage_product_type = so_lines[7]
-                                
-                                # Comparar y obtener datos del product de Magento en OpenERP
-                                src_product_product = obj_product_product.search(cr, uid, [('mage_product_id','=',mage_product_id)])
-                                if src_product_product:
-                                    for prod in obj_product_product.browse(cr, uid, src_product_product, context):
-                                        product_id = prod['id']
-                                        name = prod['description_sale']
-                                        purchase_price = prod['standard_price']
-                                else:
-                                    product_id = self._create_new_product(cr, uid, mage_product_id, context)
-                                        
-                                # Obtener ID de impuesto en OpenERP dependiendo del impuesto que viene de Magento
-                                tax_amount = mage_tax_percent / 100
-                                obj_account_tax = self.pool.get('account.tax')
-                                src_account_tax = obj_account_tax.search(cr, uid, [('amount','=',tax_amount)])
-                                tax_id = obj_account_tax.browse(cr, uid, src_account_tax[0], context)['id']
-                                
-                                # Obtener ID de unidad "Unidad(es)"
-                                obj_product_uom = self.pool.get('product.uom')
-                                src_product_uom = obj_product_uom.search(cr, uid, [('name','=','Unit(s)')])
-                                product_uom_id = obj_product_uom.browse(cr, uid, src_product_uom[0], context)['id']
-                                
-                                # Datos de productos en un pedido de venta Magento
-                                so_values_lines = {
-                                    'product_id': product_id,
-                                    'name': name,
-                                    'product_uom_qty': mage_cant_prod,
-                                    'product_uos_qty': mage_cant_prod,
-                                    'product_uom': product_uom_id,
-                                    'price_unit': mage_price,
-                                    'purchase_price': purchase_price,
-                                    'tax_id': tax_id,
-                                    'discount': mage_discount_percent,
-                                    'mage_order_id': so_mage_order_id,
-                                    'order_id': order_id,
-                                    'state': 'draft',
-                                    'type': 'make_to_order',
-                                    'delay': 0.00
-                                }
-                                if product_id <> 0:
-                                    cr.execute("INSERT INTO sale_order_line (product_id,name,product_uom_qty,product_uos_qty,product_uom,price_unit,\n"
-                                        "purchase_price,discount,mage_order_id,order_id,state,type,delay)"
-                                        "VALUES ("+str(product_id)+",'"+name+"',"+str(mage_cant_prod)+","+str(mage_cant_prod)+","+str(product_uom_id)+",\n"
-                                        ""+str(mage_price)+","+str(purchase_price)+","+str(mage_discount_percent)+","+str(so_mage_order_id)+","+str(order_id)+",\n"
-                                        "'draft','make_to_order',"+str(0.00)+")")
+                            # Obtener datos especificos de venta, productos, cantidad, precios, impuestos para linea de producto
+                            q_so_lines = ("SELECT product_id,qty_ordered,base_price,tax_percent,discount_percent, \n"
+                                "sku,name,product_type,price \n"
+                                "FROM mage_sales_flat_order_item WHERE order_id="+str(so_mage_order_id))
+                            cursor.execute(q_so_lines)
+                            order_lines = cursor.fetchall()
+                            for so_lines in order_lines:
+                                if so_lines[0] <> None:
+                                    mage_product_id = so_lines[0]
+                                    mage_cant_prod = so_lines[1]
+                                    mage_price = so_lines[2]
+                                    mage_tax_percent = so_lines[3]
+                                    mage_discount_percent = so_lines[4]
+                                    mage_sku = so_lines[5]
+                                    mage_name = so_lines[6]
+                                    mage_product_type = so_lines[7]
+                                    
+                                    # Comparar y obtener datos del product de Magento en OpenERP
+                                    src_product_product = obj_product_product.search(cr, uid, [('mage_product_id','=',mage_product_id)])
+                                    if src_product_product:
+                                        for prod in obj_product_product.browse(cr, uid, src_product_product, context):
+                                            product_id = prod['id']
+                                            name = prod['description_sale']
+                                            purchase_price = prod['standard_price']
+                                    else:
+                                        product_id = self._create_new_product(cr, uid, mage_product_id, context)
+                                        name = mage_name
+                                        purchase_price = mage_price
+                                            
+                                    # Obtener ID de impuesto en OpenERP dependiendo del impuesto que viene de Magento
+                                    tax_amount = mage_tax_percent / 100
+                                    obj_account_tax = self.pool.get('account.tax')
+                                    src_account_tax = obj_account_tax.search(cr, uid, [('amount','=',tax_amount)])
+                                    tax_id = obj_account_tax.browse(cr, uid, src_account_tax[0], context)['id']
+                                    
+                                    # Obtener ID de unidad "Unidad(es)"
+                                    obj_product_uom = self.pool.get('product.uom')
+                                    src_product_uom = obj_product_uom.search(cr, uid, [('name','=','Unit(s)')])
+                                    product_uom_id = obj_product_uom.browse(cr, uid, src_product_uom[0], context)['id']
+                                    
+                                    # Datos de productos en un pedido de venta Magento
+                                    so_values_lines = {
+                                        'product_id': product_id,
+                                        'name': name,
+                                        'product_uom_qty': mage_cant_prod,
+                                        'product_uos_qty': mage_cant_prod,
+                                        'product_uom': product_uom_id,
+                                        'price_unit': mage_price,
+                                        'purchase_price': purchase_price,
+                                        'tax_id': tax_id,
+                                        'discount': mage_discount_percent,
+                                        'mage_order_id': so_mage_order_id,
+                                        'order_id': order_id,
+                                        'state': 'draft',
+                                        'type': 'make_to_order',
+                                        'delay': 0.00
+                                    }
+                                    if product_id <> 0:
+                                        cr.execute("INSERT INTO sale_order_line (product_id,name,product_uom_qty,product_uos_qty,product_uom,price_unit,\n"
+                                            "purchase_price,discount,mage_order_id,order_id,state,type,delay)"
+                                            "VALUES ("+str(product_id)+",'"+name+"',"+str(mage_cant_prod)+","+str(mage_cant_prod)+","+str(product_uom_id)+",\n"
+                                            ""+str(mage_price)+","+str(purchase_price)+","+str(mage_discount_percent)+","+str(so_mage_order_id)+","+str(order_id)+",\n"
+                                            "'draft','make_to_order',"+str(0.00)+")")
                             
         else:
             cursor.close()

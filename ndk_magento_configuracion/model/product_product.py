@@ -41,7 +41,7 @@ class product_product_ndk(osv.Model):
         'modelo_tec': fields.text('Modelo'),
         'mage_url_key': fields.char('URL key Magento'),
         'mage_url_path': fields.char('URL path Magento'),
-        'mage_product_id': fields.integer('ID Product Magento'),
+        'mage_product_id': fields.char('ID Product Magento'),
         'mage_categ_id': fields.integer('ID Category')
     }
     _sql_constraints = [
@@ -144,6 +144,22 @@ class product_product_ndk(osv.Model):
                                 prod_modelo_tec = a[1]
                             elif a[1] <> None:
                                 prod_description_sale += codecs.encode(a[1],'utf8')+'; '
+                    
+                    # Obtener valores de atributos alternativos venidos de ComboBox de Magento
+                    q_attrs_1 = ("SELECT t2.value \n"
+                        "FROM mage_catalog_product_entity_int AS t1 \n"
+                        "INNER JOIN mage_eav_attribute_option_value AS t2 \n"
+                        "ON t1.entity_id = "+str(prod_id)+" \n"
+                        "AND t1.value = t2.option_id \n"
+                        "AND t1.store_id = t2.store_id \n"
+                        "AND t2.value <> 'Female' \n"
+                        "AND t2.value <> 'Male' \n"
+                        "ORDER BY t2.value_id ASC")
+                    cursor.execute(q_attrs_1)
+                    attrs_1 = cursor.fetchall()
+                    for a in attrs_1:
+                        if a[0] <> None:
+                            prod_description_sale += codecs.encode(a[0],'utf8')+'; '
                                 
                     # Obtener ID de categoria del Producto en Magento
                     prod_mage_categ_id = id_root_category
@@ -181,7 +197,7 @@ class product_product_ndk(osv.Model):
                     if prod_image_url:
                         prod_image = base64.encodestring(prod_image_url.read())
                         prod_image_url.close()
-                        q_image_update = "UPDATE product_product SET image='"+prod_image+"',image_small='"+prod_image+"',image_medium='"+prod_image+"' WHERE mage_product_id="+str(prod_id)
+                        q_image_update = "UPDATE product_product SET image='"+prod_image+"',image_small='"+prod_image+"',image_medium='"+prod_image+"' WHERE mage_product_id LIKE '"+str(prod_id)+"'"
                         cr.execute(q_image_update)
                     
                     # Valores para llenar en OpenERP

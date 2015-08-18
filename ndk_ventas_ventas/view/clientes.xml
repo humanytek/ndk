@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+        <!-- 28/07/2015 (felix) Vista form: Ventas/Clientes -->
+        <record id="view_partner_form_inherit_1" model="ir.ui.view">
+            <field name="name">view.partner.form.inherit.1</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="priority" eval="200"/>
+            <field name="arch" type="xml">
+            
+                <!-- 28/07/2015 (felix) Agregar restriccón para ocultar campo "¿Es una empresa?" -->
+                <xpath expr="//form/sheet/div[1]/div[1]" position="replace">
+                    <div class="oe_edit_only" groups="ndk_ventas_ventas.group_ventas">
+                        <label for="name"/>
+                        (           
+                        <field name="is_company" on_change="onchange_type(is_company)" class="oe_inline" modifiers="{}"/>
+                        <label for="is_company" string="¿Es una empresa?"/>
+                        )       
+                    </div>
+                </xpath>
+                
+            </field>
+        </record>
+        
+    </data>
+</openerp>

@@ -27,10 +27,10 @@ class stock_picking_out(osv.osv):
         order = self.browse(cr, uid, ids, context=context)[0].sale_id
         if order.order_policy == 'manual':
             if order.invoiced:
-                return super(stock_picking, self).action_process(cr, uid, ids, context=context)
+                return super(stock_picking_out, self).action_process(cr, uid, ids, context=context)
             else:
                 raise osv.except_osv(_('Warning!'), _('The sales order has not been fully paid.'))
         else:
-            return super(stock_picking, self).action_process(cr, uid, ids, context=context)
+            return super(stock_picking_out, self).action_process(cr, uid, ids, context=context)
 stock_picking_out()
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
