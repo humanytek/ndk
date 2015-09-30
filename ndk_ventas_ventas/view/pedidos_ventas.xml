@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+        <!-- 07/09/2015 (felix) Vista form: Ventas/Pedidos de ventas -->
+        <record id="view_order_form_inherit_1" model="ir.ui.view">
+            <field name="name">view.order.form.inherit.1</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="priority" eval="200"/>
+            <field name="arch" type="xml">
+            
+                <!-- 07/09/2015 (felix) Add list of discounts in cascade mode -->
+                <xpath expr="//form/sheet/notebook/page[@string='Order Lines']/field[@name='order_line']/form[@string='Sales Order Lines']/group/group[1]/div[@name='discount']" position="replace">
+                    <div name="discount" groups="sale.group_discount_per_so_line">
+                        <field name="discount_1" placeholder="Discount 1" 
+                            on_change="on_change_discount(price_unit,discount_1,discount_2,discount_3,discount_4)"/><br />
+                        <field name="discount_2" placeholder="Discount 2"
+                            on_change="on_change_discount(price_unit,discount_1,discount_2,discount_3,discount_4)"/><br />
+                        <field name="discount_3" placeholder="Discount 3" 
+                            on_change="on_change_discount(price_unit,discount_1,discount_2,discount_3,discount_4)"/><br />
+                        <field name="discount_4" placeholder="Discount 4"
+                            on_change="on_change_discount(price_unit,discount_1,discount_2,discount_3,discount_4)"/>
+                    </div>
+                    <field name="discount" string="Final discount" class="oe_inline"/>
+                </xpath>
+                
+                <!-- 21/09/2015 (felix) Add page with a list attached invoices in a sale order -->
+                <xpath expr="//form/sheet/notebook/page[@string='Other Information']" position="after">
+                    <page string="Invoices">
+                        <field name="invoice_ids" string="Attached invoices" domain="[('order_id', '=', id)]" class="oe_view oe_list" readonly="1"/>
+                    </page>
+                </xpath>
+                                
+            </field>
+        </record>
+        
+        <!-- 15/09/2015 (felix) Vista tree: Ventas/Pedidos de ventas -->
+        <record id="sale_order_tree_inherit_1" model="ir.ui.view">
+            <field name="name">sale.order.tree.inherit.1</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_tree"/>
+            <field name="priority" eval="200"/>
+            <field name="arch" type="xml">
+                
+                <!-- 15/09/2015 (felix) Add field pricelist_id -->
+                <xpath expr="//field[@name='amount_total']" position="after">
+                    <field name="pricelist_id"/>
+                </xpath>
+                
+            </field>
+        </record>
+        
+    </data>
+</openerp>

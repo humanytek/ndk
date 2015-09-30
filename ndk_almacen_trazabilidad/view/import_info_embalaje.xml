@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	Formulario		
+        <!-- 11/09/2015 (felix) Vista form: Almacén/Trazabilidad/Importa info embalaje -->
+        <record id="hmtk_import_info_form_view_inherit_1" model="ir.ui.view">
+            <field name="name">hmtk.import.info.form.view.inherit.1</field>
+            <field name="model">import.info</field>
+            <field name="priority" eval="200"/>
+            <field name="inherit_id" ref="hmtk_ndk_l10n_mx_import_info.hmtk_import_info_form_view_inherit"/>
+            <field name="arch" type="xml">
+            
+                <!-- 11/09/2015 (felix) Agregar campos:
+                    - Divisa para "Precio unidad": currency_id
+                    - Moneda nacional: price_unit_converted
+                    - Divisa para "Moneda nacional": currency_converted_id
+                -->
+                <xpath expr="//form/notebook/page[@string='Containers']/group[1]/field[@name='po_ids']" position="replace">
+                    <field name="po_ids" nolabel="1">
+                        <tree editable="bottom" create="false">
+                            <field name="name"/>
+                            <field name="product_id"/>
+                            <field name="cubic_metres" sum="total"/>
+                            <field name="order_id" options='{"no_open":True}' string="Reference"/>
+                            <field name="supplier_id"/>
+                            <field name="price_unit"/>
+                            <field name="standard_price_currency_id" nolabel="1"/>
+                            <field name="price_unit_converted" string='Converted price unit' sum="total"/>
+                            <field name="currency_converted_id" string="Converted currency" nolabel="1" domain="[('name', 'like', 'MXN')]"/>
+                            <field name="product_qty" sum="total"/>
+                            <field name="taxes_id"/>
+                            <field name="amount_igi" sum="total"/>
+                            <field name="price_subtotal" sum="total" string="Subtotal price currency"/>
+                            <field name="converted_price_subtotal" sum="total" string="Subtotal converted price currency"/>
+                            <field name="impact" string="Impact(percentage)" sum="total"/>
+                            <field name="amount_of_expend" sum="total"/>
+                            <field name="amount_with_expense" sum="total"/>
+                        </tree>
+                    </field>
+                </xpath>
+                
+            </field>
+        </record>
+                    
+    </data>
+</openerp>

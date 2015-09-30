@@ -39,6 +39,7 @@ Detalles:
         'stock',
         'magento_integration',
         'ndk_magento_configuracion',
+        'point_of_sale',
     ],
     'data': [
         # Seguridad y grupos

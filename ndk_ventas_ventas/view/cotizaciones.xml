@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+           
+        <!-- 15/09/2015 (felix) Vista tree: Ventas/Cotizaciones -->
+        <record id="view_quotation_tree_inherit_1" model="ir.ui.view">
+            <field name="name">view.quotation.tree.inherit.1</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_quotation_tree"/>
+            <field name="priority" eval="200"/>
+            <field name="arch" type="xml">
+                
+                <!-- 15/09/2015 (felix) Add field pricelist_id -->
+                <xpath expr="//field[@name='amount_total']" position="after">
+                    <field name="pricelist_id"/>
+                </xpath>
+                
+            </field>
+        </record>
+        
+        <!-- 18/09/2015 (felix) Vista tree: Ventas/Búsquedas -->
+        <record id="view_sales_order_filter_inherit_1" model="ir.ui.view">
+            <field name="name">view.sales.order.filter.inherit.1</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+            <field name="priority" eval="200"/>
+            <field name="arch" type="xml">
+            
+                <!-- 18/09/2015 (felix) Agregar filtro agrupar por: Tarifa -->
+                <xpath expr="//search/group[1]/filter[@string='Order Date']" position="after">
+                    <filter string="Tarifa" icon="terp-go-month" domain="[]" context="{'group_by':'pricelist_id'}"/>
+                </xpath>
+                
+            </field>
+        </record>
+        
+    </data>
+</openerp>

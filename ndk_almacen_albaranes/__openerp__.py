@@ -48,6 +48,7 @@ Detalles:
         'view/albaranes_salida.xml',
         
         # Reportes
+        'report/stock_report.xml',
     ],
     'demo_xml': [],
     'installable': True,

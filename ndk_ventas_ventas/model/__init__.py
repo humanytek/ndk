@@ -19,4 +19,7 @@
 #
 ##############################################################################
 
-#import sale_order
+import sale_order_line
+import crm_lead
+import sale_order
+import account_invoice

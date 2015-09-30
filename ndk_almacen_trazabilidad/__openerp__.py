@@ -37,8 +37,10 @@ Detalles:
     'depends': [
         'base',
         'stock',
+        'purchase',
         'l10n_mx_import_info',
-        'hmtk_l10n_mx_import_info_custom'
+        'hmtk_l10n_mx_import_info_custom',
+        'hmtk_ndk_l10n_mx_import_info',
     ],
     'data': [
         # Seguridad y grupos
@@ -48,6 +50,7 @@ Detalles:
         # View y menu
         'view/numero_serie.xml',
         'view/control_pedimento.xml',
+        'view/import_info_embalaje.xml',
         
         # Reportes
     ],

@@ -109,6 +109,7 @@ class product_product_ndk(osv.Model):
                     prod_price = p[5]
                     prod_url_key = p[6]
                     prod_url_path = p[7]
+                    prod_brand = p[10]
                     
                     # Obtener y concatenar valores de atributos del producto de Magento
                     if p[8] <> None and p[8] <> 'NULL' and p[8] <> 'no_selection' and p[8] <> '/':
@@ -141,7 +142,7 @@ class product_product_ndk(osv.Model):
                     for a in attrs:
                         if a[0] <> None:
                             if a[0] == 'Modelo' and a[1] <> None:
-                                prod_modelo_tec = a[1]
+                                prod_modelo_tec = codecs.encode(a[1],'utf8')
                             elif a[1] <> None:
                                 prod_description_sale += codecs.encode(a[1],'utf8')+'; '
                     
@@ -199,7 +200,7 @@ class product_product_ndk(osv.Model):
                         prod_image_url.close()
                         q_image_update = "UPDATE product_product SET image='"+prod_image+"',image_small='"+prod_image+"',image_medium='"+prod_image+"' WHERE mage_product_id LIKE '"+str(prod_id)+"'"
                         cr.execute(q_image_update)
-                    
+                                        
                     # Valores para llenar en OpenERP
                     valores = {
                         'mage_product_id': prod_id,
@@ -213,10 +214,11 @@ class product_product_ndk(osv.Model):
                         'mage_url_key': prod_url_key,
                         'mage_url_path': prod_url_path,
                         'modelo_tec': prod_modelo_tec,
-                        'description_sale': prod_description_sale,
+                        'description_sale': prod_modelo_tec+'; '+prod_description_sale,
                         'mage_categ_id': prod_mage_categ_id,
                         'categ_id': id_product_category,
-                        'active_in_magento': prod_active_in_magento
+                        'active_in_magento': prod_active_in_magento,
+                        'brand': prod_brand
                     }
                     prod_result.append(valores)
                     

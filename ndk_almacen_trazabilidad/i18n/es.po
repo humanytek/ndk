@@ -16,3 +16,33 @@ msgstr ""
 "X-Launchpad-Export-Date: 2014-10-07 06:57+0000\n"
 "X-Generator: Launchpad (build 17196)\n"
 
+#. module: ndk_almacen_trazabilidad
+#: view:stock.production.lot:0
+msgid "Price"
+msgstr "Costo"
+
+#. module: ndk_almacen_trazabilidad
+#: view:stock.production.lot:0
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: ndk_almacen_trazabilidad
+#: view:purchase.order.line:0
+msgid "Converted price unit"
+msgstr "Precio unidad convertido"
+
+#. module: ndk_almacen_trazabilidad
+#: view:purchase.order.line:0
+msgid "Converted currency"
+msgstr "Moneda convertida"
+
+#. module: ndk_almacen_trazabilidad
+#: view:purchase.order.line:0
+msgid "Subtotal converted price currency"
+msgstr "Subtotal precio convertido"
+
+#. module: ndk_almacen_trazabilidad
+#: view:purchase.order.line:0
+msgid "Subtotal price currency"
+msgstr "Subtotal precio de compra"
+

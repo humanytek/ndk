@@ -31,6 +31,7 @@ Detalles:
 ---------
 * Crear restricción en campo "¿Es una empresa?"
 * Verificar productos híbridos en lista de productos durante confirmación de venta
+* Agregar monto de descuento en el reporte de impresión de las órdenes de venta
     """,
     'author': 'Humanytek',
     'website': 'https://github.com/humanytek/ndk',
@@ -47,8 +48,13 @@ Detalles:
         
         # Vistas
         'view/clientes.xml',
+        'view/iniciativas.xml',
+        'view/oportunidades.xml',
+        'view/cotizaciones.xml',
+        'view/pedidos_ventas.xml',
         
         # Reportes
+        'report/sale_report.xml',
     ],
     'demo_xml': [],
     'installable': True,

@@ -16,3 +16,32 @@ msgstr ""
 "X-Launchpad-Export-Date: 2014-10-07 06:57+0000\n"
 "X-Generator: Launchpad (build 17196)\n"
 
+#. module: ndk_ventas_ventas
+#: view:sale.order.line:0
+msgid "Discount 1"
+msgstr "1° Descuento"
+
+#. module: ndk_ventas_ventas
+#: view:sale.order.line:0
+msgid "Discount 2"
+msgstr "2° Descuento"
+
+#. module: ndk_ventas_ventas
+#: view:sale.order.line:0
+msgid "Discount 3"
+msgstr "3° Descuento"
+
+#. module: ndk_ventas_ventas
+#: view:sale.order.line:0
+msgid "Discount 4"
+msgstr "4° Descuento"
+
+#. module: ndk_ventas_ventas
+#: view:sale.order.line:0
+msgid "Final discount"
+msgstr "Descuento final (%)"
+
+#. module: ndk_ventas_ventas
+#: view:sale.order.line:0
+msgid "Discount amount"
+msgstr "Monto de descuento"

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+        <!-- 09/09/2015 (felix) Form view: Configuración/Usuarios/Usuarios -->
+        <record id="res_users_form_inherit_1" model="ir.ui.view">
+            <field name="name">res.users.form.inherit.1</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="priority" eval="200"/>
+            <field name="arch" type="xml">
+            
+                <!-- 09/09/2015 (felix) Add attribute widget: html -->
+                <xpath expr="//form/sheet/notebook/page[@string='Preferences']/group[2]/field[@name='signature']" position="replace">
+                    <field name="signature" modifiers="{}" widget="html"/>
+                </xpath>
+                
+            </field>
+        </record>
+        
+        <!-- 11/09/2015 (felix) Form view: Usuarios/Preferencias -->
+        <record id="res_users_preferences_form_inherit_1" model="ir.ui.view">
+            <field name="name">res.users.preferences.form.inherit.1</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form_simple_modif"/>
+            <field name="priority" eval="200"/>
+            <field name="arch" type="xml">
+            
+                <!-- 11/09/2015 (felix) Add attribute widget: html -->
+                <xpath expr="//form/group[2]/field[@name='signature']" position="replace">
+                    <field name="signature" readonly="0" modifiers="{}" widget="html"/>
+                </xpath>
+                
+            </field>
+        </record>
+        
+    </data>
+</openerp>

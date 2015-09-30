@@ -36,6 +36,127 @@ class import_info_ndk(osv.Model):
             return sequence + str(self.checksum(sequence))
         except Exception:
             return sequence
+            
+    # 17/09/2015 (felix) Modified methods made by hindues    
+    def _calculate_volume(self, cr, uid, ids, field_name, arg, context={}):
+        res = {}
+        info_records = self.browse(cr, uid, ids, context=context)
+        for info_record in info_records:
+            total = 0
+            if info_record.po_ids:
+                for po_id in info_record.po_ids:
+                    total += po_id.product_id.volume * po_id.product_qty
+            total = total
+            res[info_record.id] = total
+        return res
+    
+    def _calculate_total_qty(self, cr, uid, ids, field_name, arg, context={}):
+        res = {}
+        info_records = self.browse(cr, uid, ids, context=context)
+        for info_record in info_records:
+            total = 0
+            if info_record.po_ids:
+                for po_id in info_record.po_ids:
+                    total += po_id.product_qty
+            res[info_record.id] = total
+        return res
+    
+    def _calculate_total_expense(self, cr, uid, ids, field_name, arg, context={}):
+        res = {}
+        info_records = self.browse(cr, uid, ids, context=context)
+        for info_record in info_records:
+            total = 0
+            if info_record.po_ids:
+                for po_id in info_record.po_ids:
+                    total += po_id.amount_with_expense
+            res[info_record.id] = total
+            
+        return res
+    
+    def _calculate_total_without_expense(self, cr, uid, ids, field_name, arg, context={}):
+        res = {}
+        info_records = self.browse(cr, uid, ids, context=context)
+        for info_record in info_records:
+            total = 0
+            if info_record.po_ids:
+                for po_id in info_record.po_ids:
+                    total +=  po_id.converted_price_subtotal
+                    #total +=  po_id.price_subtotal
+            res[info_record.id] = total
+        return res
+    
+    def _calculate_cost_base_value(self, cr, uid, ids, field_name, arg, context={}):
+        res = {}
+        info_records = self.browse(cr, uid, ids, context=context)
+        for info_record in info_records:
+            total = 0
+            if info_record.po_ids:
+                for po_id in info_record.po_ids:
+                    total +=  po_id.price_unit
+            res[info_record.id] = total
+        return res
+    
+    def _calculate_cost_totals(self, cr, uid, ids, field_name, arg, context={}):
+        res = {}
+        info_records = self.browse(cr, uid, ids, context=context)
+        for info_record in info_records:
+            total = 0
+            if info_record.po_ids:
+                for po_id in info_record.po_ids:
+                    total +=  po_id.converted_price_subtotal + po_id.amount_igi
+                    #total +=  po_id.price_subtotal + po_id.amount_igi
+            res[info_record.id] = total
+        return res
+    
+    def _calculate_grand_total(self, cr, uid, ids, field_name, arg, context={}):
+        res = {}
+        info_records = self.browse(cr, uid, ids, context=context)
+        for info_record in info_records:
+            total = info_record.total_expense
+            res[info_record.id] = total
+        return res
+    
+    def load_purchase_products(self, cr, uid, ids, context=None):
+        import_info = self.browse(cr, uid, ids, context=context)[0]
+        product_import_obj = self.pool.get('product.import.info')
+        if import_info.po_ids:
+            for po in import_info.po_ids:
+                data = {
+                    'import_id': import_info.id,
+                    'product_id': po.product_id.id,
+                    'uom_id': po.product_uom.id,
+                    'qty': po.product_qty,
+                    'po_line': po.id,
+                }
+                if po.product_id.pack_control:
+                    product_import_info_ids =  product_import_obj.search(cr, uid, [('import_id', '=', import_info.id), ('po_line', '=', po.id)])
+                    if not product_import_info_ids:
+                        product_import_obj.create(cr, uid, data, context=context)
+                    else:
+                        product_import_obj.write(cr, uid, product_import_info_ids, data, context=context)
+                else:
+                    raise osv.except_osv(_('Warning!'), _('This product is not importable.'))
+        return True
+    
+    def calculate_button_all(self, cr, uid, ids, context=None):
+        purchase_order_line_obj = self.pool.get('purchase.order.line')
+        for id in ids:
+            info_record = self.browse(cr, uid, id, context=context)
+            if info_record.po_ids:
+                for po in info_record.po_ids:
+                    expense_amount = info_record.expense_amount
+                    line_expense =  po.converted_price_subtotal
+                    #line_expense =  po.price_subtotal
+                    factor = line_expense/expense_amount
+                    percentage = factor*100
+                    purchase_order_line_obj.write(cr, uid, po.id, {'impact': percentage}, context=context)
+                    if info_record.expense_amount:
+                        line_expense_wo = info_record.impact * factor
+                        purchase_order_line_obj.write(cr, uid, po.id, {'amount_of_expend': line_expense_wo}, context=context)
+                        amount_with_expenses = po.amount_of_expend + po.converted_price_subtotal + po.amount_igi
+                        #amount_with_expenses = po.amount_of_expend + po.price_subtotal + po.amount_igi
+                        purchase_order_line_obj.write(cr, uid, po.id, {'amount_with_expense': amount_with_expenses}, context=context)
+        return True
     
     _columns = {
         'ref_paquete': fields.char('Referencia de paquete', size=64)

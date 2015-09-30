@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record id="product_inherit_form_view" model="ir.ui.view">
+            <field name="name">product.product.form</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="priority" eval="200"/>
+            <field name="arch" type="xml">
+            
+                <xpath expr="//field[@name='list_price']" position="replace">
+                    <label for="list_price" string="Sale Price"/>
+                    <div>
+                        <field name="list_price" class="oe_inline"/>
+                        <field name="list_price_currency_id" class="oe_inline"/>
+                    </div>
+                </xpath>
+                <xpath expr="//field[@name='standard_price']" position="replace">
+                    <div for="standard_price" string="Standard Price">
+                        <field name="standard_price" class="oe_inline"/>
+                        <field name="standard_price_currency_id" class="oe_inline"/>
+                    </div>
+                </xpath>
+                
+            </field>
+        </record>
+        
+    </data>
+</openerp>

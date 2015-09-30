@@ -19,4 +19,6 @@
 #
 ##############################################################################
 import import_info
+import stock_production_lot
+import purchase_order_line
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

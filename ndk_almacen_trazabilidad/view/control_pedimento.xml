@@ -6,7 +6,7 @@
         <record id="view_import_info_form_inherit_1" model="ir.ui.view">
             <field name="name">view.import.info.form.inherit.1</field>
             <field name="model">import.info</field>
-            <field name="priority" eval="500"/>
+            <field name="priority" eval="200"/>
             <field name="inherit_id" ref="l10n_mx_import_info.view_import_info_form"/>
             <field name="arch" type="xml">
             

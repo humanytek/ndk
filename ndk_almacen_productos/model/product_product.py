@@ -29,7 +29,25 @@ class product_product_ndk(osv.Model):
 
     _inherit = 'product.product'
     _description = 'Cambios en campos y modelos para Productos'
+
+    # 08/09/2015 (felix) Metodo para habilitar o deshabilitar disponibildad 
+    # de producto en punto de venta
+    def _get_available(self, cr, uid, ids, name, args, context=None):
+        res = {}
+        for i in self.browse(cr, uid, ids, context):
+            res[i.id] = 0
+            value = False
+            if i.qty_available > 0.00:
+                res[i.id] = 1
+                value = True
+            self.write(cr, uid, [i.id], {'available_in_pos': value}, context)
+        return res
     
+    _columns = {
+        'chk_available_in_pos': fields.function(_get_available, type='integer', 
+            string='Available in POS'),
+    }
+        
     # 21/06/2015 (felix) Metodo original modificado para buscar por el nombre tecnico
     def name_search(self, cr, user, name='', args=None, operator='ilike', context=None, limit=100):
         if not args:

@@ -18,6 +18,29 @@
                 </search>
             </field>
         </record>
+        
+        <!-- 08/09/2015 (felix) Formulario de números de serie -->
+        <record id="stock_production_lot_form_inherit_1" model="ir.ui.view">
+            <field name="name">stock.production.lot.form.inherit.1</field>
+            <field name="model">stock.production.lot</field>
+            <field name="inherit_id" ref="stock.view_production_lot_form"/>
+            <field name="priority" eval="200"/>
+            <field name="arch" type="xml">
+            
+                <!-- 08/09/2015 (felix)
+                    - Agregar campo "Costo"
+                    - Agregar campo "Divisa"
+                -->
+                <xpath expr="//form/group[1]/group[2]/field[@name='stock_available']" position="after">
+                    <label for="price" string="Price"/>
+                    <div>
+                        <field name="price" class="oe_inline" readonly="1"/>
+                        <field name="currency_id" class="oe_inline" readonly="1"/>
+                    </div>
+                </xpath>
+            
+            </field>
+        </record>
                     
     </data>
 </openerp>

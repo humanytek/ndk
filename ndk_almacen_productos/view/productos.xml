@@ -14,7 +14,7 @@
                 <xpath expr="//field[@name='name']" position="after">
                     <field name="modelo_tec" string="Modelo (especificaciones técnicas de magento)"/>
                 </xpath>
-                
+                                
             </field>
         </record>
                 
@@ -74,6 +74,22 @@
                    <filter string='Company' icon="terp-go-home" domain="[]" context="{'group_by' : 'company_id'}" groups="base.group_multi_company"/>
                 </group>
                 </search>
+            </field>
+        </record>
+        
+        <!-- 21/09/2015 (felix) Form view: Warehouse/Products -->
+        <record id="product_normal_form_view_inherit_1" model="ir.ui.view">
+            <field name="name">product_normal_form_view_inherit_1</field>
+            <field name="model">product.product</field>
+            <field name="priority" eval="200"/>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+            
+                <!-- 21/09/2015 (felix) Add field to check an available product in pos -->
+                <xpath expr="//form/sheet/field[@name='image_medium']" position="after">
+                    <field name="chk_available_in_pos" invisible="1"/>
+                </xpath>
+                
             </field>
         </record>
         

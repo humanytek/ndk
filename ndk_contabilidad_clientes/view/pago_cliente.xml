@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+        <!-- 15/09/2015 (felix) Form view: Customer payments -->	
+        <record id="view_vendor_receipt_form_inherit_1" model="ir.ui.view">
+            <field name="name">view.vendor.receipt.form.inherit.1</field>
+            <field name="model">account.voucher</field>
+            <field name="priority" eval="200"/>
+            <field name="inherit_id" ref="account_voucher.view_vendor_receipt_form"/>
+            <field name="arch" type="xml">
+            
+                <!-- 15/09/2015 (felix) Put the original field: line_cr_ids -->
+                <xpath expr="//form/sheet/notebook/page[@string='Payment Information']/field[@name='line_cr_ids']" position="replace">
+                    <field name="line_cr_ids" context="{'journal_id':journal_id, 'type':type, 'partner_id':partner_id}" on_change="onchange_line_ids(line_dr_ids, line_cr_ids, amount, currency_id, type, context)">
+                        <tree string="Invoices and outstanding transactions" editable="bottom" colors="gray:amount==0">
+                            <field name="move_line_id" context="{'journal_id':parent.journal_id, 'partner_id':parent.partner_id}"
+                                on_change="onchange_move_line_id(move_line_id)"
+                                domain="[('account_id.type','in',('receivable','payable')), ('reconcile_id','=', False), ('partner_id','=',parent.partner_id)]"
+                                required="1"
+                                groups="account.group_account_user"/>
+                            <field name="account_id"  groups="base.group_no_one" domain="[('type','=','receivable')]"/>
+                            <field name="date_original" readonly="1"/>
+                            <field name="date_due" readonly="1"/>
+                            <field name="amount_original" readonly="1"/>
+                            <field name="amount_unreconciled" readonly="1" groups="account.group_account_user"/>
+                            <field name="reconcile" on_change="onchange_reconcile(reconcile, amount, amount_unreconciled, context)" groups="account.group_account_user"/>
+                            <field name="amount" sum="Total Allocation" on_change="onchange_amount(amount, amount_unreconciled, context)" string="Allocation"/>
+                        </tree>
+                    </field>
+                </xpath>
+            
+            </field>
+        </record>
+        
+        <!-- 18/09/2015 (felix) Vista tree en form: Contabilidad / Pago cliente -->
+        <record id="view_account_voucher_line_onchange_inherit_1" model="ir.ui.view">
+            <field name="name">view.account.voucher.line.onchange.inherit.1</field>
+            <field name="model">account.voucher.line</field>
+            <field name="inherit_id" ref="account_voucher_tax.view_account_voucher_line_onchange"/>
+            <field name="priority" eval="200"/>
+            <field name="arch" type="xml">
+            
+                <!-- 18/09/2015 (felix) Dejar original el campo "amount" -->
+                <xpath expr="//field[@name='amount']" position="replace">
+                    <field name="amount" on_change="onchange_amount(amount, amount_unreconciled, context)"/>
+                </xpath>
+                                
+            </field>
+        </record>
+
+    </data>
+</openerp>
