@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates id="pos_template" xml:space="preserve" inherit_id="point_of_sale.template">
+	<t t-name="PosTicket">
+		<xpath expr="//div[@class='pos-sale-ticket']" position="replace">
+	        <div class="pos-sale-ticket">
+	        	<div style="text-align:center">
+	        		<img t-att-src="'data:image/png;base64,'+ widget.logo" height="80px" width="200px"/>
+	        	</div>
+	        	<br /><br />
+	            <table>
+	            	<colgroup>
+	                    <col width='40%' />
+	                    <col width='60%' />
+	                </colgroup>
+		            <tr><td><b>Razón Social: </b></td><td><t t-esc="widget.company.name"/></td></tr>
+		            <tr><td><b>Direcc. Fiscal: </b></td><td><t t-esc="widget.company.contact_address"/></td></tr>
+		            <tr><td></td><td><t t-esc="widget.company.phone || ''"/></td></tr>
+		            <br />
+		            <tr><td><b>RFC: </b></td><td><t t-esc="widget.company.vat || ''"/></td></tr>
+		            <tr><td><b>Email: </b></td><td><t t-esc="widget.company.email || ''"/></td></tr>
+	            </table>
+	            <br /><br />
+	            <table>
+		            <tr><td>Sucursal: </td><td><t t-esc="widget.shop_obj.name"/></td></tr>
+		            <tr><td>Teléfono de sucursal: </td><td><t t-esc="widget.company.phone || ''"/></td></tr>
+		            <tr><td>Vendedor: </td><td><t t-esc="widget.pos.get('cashier') and widget.pos.get('cashier').name or widget.user.name"/></td></tr>
+		            <tr><td>Email: </td><td><t t-esc="widget.pos.get('cashier') and widget.pos.get('cashier').email or widget.user.email"/></td></tr>
+		            <tr><td></td></tr>
+		            <br />
+		            <tr><td>Folio de ticket: </td><td><t t-esc="widget.currentOrder.attributes.name"/></td></tr>
+	            	<tr><td>Tipo de cambio: </td><td><t t-esc="widget.valor || ''"/></td></tr>
+	            </table>
+	            <br /><br /><br />
+	            <table>
+	                <colgroup>
+	                    <col width='25%' />
+	                    <col width='50%' />
+	                    <col width='25%' />
+	                </colgroup>
+	                <tr>
+	                    <td><b>Cantidad </b></td>
+	                    <td><b>Descripción </b></td>
+	                    <td><b>Importe </b></td>
+	                </tr>
+	                <tr t-foreach="widget.currentOrderLines.toArray()" t-as="orderline">
+	                	<td>
+	                        <t t-esc="orderline.get_quantity_str_with_unit()"/>
+	                    </td>
+	                    <td>
+	                        <t t-esc="orderline.get_product().get('description') || orderline.get_product().get('name')"/>
+	                    </td>
+	                    <td class="pos-right-align">
+	                        <t t-esc="widget.format_currency(orderline.get_display_price())"/>
+	                    </td>
+	                </tr>
+	            </table>
+	            <br /><br />
+	            <table>
+	                <tr><td>Subtotal:</td><td class="pos-right-align">
+	                    <t t-esc="widget.format_currency(widget.currentOrder.getSubtotal())"/>
+	                    </td></tr>
+	                <tr><td>Discount:</td><td class="pos-right-align">
+	                    <t t-esc="widget.format_currency(widget.currentOrder.getDiscountTotal())"/>
+	                    </td></tr>
+	                <tr><td>IVA:</td><td class="pos-right-align">
+	                    <t t-esc="widget.format_currency(widget.currentOrder.getTax())"/>
+	                    </td></tr>
+	                <tr class="emph"><td>TOTAL:</td><td class="pos-right-align">
+	                    <t t-esc="widget.format_currency(widget.currentOrder.getTotalTaxIncluded())"/>
+	                    </td></tr>
+	            </table>
+	            <br /><br />
+	            <table>
+	            	<tr>
+	            		<td>Forma de pago:</td>
+	            		<td class="pos-right-align" t-foreach="widget.currentPaymentLines.toArray()" t-as="pline">
+	                    	<t t-esc="pline.get_cashregister().get('journal_id')[1]"/>
+	                    </td></tr>
+	                <tr><td>Cambio:</td><td class="pos-right-align">
+	                    <t t-esc="widget.format_currency(widget.currentOrder.getPaidTotal() - widget.currentOrder.getTotalTaxIncluded())"/>
+	                    </td></tr>
+	            </table>
+	            <br /><br />
+		            <p><center> Gracias por su compra,</center></p>
+					<p><center>“Be Original, Buy Original”</center></p>
+
+<br /><br /><br />
+<b>Visita nuestra web-shop: www.nordika.mx</b>
+
+
+<br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br />
+*Esto no es un comprobante fiscal
+<br /><br />
+<br /><br />
+<b>Inconformidades y Devoluciones. </b>
+<br />
+
+Cualquier inconformidad, defectos de mercancía y/o daños deberán ser notificados al momento de la entrega de la mercancía. No se aceptan reclamaciones ni devoluciones después de aceptada la mercancía, salvo por defecto de fabricante; si es necesario se cambiará por otro producto en buenas condiciones. Si es el caso, en que se autorice realizar un reembolso, Scandinavian Design Center, S.A. de C.V. otorgará únicamente crédito para ser utilizado dentro de cualquiera de las tiendas “NORDIKA” del país, teniendo una vigencia de un año. 
+<br />
+Para leer más sobre los términos de inconformidades y devolución visita: http://www.nordika.mx/devoluciones
+<br /><br /><br />
+<b>Facturación.</b>
+<br />
+Si usted requiere factura, favor de solicitarla al correo facturación@nordika.mx dentro del mes de su compra y verificar su información; una vez emitida la factura respectiva no se le podrán realizar ninguna modificación.
+	               
+	        </div>
+    	</xpath>
+    </t>
+
+</templates>

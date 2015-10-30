@@ -46,3 +46,13 @@ msgstr "Subtotal precio convertido"
 msgid "Subtotal price currency"
 msgstr "Subtotal precio de compra"
 
+#. module: ndk_almacen_trazabilidad
+#: view:import.info:0
+msgid "Percent IGI %"
+msgstr "Porcentaje IGI"
+
+#. module: ndk_almacen_trazabilidad
+#: view:import.info:0
+msgid "Converted expense amount"
+msgstr "Monto de Gastos (MXN)"
+

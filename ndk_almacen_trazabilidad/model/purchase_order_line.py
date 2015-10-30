@@ -60,7 +60,7 @@ class purchase_order_line_ndk(osv.Model):
             res[i.id] = 0.00
             res[i.id] = i.price_unit_converted * i.product_qty
         return res
-    
+            
     _columns = {
         'price_unit_converted': fields.function(_calc_price_unit, type='float', 
             string='Converted price unit', digits=(10,2)),
@@ -68,7 +68,15 @@ class purchase_order_line_ndk(osv.Model):
             string='Converted currency', obj='res.currency'),
         'converted_price_subtotal': fields.function(_calc_converted_price_subtotal, 
             type='float', string='Subtotal price converted currency'),
-    }   
-   
+        'percent_igi': fields.float('Percent IGI', digits=(10,2))
+    }
+    
+    # 30/10/2015 (felix) Method to return values of "amount_igi"
+    def on_change_percent_igi(self, cr, uid, ids, percent_igi, converted_price_subtotal, context=None):
+        res = {}
+        if percent_igi:
+            amount_igi = converted_price_subtotal * percent_igi / 100
+            res = {'amount_igi':amount_igi}
+        return {'value':res}
     
 purchase_order_line_ndk()

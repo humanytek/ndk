@@ -32,6 +32,7 @@ Detalles:
 * Crear restricción en campo "¿Es una empresa?"
 * Verificar productos híbridos en lista de productos durante confirmación de venta
 * Agregar monto de descuento en el reporte de impresión de las órdenes de venta
+* Agregar campos "Facturado" y "Por facturar" en vista Lista de pedidos de venta
     """,
     'author': 'Humanytek',
     'website': 'https://github.com/humanytek/ndk',

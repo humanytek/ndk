@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+	    <record id="view_currency_form_inherit" model="ir.ui.view">
+		     <field name="name">res.currency.form.inherit</field>
+		     <field name="model">res.currency</field>
+		     <field name="inherit_id" ref="base.view_currency_form"/>
+             <field name="arch" type="xml">
+                 <field name="company_id" position="after">
+                     <field name="valor"/>
+                 </field>
+                 <xpath expr="//field[@name='rate_ids']/tree/field[@name='name']" position="after">
+                 	<field name="valor"/>
+                 </xpath>
+             </field>
+        </record>
+
+    </data>
+</openerp>

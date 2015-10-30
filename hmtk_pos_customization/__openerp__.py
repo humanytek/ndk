@@ -30,12 +30,12 @@
     'website': 'http://www.humanytek.com',
     'depends': ['point_of_sale', 'l10n_mx_partner_address'],
     'data': [],
-    'css': ['static/src/css/pos.css'],
+#     'css': ['static/src/css/pos.css'],
     'demo_xml': [],
-    'js': [
-           'static/src/js/models.js',
-           ],
-    'qweb': ['static/src/xml/pos.xml'],
+#     'js': [
+#            'static/src/js/models.js',
+#            ],
+#     'qweb': ['static/src/xml/pos.xml'],
     'installable': True,
     'auto_install': False,
 }

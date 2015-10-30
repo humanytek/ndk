@@ -29,14 +29,25 @@
                             <field name="currency_converted_id" string="Converted currency" nolabel="1" domain="[('name', 'like', 'MXN')]"/>
                             <field name="product_qty" sum="total"/>
                             <field name="taxes_id"/>
+                            <field name="percent_igi" string="Percent IGI %%" on_change="on_change_percent_igi(percent_igi,converted_price_subtotal)"/>
                             <field name="amount_igi" sum="total"/>
                             <field name="price_subtotal" sum="total" string="Subtotal price currency"/>
                             <field name="converted_price_subtotal" sum="total" string="Subtotal converted price currency"/>
-                            <field name="impact" string="Impact(percentage)" sum="total"/>
+                            <field name="impact" string="Impacto en %%" sum="total"/>
                             <field name="amount_of_expend" sum="total"/>
                             <field name="amount_with_expense" sum="total"/>
                         </tree>
                     </field>
+                </xpath>
+                
+                <!-- 25/10/2015 (felix) Crear filtro para facturas de proveedores -->
+                <xpath expr="//form/notebook/page[@string='Invoices']/field[@name='invoice_ids']" position="replace">
+                    <field name="invoice_ids" nolabel="1" domain="[('partner_id.supplier','=',True)]"/>
+                </xpath>
+                
+                <!-- 28/10/2015 (felix) Agregar campo "Monto de gastos (MXN)" -->
+                <xpath expr="//form/notebook/page[@string='Containers']/group[2]/field[@name='total_expense']" position="after">
+                    <field name="converted_expense_amount" string="Converted expense amount" readonly="1"/>
                 </xpath>
                 
             </field>

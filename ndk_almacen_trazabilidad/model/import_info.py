@@ -144,11 +144,12 @@ class import_info_ndk(osv.Model):
             info_record = self.browse(cr, uid, id, context=context)
             if info_record.po_ids:
                 for po in info_record.po_ids:
-                    expense_amount = info_record.expense_amount
-                    line_expense =  po.converted_price_subtotal
+                    #expense_amount = info_record.expense_amount
+                    expense_amount = info_record.converted_expense_amount
+                    line_expense = po.converted_price_subtotal
                     #line_expense =  po.price_subtotal
-                    factor = line_expense/expense_amount
-                    percentage = factor*100
+                    factor = line_expense / expense_amount
+                    percentage = factor * 100
                     purchase_order_line_obj.write(cr, uid, po.id, {'impact': percentage}, context=context)
                     if info_record.expense_amount:
                         line_expense_wo = info_record.impact * factor
@@ -157,9 +158,21 @@ class import_info_ndk(osv.Model):
                         #amount_with_expenses = po.amount_of_expend + po.price_subtotal + po.amount_igi
                         purchase_order_line_obj.write(cr, uid, po.id, {'amount_with_expense': amount_with_expenses}, context=context)
         return True
+        
+    # 28/10/2015 (felix) Method to convert
+    def _calc_converted_expense_amount(self, cr, uid, ids, field_name, args, context=None):
+        res = {}
+        for i in self.browse(cr, uid, ids, context):
+            res[i.id] = 0.00
+            for j in i.po_ids:
+                res[i.id] += j.converted_price_subtotal
+        return res
     
     _columns = {
-        'ref_paquete': fields.char('Referencia de paquete', size=64)
+        'ref_paquete': fields.char('Referencia de paquete', size=64),
+        'name': fields.char('Number of Operation', size=128),
+        'converted_expense_amount': fields.function(_calc_converted_expense_amount, 
+            type='float', string='Converted expense amount', digits=(10,2))
     }
     _defaults = {
         'ref_paquete': make_sscc

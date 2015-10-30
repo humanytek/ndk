@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Custom report.-->
+<openerp>
+<data>
+<template id="report_pos_sessions">
+    <t t-call="report.html_container">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="report.internal_layout">
+                <div class="page">
+                	<div class="oe_structure"/>
+                    <h4>Name: <span t-field="o.name"/></h4>
+
+                    <table class="table table-condensed mb32">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <strong>Reference</strong>
+                                </th>
+                                <th>
+                                    <strong>Journal</strong>
+                                </th>
+                                <th class="text-right">
+                                    <strong>Starting Balance</strong>
+                                </th>
+                                <th class="text-right">
+                                    <strong>Total Transactions</strong>
+                                </th>
+                                <th class="text-right">
+                                    <strong>Ending Balance</strong>
+                                </th>
+                                <th class="text-right">
+                                    <strong>Difference</strong>
+                                </th>
+                                <th class="text-right" groups="base.group_multi_currency">
+                                    <strong>Currency</strong>
+                                </th>
+                                <th class="text-right">
+                                    <strong>Status</strong>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="o.statement_ids" t-as="statement">
+                                <td><span t-field="statement.name"/></td>
+                                <td><span t-field="statement.journal_id"/></td>
+                                <td class="text-right">
+                                    <span t-field="statement.balance_start"
+                                        t-field-options='{"widget": "monetary", "display_currency": "statement.currency"}'/>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="statement.total_entry_encoding"
+                                        t-field-options='{"widget": "monetary", "display_currency": "statement.currency"}'/>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="statement.balance_end_real"
+                                        t-field-options='{"widget": "monetary", "display_currency": "statement.currency"}'/>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="statement.difference"
+                                        t-field-options='{"widget": "monetary", "display_currency": "statement.currency"}'/>
+                                </td>
+                                <td class="text-right" groups="base.group_multi_currency">
+                                    <span t-field="statement.currency"
+                                        t-field-options='{"widget": "monetary", "display_currency": "statement.currency"}'/>
+                                </td>
+                                <td class="text-right"><span t-field="statement.state"/></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td class="text-right"><span t-esc="get_total_balance(o.statement_ids)"/></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="oe_structure"/>
+            </t>
+        </t>
+    </t>
+</template>
+
+</data>
+</openerp>

@@ -24,6 +24,7 @@ from openerp.tools.translate import _
 import logging
 _logger = logging.getLogger(__name__)
 import re
+import codecs
 
 class stock_tracking_ndk(osv.Model):
 
@@ -58,7 +59,7 @@ class stock_tracking_ndk(osv.Model):
                 r_pack = n_pack[1]
             else:
                 r_pack = r['name']
-            name = str(r_pack)+'::'+str(import_name)
+            name = codecs.encode(r_pack,'utf8')+'::'+codecs.encode(import_name,'utf8')
             res.append((r['id'], name))
             
         return res

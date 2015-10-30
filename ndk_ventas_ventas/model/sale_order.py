@@ -27,9 +27,36 @@ _logger = logging.getLogger(__name__)
 class sale_order_ndk(osv.Model):
 
     _inherit = 'sale.order'
+    
+    # 27/10/2015 (felix) Metodo para calcular Facturado
+    def _calc_facturado(self, cr, uid, ids, fields_name, args, context=None):
+        res = {}
+        for i in self.browse(cr, uid, ids, context):
+            res[i.id] = 0.00
+            for j in i.invoice_ids:
+                if j.state in ['open','paid']:
+                    res[i.id] += j.amount_total
+        return res
+        
+    # 27/10/2015 (felix) Metodo para calcular Pendiente por facturar
+    def _calc_por_facturar(self, cr, uid, ids, fields_name, args, context=None):
+        res = {}
+        for i in self.browse(cr, uid, ids, context):
+            res[i.id] = 0.00
+            for j in i.invoice_ids:
+                if j.state in ['open','paid']:
+                    res[i.id] += j.residual
+        return res
+    
     _columns = {
         'invoice_ids': fields.one2many('account.invoice', 'order_id', 
             'Attached invoice'),
+        'facturado': fields.function(_calc_facturado, type='float', 
+            string='Facturado'),
+        'por_facturar': fields.function(_calc_por_facturar, type='float', 
+            string='Por facturar')
     }
+    
+    
 
 sale_order_ndk()

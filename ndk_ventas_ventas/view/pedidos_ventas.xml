@@ -48,6 +48,15 @@
                     <field name="pricelist_id"/>
                 </xpath>
                 
+                <!-- 27/10/2015 (felix) Agregar campos: 
+                    - Facturado
+                    - Pendiente por facturar
+                -->
+                <xpath expr="//field[@name='pricelist_id']" position="after">
+                    <field name="facturado" string="Facturado"/>
+                    <field name="por_facturar" string="Pendiente por facturar"/>
+                </xpath>
+                
             </field>
         </record>
         

@@ -23,6 +23,7 @@
 import xmlrpclib
 from copy import deepcopy
 import time
+from datetime import datetime, date, timedelta
 import openerp
 import codecs
 import mysql.connector
@@ -164,6 +165,9 @@ class magento_instance_website_ndk(osv.Model):
             return {}
         cursor = cnx.cursor()
         if cursor:
+        
+            # Fecha de hoy
+            date_now = datetime.now().date()
                 
             # Disposicion de tablas en OpenERP
             obj_product_product = self.pool.get('product.product')
@@ -178,12 +182,14 @@ class magento_instance_website_ndk(osv.Model):
                 "t1.color_value,t1.disenador_value,t1.manufacturer_value,t1.color_2_value,t1.cojin_value,t1.colorcojin_value,t1.color_tela_value, \n"
                 "t1.thumbnail \n"
                 "FROM mage_catalog_product_flat_1 AS t1 \n"
+                "WHERE t1.updated_at LIKE '"+str(date_now)+"%' \n"
                 "ORDER BY entity_id ASC")
             cursor.execute(q_prod)
             productos = cursor.fetchall()
             prod_result = []
             prod_modelo_tec = ''
             prod_description_sale = ''
+            prod_description_purchase = ''
             prod_images_all = []
             for p in productos:
                 if p[0] <> None:
@@ -232,6 +238,10 @@ class magento_instance_website_ndk(osv.Model):
                                 prod_modelo_tec = codecs.encode(a[1],'utf8')
                             elif a[1] <> None:
                                 prod_description_sale += codecs.encode(a[1],'utf8')+'; '
+                                                            
+                            # 01/10/2015 (felix) Descripcion en ingles
+                            if codecs.encode(a[0],'utf8') == 'Descripción en ingles' and a[1] <> None:
+                                prod_description_purchase = codecs.encode(a[1],'utf8')
                     
                     # Obtener valores de atributos alternativos venidos de ComboBox de Magento
                     q_attrs_1 = ("SELECT t2.value \n"
@@ -302,6 +312,7 @@ class magento_instance_website_ndk(osv.Model):
                         'mage_url_path': prod_url_path,
                         'modelo_tec': prod_modelo_tec,
                         'description_sale': prod_modelo_tec+'; '+prod_description_sale,
+                        'description_purchase': prod_description_purchase,
                         'mage_categ_id': prod_mage_categ_id,
                         'categ_id': id_product_category,
                         'active_in_magento': prod_active_in_magento,
@@ -319,6 +330,7 @@ class magento_instance_website_ndk(osv.Model):
                     prod_url_key = ''
                     prod_url_path = ''
                     prod_description_sale = ''
+                    prod_description_purchase = ''
                     prod_modelo_tec = ''
                     prod_mage_categ_id = ''
                     prod_image = ''
