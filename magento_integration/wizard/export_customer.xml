@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+        <record id="view_magento_export_customer" model="ir.ui.view">
+            <field name="name">magento.instance.website.export_customer.form</field>
+            <field name="model">magento.instance.website.export_customer</field>
+            <field name="arch" type="xml">
+                <form string="Export Customers" version="7.0">
+                    <field name="id" invisible="1"/>
+                    <group>
+                        <h3 class="oe_grey">
+                            This wizard will export all the customers
+                            for this magento instance (E-mail is mandatory for customers. So customers without email id will not be exported).
+                            <br/>
+                            Customer addresses without the following fields will not be exported.<br/>
+                            1. Name<br/>
+                            2. City<br/>
+                            3. Country<br/>
+                            4. Telephone<br/>
+                            5. Street<br/>
+                            6. State<br/>
+                            7. ZIP
+                        </h3>
+                    </group>
+                    <footer>
+                        <button string="Continue" type="object"
+                            name="export_customers" />
+                        <button string="Close" special="cancel" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_magento_export_customer" model="ir.actions.act_window">
+            <field name="name">Export Customers</field>
+            <field name="res_model">magento.instance.website.export_customer</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+           <field name="view_id" ref="view_magento_export_customer"/>
+           <field name="target">new</field>
+       </record>
+    
+    </data>
+</openerp>

@@ -184,6 +184,7 @@ class magento_instance_website_ndk(osv.Model):
                 "FROM mage_catalog_product_flat_1 AS t1 \n"
                 "WHERE t1.updated_at LIKE '"+str(date_now)+"%' \n"
                 "ORDER BY entity_id ASC")
+                
             cursor.execute(q_prod)
             productos = cursor.fetchall()
             prod_result = []
@@ -295,7 +296,8 @@ class magento_instance_website_ndk(osv.Model):
                     if prod_image_url:
                         prod_image = base64.encodestring(prod_image_url.read())
                         prod_image_url.close()
-                        q_image_update = "UPDATE product_product SET image='"+prod_image+"',image_small='"+prod_image+"',image_medium='"+prod_image+"' WHERE mage_product_id LIKE '"+str(prod_id)+"'"
+                        #q_image_update = "UPDATE product_product SET image='"+prod_image+"',image_small='"+prod_image+"',image_medium='"+prod_image+"' WHERE mage_product_id LIKE '"+str(prod_id)+"'"
+                        q_image_update = "UPDATE product_product SET image='"+prod_image+"' WHERE mage_product_id LIKE '"+str(prod_id)+"'"
                         cr.execute(q_image_update)
                                         
                     # Valores para llenar en OpenERP

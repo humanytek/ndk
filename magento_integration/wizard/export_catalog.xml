@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_magento_export_catalog" model="ir.ui.view">
+            <field name="name">magento.instance.website.export_catalog.form</field>
+            <field name="model">magento.instance.website.export_catalog</field>
+            <field name="arch" type="xml">
+                <form string="Export Catalog" version="7.0">
+                    <field name="id" invisible="1"/>
+                    <group>
+                        <h3 class="oe_grey">
+                            This wizard will export the products selected to the
+                            category selected to this current website.
+                        </h3>
+                    </group>
+                    <group>
+                        <label for="category"/>
+                        <h3><field name="category" widget="many2many_tags" attrs="{'invisible':[('select_all_categ', '=', True)]}"
+                            on_change="onchange_category(category,select_all_products)"/></h3>
+                        <label for="select_all_categ"/>
+                        <h3><field name="select_all_categ" on_change="select_all_category(select_all_categ,select_all_products,category)"/></h3>
+                        <label for="attribute_set"/>
+                        <h3><field name="attribute_set" context="{'active_id':active_id}"/></h3>
+                        <label for="export_images"/>
+                        <h3><field name="export_images"/></h3>
+                        <label for="select_all_products"/>
+                        <div attrs="{'invisible': [('category', '=', [(6, False, [])])]}">
+                            <h3><field name="select_all_products" on_change="select_all_products(select_all_products, category)"/></h3>
+                        </div>
+                    </group>
+                    <group>
+                        <separator string="Select products to export" attrs="{'invisible':[('select_all_products', '=', True)]}"/>
+                        <separator string="All Products Selected" attrs="{'invisible':[('select_all_products', '=', False)]}"/><!-- , ('got_products', '=', False) -->
+<!--                         <field name="got_products" invisible="1"/> -->
+<!--                         <separator string="No Products to Export in the selected category" attrs="{'invisible':[('got_products', '=', True)]}"/> -->
+                        <field name="products" nolabel="1" colspan="4" domain="[('categ_id', 'in', category[0][2]), ('magento_ids', '=', None), ('default_code', '!=', None)]"
+                                        attrs="{'invisible':[('select_all_products', '=', True)]}" />
+                        <separator string="Products having no Internal Reference"/><!-- attrs="{'invisible':[('got_products', '=', False)]}" -->
+                        <field name="not_updated_products" nolabel="1" colspan="4" readonly="1"/>
+                    </group>
+                    <footer>
+                        <button string="Continue" type="object"
+                            name="export_catalog" />
+                        or
+                        <button string="Close" special="cancel" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_magento_export_catalog" model="ir.actions.act_window">
+            <field name="name">Export Catalog</field>
+            <field name="res_model">magento.instance.website.export_catalog</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+           <field name="view_id" ref="view_magento_export_catalog"/>
+            <field name="context">{'active_id':active_id}</field>
+       </record>
+       
+       <record id="view_magento_export_category" model="ir.ui.view">
+            <field name="name">magento.instance.website.export_category.form</field>
+            <field name="model">magento.instance.website.export_category</field>
+            <field name="arch" type="xml">
+                <form string="Export Product Categories" version="7.0">
+                    <field name="id" invisible="1"/>
+                    <group>
+                        <h3 class="oe_grey">
+                            This wizard will export all the product categories
+                            for this magento instance.
+                        </h3>
+                    </group>
+                    <footer>
+                        <button string="Continue" type="object"
+                            name="export_category" />
+                        <button string="Close" special="cancel" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_magento_export_category" model="ir.actions.act_window">
+            <field name="name">Export Product Categories</field>
+            <field name="res_model">magento.instance.website.export_category</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+           <field name="view_id" ref="view_magento_export_category"/>
+           <field name="target">new</field>
+       </record>
+
+    </data>
+</openerp>

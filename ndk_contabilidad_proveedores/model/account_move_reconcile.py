@@ -36,7 +36,7 @@ class account_move_reconcile_ndk(osv.Model):
     _inherit = 'account.move.reconcile'
     _description = 'Campos adicionales para tabla account.voucher'
 
-    
+    # 28/07/2015 (felix) Metodo original modificado
     def unlink(self, cr, uid, ids, context=None):
         '''
         for move_rec in self.browse(cr, uid, ids, context=context):

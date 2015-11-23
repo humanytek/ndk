@@ -36,6 +36,7 @@ class account_voucher_ndk(osv.Model):
     _inherit = 'account.voucher'
     _description = 'Campos adicionales para tabla account.voucher'
     
+    # 28/07/2015 (felix) Metodo original modificado
     def cancel_voucher(self, cr, uid, ids, context=None):
         reconcile_pool = self.pool.get('account.move.reconcile')
         move_pool = self.pool.get('account.move')
@@ -44,6 +45,7 @@ class account_voucher_ndk(osv.Model):
             # refresh to make sure you don't unlink an already removed move
             voucher.refresh()
             for line in voucher.move_ids:
+                # Agregada la siguiente linea
                 line.refresh()
                 if line.reconcile_id:
                     move_lines = [move_line.id for move_line in line.reconcile_id.line_id]

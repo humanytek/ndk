@@ -1,0 +1,138 @@
+Version 0.31 - 2/1/2015 by Chandhu
+    * [Change] Added checking extense when customers are exported to Magento
+    
+Version 0.30 - 29/12/2014 by Sreedath
+    * [Change] Removed re-updation of products which are just imported from Magento
+
+Version 0.29 - 24/12/2014 by Sreedath
+    * [Fix] Memory leak issue in linking products and importing products
+
+Version 0.28 - 23/12/2014 by Sreedath
+    * [Change] Do not list products which are already in OpenERP
+
+Version 0.27 - 17/12/2014 by Sreedath
+    * [Add] Made Import/Export and Update to and from magento as two buttons
+
+Version 0.26 - 15/12/2014 by Sreedath
+    * [Change] Import products function changed to import only new products 
+
+Version 0.25 - 12/12/2014 by Sreedath
+    * [Add] Threading functionality in 1. export products
+                                       2. export customers
+    * [Add] Filter using last updated details while importing from Magento to OpenERP
+
+Version 0.25 - 11/12/2014 by Sreedath
+    * [Add] Threading functionality in 1. linking OpenERP and Magento products
+                                       2. linking OpenERP and Magento categories
+                                       3. import product categories
+                                       4. product import
+                                       5. update products openerp to magento
+                                       6. update products magento to openerp
+                                       7. export inventory
+                                       8. export product category
+
+Version 0.24 - 09/12/2014 by Sreedath
+    * [Add] New field in product form view for enable/disable products in Magento
+
+Version 0.23 - 08/12/2014 by Sreedath
+    * [Add] Added retry with new magento object while updating from Magento -> OpenERP (if existing object has expired)
+
+Version 0.22 - 03/12/2014 by Sreedath
+    * [Add] Link categories in Magento and OpenERP
+    * [Add] Update products from OpenERP -> Magento after a selected date
+
+Version 0.21 - 27/11/2014 by Sreedath
+    * [Add] New binary field in category for selecting magento exportable categories
+
+Version 0.20 - 27/11/2014 by Sreedath
+    * [Add] Website in __openerp__.py file
+    * [Change] Splitted the magento products array to subarrays to avoid memory leaks
+
+Version 0.19 - 25/11/2014 by Sreedath
+    * [Add] Proper copyright in all files
+    * [Add] Descriptions for all objects
+    * [Change] Sizes of all char fields changed to power of 2
+
+Version 0.18 - 24/11/2014 by Sreedath
+    * [Add] Update from Magento to OpenERP api creation put inside try except
+    * [Change] Preformance enhancement in magento -> openerp sync
+
+Version 0.17 - 21/11/2014 by Sreedath
+    * [Add] Option to make category inactive in OpenERP and update on magento
+    * [Add] Option to update the parent id change in OpenERP to magento
+
+Version 0.16 - 11/11/2014 by Sreedath
+    * [Change] Link product function call removed from update product methods
+    * [Add] New button for linking OpenERP and Magento products
+
+Version 0.15 - 11/11/2014 by Sreedath
+    * [Add] Logging while syncing products
+    * [Change] Magento product details fetched using .list() using filter instead of .info()
+
+Version 0.14 - 10/11/2014 by Sreedath
+    * [Add] Logging added while updating products
+    * [Fix] API error handling in updating products 
+
+Version 0.13 - 10/11/2014 by Sreedath
+    * [Add] Product update even when there is no external magento ID
+
+Version 0.12 - 10/11/2014 by Sreedath
+    * [Fix] inactive categories become active on updation
+    * [Add] Short desctiption in product and included it in magento sync
+
+Version 0.11 - 06/11/2014 by Sreedath
+    * [Change] Default order state mapping
+    * [Change] Auto confirm of imported draft sale orders
+    * [Add] Updating order states to magento (Other than cancel state - Already there)
+    * [Add] New state mapping 'manual' state in OpenERP to 'processing' state in magento
+
+Version 0.10 - 05/11/2014 by Sreedath
+    * [Add] Customer Export from OE to Magento
+    * [Change] Included magento tab in partner form view
+
+Version 0.09 - 30/10/2014 by Sreedath
+    * [Change] Select All Products checkbox made invisible if no category is selected
+    * [Change] Onchange function of category modified to not to return products
+               if select all products boolean is false
+
+Version 0.08 - 29/10/2014 by Sreedath
+    * [Add] Update product to magento button added in product form view
+
+Version 0.07 - 28/10/2014 by Sreedath
+    * [Add] Security for magento models
+    * [Add] Update products from OE to Magento
+
+Version 0.06 - 27/10/2014 by Sreedath
+    * [Add] Option to select all products and categories while exporting to magento
+    * [Add] Onchange functions for category and other fields in export product form view
+    * [Add] Error handling in api calls
+
+Version 0.05 - 24/10/2014 by Sreedath
+    * [Add] Option to export products of all categories
+    * [Change] category many2one field to many2many field for selecting multiple categories at a time
+
+Version 0.04 - 23/10/2014 by Sreedath
+    * [Fix] Parent id bugs in exporting category
+    * [Fix] Import product function
+    * [Change] SO Export state filter removed
+    * [Change] Export products domain changed
+    * [Add] Import image from magento to OE
+    * [Change] Sale order states in API
+
+Version 0.03 - 21/10/2014 by Sreedath
+    * [Add] Button for exporting category from OE to magento
+    * [Add] New transient model for export category and a function in it
+
+Version 0.02 - 17/10/2014 by Sreedath
+    * [Add] New boolean field in export catalog model for export image condition check
+    * [Add] Option for import images while importing products - Not completed
+    * [Add] New model for product images
+    * [Add] Function for exporting images to magento
+    * [Change] Export to magento function
+
+Version 0.01 - 15/10/2014 by Sreedath
+    * [Change] Import Catalog button is divided to Import Category and Import Products
+    * [Fix] Bug in importing the root category
+    * [Add] New function for opening the imported category tree view after the category import
+    * [Change] Overridden get_states method in api.py to return the sale order states
+    * [Add] New field for magento root category id in Magento Instance Website

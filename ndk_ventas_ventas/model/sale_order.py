@@ -49,8 +49,8 @@ class sale_order_ndk(osv.Model):
         return res
     
     _columns = {
-        'invoice_ids': fields.one2many('account.invoice', 'order_id', 
-            'Attached invoice'),
+        #'invoice_ids': fields.one2many('account.invoice', 'order_id', 
+        #    'Attached invoice'),
         'facturado': fields.function(_calc_facturado, type='float', 
             string='Facturado'),
         'por_facturar': fields.function(_calc_por_facturar, type='float', 

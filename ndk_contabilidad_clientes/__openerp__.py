@@ -29,6 +29,8 @@ Módulo de Magento
 
 Detalles:
 ---------
+* Dejar original el campo: amount
+* Dejar original el campo: line_cr_ids
     """,
     'author': 'Humanytek',
     'website': 'https://github.com/humanytek/ndk',

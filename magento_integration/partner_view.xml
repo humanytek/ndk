@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+    <record id="view_partner_form_magento_inherit" model="ir.ui.view">
+            <field name="name">res.partner.form.magento.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                 <notebook position="inside">
+                     <page string="Magento" groups="base.group_user" >
+                        <field name="magento_ids">
+                            <tree>
+                                <field name="magento_id"/>
+                                <field name="website"/>
+                            </tree>
+                        </field>
+                     </page>
+                 </notebook>
+            </field>
+    </record>
+    
+    </data>
+</openerp>

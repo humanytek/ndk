@@ -28,7 +28,7 @@
                 <!-- 21/09/2015 (felix) Add page with a list attached invoices in a sale order -->
                 <xpath expr="//form/sheet/notebook/page[@string='Other Information']" position="after">
                     <page string="Invoices">
-                        <field name="invoice_ids" string="Attached invoices" domain="[('order_id', '=', id)]" class="oe_view oe_list" readonly="1"/>
+                        <field name="invoice_ids" string="Attached invoices" domain="[('origin', 'like', name)]" class="oe_view oe_list" readonly="1"/>
                     </page>
                 </xpath>
                                 

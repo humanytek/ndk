@@ -41,7 +41,7 @@ class product_product(osv.osv):
 ^DFR:BARCODE.GRF^FS
 
 ^FO30,20^BY2^B3N,,100^FN1^FS(barcode)
-^FO30,150^A0N,20,20^FN5^FS (description)
+^FO30,150^A0N,20,20^FN5^FS (modelo_tec)
 
 ^XZ"""
     def _get_package_template(self):
@@ -212,8 +212,9 @@ class product_product(osv.osv):
             first_name = product.name
             code = product.default_code
             electrical_properties = product.electrical_properties
-            if product.electrical_properties.find('~') <> -1:
-                electrical_properties = product.electrical_properties.replace('~' , '/7E')
+            if product.electrical_properties:
+                if product.electrical_properties.find('~') <> -1:
+                    electrical_properties = product.electrical_properties.replace('~' , '/7E')
             zpl_vals = {
                 'name': first_name,
                 'code': product.default_code and product.default_code or '',
@@ -257,7 +258,7 @@ class product_product(osv.osv):
                 'ean13': product.default_code or '',
                 'default_code': product.default_code or '',
                 'description':product.short_description and ht.html2text(product.short_description) or'',
-                
+    #            'modelo_tec' :product.modelo_tec or ''
             }
             template = self._get_barcode_value(cr, uid, ids, context=context)
             temp = template%zpl_vals
