@@ -19,6 +19,7 @@
 #
 ##############################################################################
 from osv import fields, osv
+import time
 
 class account_invoice_line(osv.osv):
     _inherit = 'account.invoice.line'
