@@ -41,7 +41,7 @@ class product_product(osv.osv):
 ^DFR:BARCODE.GRF^FS
 
 ^FO30,20^BY2^B3N,,100^FN1^FS(barcode)
-^FO30,150^A0N,20,20^FN5^FS (modelo_tec)
+^FO30,150^A0N,20,20^FN5^FS(modelo_tec)
 
 ^XZ"""
     def _get_package_template(self):
@@ -99,7 +99,7 @@ class product_product(osv.osv):
 ^XFR:BARCODE.GRF
 ^FN1^FD%(ean13)s^FS
 ^FN2^FD%(default_code)s^FS
-^FN5^FD%(description)s^FS
+^FN5^FD%(modelo_tec)s^FS
 ^XZ"""
         return template
     def _get_product_value(self, cr, uid, ids, context=None):
@@ -257,8 +257,8 @@ class product_product(osv.osv):
             zpl_vals = {
                 'ean13': product.default_code or '',
                 'default_code': product.default_code or '',
-                'description':product.short_description and ht.html2text(product.short_description) or'',
-    #            'modelo_tec' :product.modelo_tec or ''
+                #'description':product.short_description and ht.html2text(product.short_description) or'',
+                'modelo_tec' :product.modelo_tec[0:87] or ''
             }
             template = self._get_barcode_value(cr, uid, ids, context=context)
             temp = template%zpl_vals

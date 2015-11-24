@@ -77,7 +77,7 @@ class purchase_order(osv.osv):
         :return: Value for fields of invoice lines.
         :rtype: dict
         """
-        real_price_unit = (order_line.price_unit or 0.0) + (order_line.amount_of_expend/ order_line.product_qty) + (order_line.amount_igi/order_line.product_qty)
+        #real_price_unit = (order_line.price_unit or 0.0) + (order_line.amount_of_expend/ order_line.product_qty) + (order_line.amount_igi/order_line.product_qty)
         return {
             'name': order_line.name,
             'account_id': account_id,
