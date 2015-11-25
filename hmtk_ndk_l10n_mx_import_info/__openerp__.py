@@ -20,7 +20,7 @@
 ##############################################################################
 {
     'name': 'HMTK : Customs Information on lots: Customized for NDK branch',
-    'version': '0.02',
+    'version': '0.01',
     'sequence': 1,
     'category': 'Custom',
     'complexity': "easy",

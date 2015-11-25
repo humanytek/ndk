@@ -20,7 +20,7 @@
 ##############################################################################
 {
     'name': 'HMTK NDK : Product Customization',
-    'version': '0.03',
+    'version': '0.04',
     'sequence': 1,
     'category': 'Custom',
     'complexity': "easy",

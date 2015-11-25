@@ -81,7 +81,7 @@ class purchase_order(osv.osv):
         return {
             'name': order_line.name,
             'account_id': account_id,
-            'price_unit': order_line.price_unit  or 0.0,
+            'price_unit' : order_line.price_unit or 0.0,
             'quantity': order_line.product_qty,
             'product_id': order_line.product_id.id or False,
             'uos_id': order_line.product_uom.id or False,
