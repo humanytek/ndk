@@ -1,0 +1,173 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* hmtk_cybrosys_format_pdf_do
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0-20151020\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-26 11:27+0000\n"
+"PO-Revision-Date: 2015-11-26 11:27+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hmtk_cybrosys_format_pdf_do
+#: report:stock.picking.out:0
+msgid "Internal Shipment :"
+msgstr "Internal Shipment :"
+
+#. module: hmtk_cybrosys_format_pdf_do
+#: report:stock.picking.out:0
+msgid "Schedule Date"
+msgstr "Schedule Date"
+
+#. module: hmtk_cybrosys_format_pdf_do
+#: report:stock.picking.out:0
+msgid "Customer Address :"
+msgstr "Customer Address :"
+
+#. module: hmtk_cybrosys_format_pdf_do
+#: report:stock.picking.out:0
+msgid "Location"
+msgstr "Location"
+
+#. module: hmtk_cybrosys_format_pdf_do
+#: report:stock.picking.out:0
+msgid "Lot"
+msgstr "Lot"
+
+#. module: hmtk_cybrosys_format_pdf_do
+#: model:ir.model,name:hmtk_cybrosys_format_pdf_do.model_stock_picking
+msgid "Picking List"
+msgstr "Albarán"
+
+#. module: hmtk_cybrosys_format_pdf_do
+#: report:stock.picking.out:0
+msgid "Warehouse"
+msgstr "BODEGA"
+
+#. module: hmtk_cybrosys_format_pdf_do
+#: report:stock.picking.out:0
+msgid "Waiting Availability"
+msgstr "Waiting Availability"
+
+#. module: hmtk_cybrosys_format_pdf_do
+#: report:stock.picking.out:0
+msgid "Available"
+msgstr "Available"
+
+#. module: hmtk_cybrosys_format_pdf_do
+#: report:stock.picking.out:0
+msgid "1.3cm 24.9cm 19.9cm 24.9cm"
+msgstr "1.3cm 24.9cm 19.9cm 24.9cm"
+
+#. module: hmtk_cybrosys_format_pdf_do
+#: report:stock.picking.out:0
+msgid "Contact Address :"
+msgstr "Contact Address :"
+
+#. module: hmtk_cybrosys_format_pdf_do
+#: field:stock.picking,shipping_address:0
+#: field:stock.picking.out,shipping_address:0
+msgid "Shipping Address"
+msgstr "Shipping Address"
+
+#. module: hmtk_cybrosys_format_pdf_do
+#: report:stock.picking.out:0
+msgid "Serial Number"
+msgstr "Serial Number"
+
+#. module: hmtk_cybrosys_format_pdf_do
+#: report:stock.picking.out:0
+msgid "Others"
+msgstr "OTROS"
+
+#. module: hmtk_cybrosys_format_pdf_do
+#: report:stock.picking.out:0
+msgid "Status"
+msgstr "Status"
+
+#. module: hmtk_cybrosys_format_pdf_do
+#: report:stock.picking.out:0
+msgid "Supplier Address :"
+msgstr "Supplier Address :"
+
+#. module: hmtk_cybrosys_format_pdf_do
+#: report:stock.picking.out:0
+msgid "Delivery Order :"
+msgstr "Delivery Order :"
+
+#. module: hmtk_cybrosys_format_pdf_do
+#: report:stock.picking.out:0
+msgid "Description"
+msgstr "Description"
+
+#. module: hmtk_cybrosys_format_pdf_do
+#: report:stock.picking.out:0
+msgid "Sign of person deliver the products"
+msgstr "Sign of person deliver the products"
+
+#. module: hmtk_cybrosys_format_pdf_do
+#: report:stock.picking.out:0
+msgid "Sign of person recive the products"
+msgstr "Sign of person recive the products"
+
+#. module: hmtk_cybrosys_format_pdf_do
+#: report:stock.picking.out:0
+msgid "Quantity"
+msgstr "Quantity"
+
+#. module: hmtk_cybrosys_format_pdf_do
+#: report:stock.picking.out:0
+msgid "Shop"
+msgstr "TIENDA"
+
+#. module: hmtk_cybrosys_format_pdf_do
+#: report:stock.picking.out:0
+msgid "Description"
+msgstr "Description"
+
+#. module: hmtk_cybrosys_format_pdf_do
+#: report:stock.picking.out:0
+msgid "Weight"
+msgstr "Weight"
+
+#. module: hmtk_cybrosys_format_pdf_do
+#: report:stock.picking.out:0
+msgid "Warehouse Address :"
+msgstr "Warehouse Address :"
+
+#. module: hmtk_cybrosys_format_pdf_do
+#: report:stock.picking.out:0
+msgid "Done"
+msgstr "Done"
+
+#. module: hmtk_cybrosys_format_pdf_do
+#: report:stock.picking.out:0
+msgid "Order(Origin)"
+msgstr "Order(Origin)"
+
+#. module: hmtk_cybrosys_format_pdf_do
+#: model:ir.actions.report.xml,name:hmtk_cybrosys_format_pdf_do.report_picking_list_out_new
+msgid "Delivery Slip 2"
+msgstr "Delivery Slip 2"
+
+#. module: hmtk_cybrosys_format_pdf_do
+#: report:stock.picking.out:0
+msgid "Incoming Shipment :"
+msgstr "Incoming Shipment :"
+
+#. module: hmtk_cybrosys_format_pdf_do
+#: model:ir.model,name:hmtk_cybrosys_format_pdf_do.model_stock_picking_out
+msgid "Delivery Orders"
+msgstr "Albaranes de salida"
+
+#. module: hmtk_cybrosys_format_pdf_do
+#: report:stock.picking.out:0
+msgid "Journal"
+msgstr "Journal"
+

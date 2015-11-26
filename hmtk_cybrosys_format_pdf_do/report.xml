@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <report id="report_picking_list_out_new"
+                model="stock.picking"
+                name="stock.picking.out"
+                string="Delivery Slip 2"
+                rml="hmtk_cybrosys_format_pdf_do/report/picking.rml"
+        />
+    </data>
+</openerp>
