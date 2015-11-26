@@ -2,9 +2,9 @@
 <openerp>
     <data>
         <report id="report_picking_list_out_new"
-                model="stock.picking"
+                model="stock.picking.out"
                 name="stock.picking.out"
-                string="Delivery Slip 2"
+                string="Delivery Order Nordika"
                 rml="hmtk_cybrosys_format_pdf_do/report/picking.rml"
         />
     </data>
