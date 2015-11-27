@@ -68,7 +68,7 @@ msgstr "1.3cm 24.9cm 19.9cm 24.9cm"
 #. module: hmtk_cybrosys_format_pdf_do
 #: report:stock.picking.out:0
 msgid "Contact Address :"
-msgstr "Contact Address :"
+msgstr "Direccion de envio :"
 
 #. module: hmtk_cybrosys_format_pdf_do
 #: field:stock.picking,shipping_address:0
@@ -79,7 +79,7 @@ msgstr "Shipping Address"
 #. module: hmtk_cybrosys_format_pdf_do
 #: report:stock.picking.out:0
 msgid "Serial Number"
-msgstr "Serial Number"
+msgstr "Numero de serie"
 
 #. module: hmtk_cybrosys_format_pdf_do
 #: report:stock.picking.out:0
@@ -104,17 +104,17 @@ msgstr "Delivery Order :"
 #. module: hmtk_cybrosys_format_pdf_do
 #: report:stock.picking.out:0
 msgid "Description"
-msgstr "Description"
+msgstr "Descripcion"
 
 #. module: hmtk_cybrosys_format_pdf_do
 #: report:stock.picking.out:0
 msgid "Sign of person deliver the products"
-msgstr "Sign of person deliver the products"
+msgstr "Entregado"
 
 #. module: hmtk_cybrosys_format_pdf_do
 #: report:stock.picking.out:0
-msgid "Sign of person recive the products"
-msgstr "Sign of person recive the products"
+msgid "Sign of person receive the products"
+msgstr "Recibido"
 
 #. module: hmtk_cybrosys_format_pdf_do
 #: report:stock.picking.out:0
@@ -129,7 +129,7 @@ msgstr "TIENDA"
 #. module: hmtk_cybrosys_format_pdf_do
 #: report:stock.picking.out:0
 msgid "Description"
-msgstr "Description"
+msgstr "Descripcion"
 
 #. module: hmtk_cybrosys_format_pdf_do
 #: report:stock.picking.out:0
@@ -154,7 +154,7 @@ msgstr "Order(Origin)"
 #. module: hmtk_cybrosys_format_pdf_do
 #: model:ir.actions.report.xml,name:hmtk_cybrosys_format_pdf_do.report_picking_list_out_new
 msgid "Delivery Slip 2"
-msgstr "Delivery Slip 2"
+msgstr "Vale de entrega"
 
 #. module: hmtk_cybrosys_format_pdf_do
 #: report:stock.picking.out:0

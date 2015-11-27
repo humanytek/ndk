@@ -373,7 +373,7 @@
     <blockTable colWidths="130.0,130.0,130.0,130.0" repeatRows="1" style="footer_sign">
       <tr>
         <td>
-          <para style="terp_tblheader_Details_Left">Sign of person recive the products</para>
+          <para style="terp_tblheader_Details_Left">Sign of person receive the products</para>
         </td>
         <td>
            <para style="terp_tblheader_Details_Left"></para>
