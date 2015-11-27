@@ -23,17 +23,17 @@ msgstr "Internal Shipment :"
 #. module: hmtk_cybrosys_format_pdf_do
 #: report:stock.picking.out:0
 msgid "Schedule Date"
-msgstr "Fecha planificada"
+msgstr "Schedule Date"
 
 #. module: hmtk_cybrosys_format_pdf_do
 #: report:stock.picking.out:0
 msgid "Customer Address :"
-msgstr "Direccion del cliente :"
+msgstr "Customer Address :"
 
 #. module: hmtk_cybrosys_format_pdf_do
 #: report:stock.picking.out:0
 msgid "Location"
-msgstr "Ubicacion"
+msgstr "Location"
 
 #. module: hmtk_cybrosys_format_pdf_do
 #: report:stock.picking.out:0
@@ -53,12 +53,12 @@ msgstr "BODEGA"
 #. module: hmtk_cybrosys_format_pdf_do
 #: report:stock.picking.out:0
 msgid "Waiting Availability"
-msgstr "En espera de disponibilidad"
+msgstr "Waiting Availability"
 
 #. module: hmtk_cybrosys_format_pdf_do
 #: report:stock.picking.out:0
 msgid "Available"
-msgstr "Disponible"
+msgstr "Available"
 
 #. module: hmtk_cybrosys_format_pdf_do
 #: report:stock.picking.out:0
@@ -99,7 +99,7 @@ msgstr "Supplier Address :"
 #. module: hmtk_cybrosys_format_pdf_do
 #: report:stock.picking.out:0
 msgid "Delivery Order :"
-msgstr "Albaran de salida :"
+msgstr "Delivery Order :"
 
 #. module: hmtk_cybrosys_format_pdf_do
 #: report:stock.picking.out:0
@@ -119,7 +119,7 @@ msgstr "Recibido"
 #. module: hmtk_cybrosys_format_pdf_do
 #: report:stock.picking.out:0
 msgid "Quantity"
-msgstr "Cantidad"
+msgstr "Quantity"
 
 #. module: hmtk_cybrosys_format_pdf_do
 #: report:stock.picking.out:0
@@ -134,7 +134,7 @@ msgstr "Descripcion"
 #. module: hmtk_cybrosys_format_pdf_do
 #: report:stock.picking.out:0
 msgid "Weight"
-msgstr "Peso"
+msgstr "Weight"
 
 #. module: hmtk_cybrosys_format_pdf_do
 #: report:stock.picking.out:0
@@ -149,7 +149,7 @@ msgstr "Done"
 #. module: hmtk_cybrosys_format_pdf_do
 #: report:stock.picking.out:0
 msgid "Order(Origin)"
-msgstr "Pedido(Origen)"
+msgstr "Order(Origin)"
 
 #. module: hmtk_cybrosys_format_pdf_do
 #: model:ir.actions.report.xml,name:hmtk_cybrosys_format_pdf_do.report_picking_list_out_new
@@ -169,5 +169,5 @@ msgstr "Albaranes de salida"
 #. module: hmtk_cybrosys_format_pdf_do
 #: report:stock.picking.out:0
 msgid "Journal"
-msgstr "Diario"
+msgstr "Journal"
 

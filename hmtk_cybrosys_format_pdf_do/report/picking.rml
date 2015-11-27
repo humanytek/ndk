@@ -128,6 +128,7 @@
     <paraStyle name="terp_tblheader_General_Right" fontName="Helvetica-Bold" fontSize="6.0" leading="10" alignment="RIGHT" spaceBefore="0.0" spaceAfter="0.0"/>
     <paraStyle name="terp_tblheader_Details_Right" fontName="Helvetica-Bold" fontSize="7.0" leading="11" alignment="RIGHT" spaceBefore="0.0" spaceAfter="0.0"/>
     <paraStyle name="terp_tblheader_Details_Left" fontName="Helvetica-Bold" fontSize="7.0" leading="11" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="terp_tblheader_Details_Center" fontName="Helvetica-Bold" fontSize="7.0" leading="11" alignment="CENTER" spaceBefore="0.0" spaceAfter="0.0"/>
     <paraStyle name="terp_default_Right_8" fontName="Helvetica" fontSize="6.0" leading="10" alignment="RIGHT" spaceBefore="0.0" spaceAfter="0.0"/>
     <paraStyle name="terp_header_Right" fontName="Helvetica-Bold" fontSize="13.0" leading="19" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
     <paraStyle name="terp_default_address" fontName="Helvetica" fontSize="8.0" leading="13" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
@@ -370,19 +371,19 @@
     <blockTable>
       <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
     </blockTable>
-    <blockTable colWidths="130.0,130.0,130.0,130.0" repeatRows="1" style="footer_sign">
+    <blockTable colWidths="130.0,50.0,130.0" repeatRows="1" >
+      <tr>
+      <td><para style="terp_tblheader_Details_Center">____________________________</para></td>
+      <td></td>
+      <td><para style="terp_tblheader_Details_Center">____________________________</para></td>
+      </tr>
       <tr>
         <td>
-          <para style="terp_tblheader_Details_Left">Sign of person recive the products</para>
+          <para style="terp_tblheader_Details_Center">Sign of person receive the products</para>
         </td>
+        <td></td>
         <td>
-           <para style="terp_tblheader_Details_Left"></para>
-        </td>
-        <td>
-           <para style="terp_tblheader_Details_Left">Sign of person deliver the products</para>
-        </td>
-        <td>
-           <para style="terp_tblheader_Details_Left"></para>
+           <para style="terp_tblheader_Details_Center">Sign of person deliver the products</para>
         </td>
       </tr>
     </blockTable>
