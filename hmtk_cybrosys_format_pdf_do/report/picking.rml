@@ -191,7 +191,13 @@
         </td>
         <td>
           <para style="terp_default_Bold_9">Contact Address :</para>
+<<<<<<< HEAD
           <para style="terp_default_9">[[ (picking.shipping_address or display_address(picking.partner_id) or '' ) ]]</para>
+=======
+          <para style="terp_default_9">[[ (picking.shipping_address and picking.shipping_address) or (picking.partner_id and picking.partner_id.title.name or '' )]] [[ (not picking.shipping_address and picking.partner_id) and picking.partner_id.name or '' ]]</para>
+          <para style="terp_default_9">[[ (not picking.shipping_address and picking.partner_id) and display_address(picking.partner_id) ]] </para>
+          <para style="terp_default_9">[[ not picking.shipping_address and (picking.partner_id.phone or (picking.partner_id.email or removeParentNode('para'))]]</para>
+>>>>>>> 03387bdad553628511089210b9708120d5f487c9
         </td>
       </tr>
     </blockTable>
