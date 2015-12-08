@@ -67,8 +67,8 @@ class magento_instance_website_ndk(osv.Model):
             raise osv.except_osv('Advertencia','Debe crear una instancia para la conexion')
             return {}
     
-        #cnx = mysql.connector.connect(user='root', password='qBg#@kme@#$r', host='127.0.0.1', database='nordamx_store')
-        cnx = mysql.connector.connect(user=str(mage_user),password='qBg#@kme@#$r',host=str(mage_host),database=str(mage_db))
+        #cnx = mysql.connector.connect(user='root', password='4cV668qQkkNM', host='127.0.0.1', database='nordamx_store')
+        cnx = mysql.connector.connect(user=str(mage_user),password='4cV668qQkkNM',host=str(mage_host),database=str(mage_db))
         if not cnx:
             raise osv.except_osv('Advertencia','No se produjo conexion')
             return {}
@@ -158,8 +158,8 @@ class magento_instance_website_ndk(osv.Model):
             raise osv.except_osv('Advertencia','Debe crear una instancia para la conexion')
             return {}
     
-        #cnx = mysql.connector.connect(user='root', password='qBg#@kme@#$r', host='127.0.0.1', database='nordamx_store')
-        cnx = mysql.connector.connect(user=str(mage_user),password='qBg#@kme@#$r',host=str(mage_host),database=str(mage_db))
+        #cnx = mysql.connector.connect(user='root', password='4cV668qQkkNM', host='127.0.0.1', database='nordamx_store')
+        cnx = mysql.connector.connect(user=str(mage_user),password='4cV668qQkkNM',host=str(mage_host),database=str(mage_db))
         if not cnx:
             raise osv.except_osv('Advertencia','No se produjo conexion')
             return {}
@@ -168,6 +168,12 @@ class magento_instance_website_ndk(osv.Model):
         
             # Fecha de hoy
             date_now = datetime.now().date()
+            # Fecha de ayer
+            day = str(date_now)[8:10]
+            mon = str(date_now)[5:7]
+            yyy = str(date_now)[:4]
+            res = int(day) - 1
+            date_yesterday = datetime.strptime(yyy+'-'+mon+'-'+str(res), '%Y-%m-%d')
                 
             # Disposicion de tablas en OpenERP
             obj_product_product = self.pool.get('product.product')
@@ -182,7 +188,7 @@ class magento_instance_website_ndk(osv.Model):
                 "t1.color_value,t1.disenador_value,t1.manufacturer_value,t1.color_2_value,t1.cojin_value,t1.colorcojin_value,t1.color_tela_value, \n"
                 "t1.thumbnail \n"
                 "FROM mage_catalog_product_flat_1 AS t1 \n"
-                "WHERE t1.updated_at LIKE '"+str(date_now)+"%' \n"
+                "WHERE t1.updated_at LIKE '"+str(date_now)+"%' OR t1.updated_at LIKE '"+str(date_yesterday)[:10]+"%' \n"
                 "ORDER BY entity_id ASC")
                 
             cursor.execute(q_prod)
@@ -382,8 +388,8 @@ class magento_instance_website_ndk(osv.Model):
             raise osv.except_osv('Advertencia','Debe crear una instancia para la conexion')
             return {}
     
-        #cnx = mysql.connector.connect(user='root', password='qBg#@kme@#$r', host='127.0.0.1', database='nordamx_store')
-        cnx = mysql.connector.connect(user=str(mage_user),password='qBg#@kme@#$r',host=str(mage_host),database=str(mage_db))
+        #cnx = mysql.connector.connect(user='root', password='4cV668qQkkNM', host='127.0.0.1', database='nordamx_store')
+        cnx = mysql.connector.connect(user=str(mage_user),password='4cV668qQkkNM',host=str(mage_host),database=str(mage_db))
         if not cnx:
             raise osv.except_osv('Advertencia','No se produjo conexion')
             return {}
@@ -555,7 +561,7 @@ class magento_instance_website_ndk(osv.Model):
         else:
             raise osv.except_osv('Advertencia','Debe crear una instancia para la conexion')
             return {}        
-        cnx = mysql.connector.connect(user=str(mage_user),password='qBg#@kme@#$r',host=str(mage_host),database=str(mage_db))
+        cnx = mysql.connector.connect(user=str(mage_user),password='4cV668qQkkNM',host=str(mage_host),database=str(mage_db))
         if not cnx:
             raise osv.except_osv('Advertencia','No se produjo conexion')
             return {}
@@ -718,7 +724,7 @@ class magento_instance_website_ndk(osv.Model):
             raise osv.except_osv('Advertencia','Debe crear una instancia para la conexion')
             return {}
         
-        cnx = mysql.connector.connect(user=str(mage_user),password='qBg#@kme@#$r',host=str(mage_host),database=str(mage_db))
+        cnx = mysql.connector.connect(user=str(mage_user),password='4cV668qQkkNM',host=str(mage_host),database=str(mage_db))
         if not cnx:
             raise osv.except_osv('Advertencia','No se produjo conexion')
             return {}
@@ -891,8 +897,8 @@ class magento_instance_website_ndk(osv.Model):
             raise osv.except_osv('Advertencia','Debe crear una instancia para la conexion')
             return {}
     
-        #cnx = mysql.connector.connect(user='root', password='qBg#@kme@#$r', host='127.0.0.1', database='nordamx_store')
-        cnx = mysql.connector.connect(user=str(mage_user),password='qBg#@kme@#$r',host=str(mage_host),database=str(mage_db))
+        #cnx = mysql.connector.connect(user='root', password='4cV668qQkkNM', host='127.0.0.1', database='nordamx_store')
+        cnx = mysql.connector.connect(user=str(mage_user),password='4cV668qQkkNM',host=str(mage_host),database=str(mage_db))
         if not cnx:
             raise osv.except_osv('Advertencia','No se produjo conexion')
             return {}

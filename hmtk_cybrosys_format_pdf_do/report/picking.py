@@ -39,7 +39,7 @@ class pickingparser(report_sxw.rml_parse):
 
     def get_product_desc(self, move_line):
         print "called==get_product_desc"
-        desc = move_line.product_id.name
+        desc = move_line.product_id.modelo_tec
         if move_line.product_id.default_code:
             desc = '[' + move_line.product_id.default_code + ']' + ' ' + desc
         return desc

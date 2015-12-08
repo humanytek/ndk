@@ -191,9 +191,7 @@
         </td>
         <td>
           <para style="terp_default_Bold_9">Contact Address :</para>
-          <para style="terp_default_9">[[ picking.partner_id and picking.partner_id.title.name or '' ]] [[ picking.partner_id and picking.partner_id.name or '' ]]</para>
-          <para style="terp_default_9">[[ picking.partner_id and display_address(picking.partner_id) ]] </para>
-          <para style="terp_default_9">[[ picking.partner_id.phone or picking.partner_id.email or removeParentNode('para')]]</para>
+          <para style="terp_default_9">[[ (picking.shipping_address or display_address(picking.partner_id) or '' ) ]]</para>
         </td>
       </tr>
     </blockTable>
@@ -290,7 +288,7 @@
       <blockTable colWidths="150.0,73.0,59.0,59.0,71.0,10.0,50.0,50.0,50.0" style="Move_Line_Contect_Assign_State">
         <tr>
           <td>
-            <para style="terp_default_9"><font face="Helvetica" size="9.0">[[  (move_lines.product_id and move_lines.product_id.modelo_tec) or ''  ]] </font></para>
+            <para style="terp_default_9"><font face="Helvetica" size="9.0">[[ get_product_desc(move_lines) ]]</font></para>
           </td>
           <td>
             <para style="terp_default_Centre_9">[[ (move_lines.prodlot_id and move_lines.prodlot_id.name) or '' ]]</para>
@@ -322,6 +320,45 @@
       </blockTable>
 
     </section>
+
+    <para style="terp_default_Bold_9">[[ ([line for line in picking.move_lines if (line.state == 'draft' or line.state=='waiting' )]) and 'Non Assigned Products:' or removeParentNode('para') ]]</para>
+    <para style="terp_default_2"/>
+    <section>
+      <para style="terp_default_2">[[ repeatIn([line for line in picking.move_lines if (line.state == 'draft' or line.state=='waiting')],'move_lines') ]]</para>
+      <para style="terp_default_2">[[ (picking.move_lines!=[] and removeParentNode('para')) or removeParentNode('section')]]</para>
+      <blockTable colWidths="150.0,73.0,59.0,59.0,71.0,10.0,50.0,50.0,50.0" style="Move_Line_Contect_Assign_State">
+        <tr>
+          <td>
+            <para style="terp_default_9"><font face="Helvetica" size="9.0">[[ get_product_desc(move_lines) ]]</font></para>
+          </td>
+          <td>
+            <para style="terp_default_Centre_9">[[ (move_lines.prodlot_id and move_lines.prodlot_id.name) or '' ]]</para>
+          </td>
+          <td>
+            <para style="terp_default_9">[[ (picking.type == 'in' or removeParentNode('para')) and '' ]][[ move_lines.state == 'done' and 'Received' or move_lines.state]]</para>
+            <para style="terp_default_9">[[ (picking.type == 'out' or removeParentNode('para')) and '']][[ move_lines.state == 'done' and 'Delivered' or move_lines.state]]</para>
+            <para style="terp_default_9">[[ (picking.type == 'internal' or removeParentNode('para')) and '' ]][[ move_lines.state == 'done' and 'Transferred' or move_lines.state]]</para>
+          </td>
+          <td>
+            <para style="terp_default_Right_9">[[ (move_lines.location_id and move_lines.location_id.name) or '' ]] </para>
+          </td>
+          <td>
+            <para style="terp_default_Right_9">[[ formatLang(move_lines.product_qty) ]] [[ move_lines.product_uom.name ]]</para>
+          </td>
+          <td>
+            </td>
+            <td>
+               <para style="terp_default_Centre_9"></para>
+            </td>
+            <td>
+               <para style="terp_default_Centre_9"></para>
+            </td>
+            <td>
+               <para style="terp_default_Centre_9"></para>
+            </td>
+        </tr>
+      </blockTable>
+    </section>
     <blockTable colWidths="150.0,73.0,59.0,59.0,71.0,10.0,50.0,50.0,50.0">
         <tr>
           <td></td>
@@ -341,33 +378,6 @@
           </td>
         </tr>
       </blockTable>
-    <para style="terp_default_Bold_9">[[ ([line for line in picking.move_lines if (line.state == 'draft' or line.state=='waiting' )]) and 'Non Assigned Products:' or removeParentNode('para') ]]</para>
-    <para style="terp_default_2"/>
-    <section>
-      <para style="terp_default_2">[[ repeatIn([line for line in picking.move_lines if (line.state == 'draft' or line.state=='waiting')],'move_lines') ]]</para>
-      <para style="terp_default_2">[[ (picking.move_lines!=[] and removeParentNode('para')) or removeParentNode('section')]]</para>
-      <blockTable colWidths="150.0,73.0,59.0,59.0,71.0,10.0,50.0,50.0,50.0" style="Table1">
-        <tr>
-          <td>
-            <para style="terp_default_9"><font face="Helvetica" size="9.0">[[ get_product_desc(move_lines) ]] </font></para>
-          </td>
-          <td>
-            <para style="terp_default_Centre_9">[[ (move_lines.prodlot_id and move_lines.prodlot_id.name) or '' ]]</para>
-          </td>
-          <td>
-            <para style="terp_default_9">[[ (picking.type == 'in' or removeParentNode('para')) and '' ]][[ move_lines.state == 'done' and 'Received' or move_lines.state]]</para>
-            <para style="terp_default_9">[[ (picking.type == 'out' or removeParentNode('para')) and '']][[ move_lines.state == 'done' and 'Delivered' or move_lines.state]]</para>
-            <para style="terp_default_9">[[ (picking.type == 'internal' or removeParentNode('para')) and '' ]][[ move_lines.state == 'done' and 'Transferred' or move_lines.state]]</para>
-          </td>
-          <td>
-            <para style="terp_default_Right_9">[[ (move_lines.location_id and move_lines.location_id.name) or '' ]] </para>
-          </td>
-          <td>
-            <para style="terp_default_Right_9">[[ formatLang(move_lines.product_qty) ]] [[ move_lines.product_uom.name ]]</para>
-          </td>
-        </tr>
-      </blockTable>
-    </section>
     <blockTable>
       <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
     </blockTable>

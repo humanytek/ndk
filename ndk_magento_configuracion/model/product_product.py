@@ -78,7 +78,7 @@ class product_product_ndk(osv.Model):
             raise osv.except_osv('Advertencia','Debe crear una instancia para la conexion')
             return {}
         
-        cnx = mysql.connector.connect(user=str(mage_user),password='qBg#@kme@#$r',host=str(mage_host),database=str(mage_db))
+        cnx = mysql.connector.connect(user=str(mage_user),password='4cV668qQkkNM',host=str(mage_host),database=str(mage_db))
         if not cnx:
             raise osv.except_osv('Advertencia','No se produjo conexion')
             return {}
