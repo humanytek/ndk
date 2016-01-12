@@ -43,9 +43,12 @@ class sale_order_ndk(osv.Model):
         res = {}
         for i in self.browse(cr, uid, ids, context):
             res[i.id] = 0.00
+            res[i.id] = i.amount_total - i.facturado
+            """
             for j in i.invoice_ids:
                 if j.state in ['open','paid']:
                     res[i.id] += j.residual
+            """
         return res
     
     _columns = {

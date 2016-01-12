@@ -172,7 +172,13 @@ class import_info_ndk(osv.Model):
         'ref_paquete': fields.char('Referencia de paquete', size=64),
         'name': fields.char('Number of Operation', size=128),
         'converted_expense_amount': fields.function(_calc_converted_expense_amount, 
-            type='float', string='Converted expense amount', digits=(10,2))
+            type='float', string='Converted expense amount', digits=(10,2)),
+        'ref_paquete': fields.char('Referencia de paquete', size=64),
+        'currency1': fields.many2one('res.currency', 'Currency'),
+        'currency2': fields.many2one('res.currency', 'Currency'),
+        'currency3': fields.many2one('res.currency', 'Currency'),
+        'rate2' : fields.float('Exchange Rate'),
+        'rate3' : fields.float('Exchange Rate')
     }
     _defaults = {
         'ref_paquete': make_sscc

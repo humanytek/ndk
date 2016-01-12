@@ -15,6 +15,13 @@
                     - Moneda nacional: price_unit_converted
                     - Divisa para "Moneda nacional": currency_converted_id
                 -->
+<!--				<xpath expr="//field[@name='rate']" position="after">               -->
+<!--					<field name="currency1"/>-->
+<!--					<field name="rate2"/>-->
+<!--					<field name="currency2"/>-->
+<!--					<field name="rate3"/>-->
+<!--					<field name="currency3"/>-->
+<!--				</xpath>					-->
                 <xpath expr="//form/notebook/page[@string='Containers']/group[1]/field[@name='po_ids']" position="replace">
                     <field name="po_ids" nolabel="1">
                         <tree editable="bottom" create="false">

@@ -35,10 +35,25 @@ class purchase_order_line_ndk(osv.Model):
         for i in self.browse(cr, uid, ids, context):
             res[i.id] = 0.00
             price_unit = i.price_unit
-            currency_name = i.standard_price_currency_id.name
-            currency_rate_silent = i.standard_price_currency_id.rate_silent
-            if currency_name not in ['MXN',None] and price_unit > 0.00:
-                res[i.id] = price_unit / currency_rate_silent
+            res[i.id] = price_unit
+            if i.info_id:
+                currency_name = i.standard_price_currency_id.name
+                if currency_name not in ['MXN',None] and price_unit > 0.00:
+                    if i.info_id.currency1.id:
+                        if i.standard_price_currency_id.id == i.info_id.currency1.id:
+                            res[i.id] = i.info_id.rate * price_unit
+                    if i.info_id.currency2.id:
+                        if i.standard_price_currency_id.id == i.info_id.currency2.id:
+                            res[i.id] = i.info_id.rate2 * price_unit
+                    if i.info_id.currency3.id:
+                        if i.standard_price_currency_id.id == i.info_id.currency3.id:
+                            res[i.id] = i.info_id.rate3 * price_unit
+#             currency_name = i.standard_price_currency_id.name
+#             currency_rate_silent = i.standard_price_currency_id.rate_silent
+#             if currency_name not in ['MXN',None] and price_unit > 0.00:
+#                 res[i.id] = price_unit / currency_rate_silent
+                else:
+                    res[i.id] = price_unit
             else:
                 res[i.id] = price_unit
         return res

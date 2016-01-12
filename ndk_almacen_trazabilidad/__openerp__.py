@@ -20,7 +20,7 @@
 ##############################################################################
 {
     'name': 'HMTK Almacén/Trazabilidad',
-    'version': '0.1',
+    'version': '0.2.2',
     'sequence': 1,
     'category': 'Custom',
     'complexity': "easy",

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <report auto="False" id="purchase.report_purchase_quotation" model="purchase.order" 
+                name="purchase.quotation" rml="hmtk_ndk_l10n_mx_import_info/report/request_quotation.rml"
+                string="Request for Quotation"/>
+	</data>
+</openerp>

@@ -17,22 +17,22 @@ msgstr ""
 "Language: es_MX\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:res.groups,name:purchase.group_analytic_accounting
 msgid "Analytic Accounting for Purchases"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.model,name:purchase.model_account_config_settings
 msgid "account.config.settings"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:board.board:0
 msgid "Monthly Purchases by Category"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: help:purchase.config.settings,module_warning:0
 msgid ""
 "Allow to configure notification on products and trigger them when a user wants to purchase a given product or a given supplier.\n"
@@ -40,97 +40,97 @@ msgid ""
 "                Supplier: don't forget to ask for an express delivery."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:product.pricelist,name:purchase.list0
 msgid "Default Purchase Pricelist"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: report:purchase.order:0
 msgid "Tel :"
-msgstr ""
+msgstr "Tel :"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: help:purchase.order,pricelist_id:0
 msgid ""
 "The pricelist sets the currency used for this purchase order. It also "
 "computes the supplier price for the selected products/quantities."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.report:0 field:purchase.report,day:0
 msgid "Day"
 msgstr "Día"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0
 msgid "Cancel Order"
 msgstr "Cancelar pedido"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.report:0
 msgid "Order of Day"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: help:purchase.order,message_unread:0
 msgid "If checked new messages require your attention."
 msgstr "Si se marca, los nuevos mensajes requieren su atención"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.ui.menu,name:purchase.menu_procurement_management_inventory
 #: model:process.node,name:purchase.process_node_packinglist0
 #: model:process.node,name:purchase.process_node_productrecept0
 msgid "Incoming Products"
 msgstr "Albaranes de entrada"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0
 msgid "Reference"
 msgstr "Referencia"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order.line,account_analytic_id:0
 msgid "Analytic Account"
 msgstr "Cuenta analítica"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: help:purchase.order,message_summary:0
 msgid ""
 "Holds the Chatter summary (number of messages, ...). This summary is "
 "directly in html format in order to be inserted in kanban views."
 msgstr "Contiene el resumen del chatter (nº de mensajes, ...). Este resumen viene directamente en formato HTML para poder ser insertado en las vistas kanban."
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: code:addons/purchase/purchase.py:1087
 #, python-format
 msgid "Configuration Error!"
 msgstr "¡Error de configuración!"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: code:addons/purchase/purchase.py:598
 #, python-format
 msgid "You must first cancel all receptions related to this purchase order."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.model,name:purchase.model_res_partner
 #: field:purchase.order.line,partner_id:0
 msgid "Partner"
 msgstr "Empresa"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.report,negociation:0
 msgid "Purchase-Standard Price"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: code:addons/purchase/purchase.py:1074
 #, python-format
 msgid "No supplier defined for this product !"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: help:res.company,po_lead:0
 msgid ""
 "Margin of error for supplier lead times. When the systemgenerates Purchase "
@@ -138,103 +138,103 @@ msgid ""
 "to cope with unexpected supplier delays."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.report:0 field:purchase.report,price_average:0
 msgid "Average Price"
 msgstr "Precio promedio"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0
 msgid "Purchase order which are in the exception state"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.actions.act_window,name:purchase.action_view_purchase_order_group
 msgid "Merge Purchase orders"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.report:0 field:purchase.report,price_total:0
 msgid "Total Price"
 msgstr "Precio total"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0 field:purchase.order,minimum_planned_date:0
 #: report:purchase.quotation:0 field:purchase.report,expected_date:0
 msgid "Expected Date"
-msgstr ""
+msgstr "Fecha prevista"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: report:purchase.order:0
 msgid "Delivery address :"
 msgstr "Dirección de envío :"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0
 msgid "Confirm Order"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.config.settings,module_warning:0
 msgid "Alerts by products or supplier"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order,name:0 view:purchase.order.line:0
 #: field:purchase.order.line,order_id:0
 msgid "Order Reference"
 msgstr "Referencia del pedido"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.config.settings:0
 msgid "Invoicing Process"
 msgstr "Proceso de Facturación"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:process.transition,name:purchase.process_transition_approvingpurchaseorder0
 msgid "Approbation"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: help:purchase.config.settings,group_uom:0
 msgid ""
 "Allows you to select and maintain different units of measure for products."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: help:purchase.order,minimum_planned_date:0
 msgid ""
 "This is computed as the minimum scheduled date of all purchase order lines' "
 "products."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: code:addons/purchase/purchase.py:259
 #, python-format
 msgid "In order to delete a purchase order, you must cancel it first."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:product.product:0
 msgid "When you sell this product, OpenERP will trigger"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0
 msgid "Approved purchase orders"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0
 msgid "Total Untaxed amount"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.report:0 field:purchase.report,category_id:0
 msgid "Category"
 msgstr "Categoría"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:process.transition,note:purchase.process_transition_purchaseinvoice0
 msgid ""
 "A purchase order generates a supplier invoice, as soon as it is confirmed by"
@@ -242,40 +242,40 @@ msgid ""
 "invoice is based on received or on ordered quantities."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0 field:purchase.order,state:0
 #: view:purchase.order.line:0 field:purchase.order.line,state:0
 #: view:purchase.report:0
 msgid "Status"
 msgstr "Estado"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: selection:purchase.report,month:0
 msgid "August"
 msgstr "Agosto"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:product.product:0
 msgid "to"
 msgstr "hasta"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: selection:purchase.report,month:0
 msgid "June"
 msgstr "Junio"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.model,name:purchase.model_purchase_report
 msgid "Purchases Orders"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: help:account.config.settings,group_analytic_account_for_purchases:0
 #: help:purchase.config.settings,group_analytic_account_for_purchases:0
 msgid "Allows you to specify an analytic account on purchase orders."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.actions.act_window,help:purchase.action_invoice_pending
 msgid ""
 "<p class=\"oe_view_nocontent_create\">\n"
@@ -291,12 +291,12 @@ msgid ""
 "        "
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: selection:purchase.report,month:0
 msgid "October"
 msgstr "Octubre"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: code:addons/purchase/purchase.py:1087
 #, python-format
 msgid ""
@@ -304,58 +304,58 @@ msgid ""
 "seems to be a configuration error!"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:product.product:0
 msgid "When you sell this service to a customer,"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:process.transition,note:purchase.process_transition_createpackinglist0
 msgid "A pick list is generated to track the incoming products."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.actions.act_window,name:purchase.purchase_rfq
 #: model:ir.ui.menu,name:purchase.menu_purchase_rfq view:purchase.order:0
 #: view:purchase.report:0
 msgid "Quotations"
 msgstr "Presupuestos"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order.line_invoice:0
 msgid "Do you want to generate the supplier invoices?"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order.line,product_qty:0 view:purchase.report:0
 #: field:purchase.report,quantity:0
 msgid "Quantity"
 msgstr "Cantidad"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order,fiscal_position:0
 msgid "Fiscal Position"
 msgstr "Posición fiscal"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.config.settings,default_invoice_method:0
 msgid "Default invoicing control method"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: code:addons/purchase/purchase.py:909
 #, python-format
 msgid "Cannot delete a purchase order line which is in state '%s'."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.model,name:purchase.model_stock_picking_in
 #: model:ir.ui.menu,name:purchase.menu_action_picking_tree4
 #: view:purchase.order:0
 msgid "Incoming Shipments"
 msgstr "Albaranes de entrada"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.actions.act_window,help:purchase.act_res_partner_2_supplier_invoices
 msgid ""
 "<p class=\"oe_view_nocontent_create\">\n"
@@ -369,29 +369,29 @@ msgid ""
 "            "
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0 view:purchase.order.line:0
 msgid "Search Purchase Order"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: report:purchase.order:0
 msgid "Date Req."
 msgstr "Fecha solicitud"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0 view:purchase.order.line:0
 msgid "Purchase Order Lines"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: help:purchase.order,dest_address_id:0
 msgid ""
 "Put an address if you want to deliver directly from the supplier to the "
 "customer. Otherwise, keep empty to deliver to your own company."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.actions.act_window,help:purchase.purchase_line_form_action2
 msgid ""
 "<p>\n"
@@ -403,52 +403,52 @@ msgid ""
 "            "
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order.line,date_planned:0
 msgid "Scheduled Date"
 msgstr "Fecha planificada"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order,currency_id:0
 msgid "Currency"
 msgstr "Dinero corriente"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order,journal_id:0
 msgid "Journal"
 msgstr "Diario"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:board.board:0 model:ir.actions.act_window,name:purchase.purchase_draft
 msgid "Request for Quotations"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order.line,move_ids:0
 msgid "Reservation"
 msgstr "Reserva"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0
 msgid "Purchase orders that include lines not invoiced."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:product.product:0 field:product.template,purchase_ok:0
 msgid "Can be Purchased"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.ui.menu,name:purchase.menu_action_picking_tree_in_move
 msgid "Incoming  Products"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0
 msgid "Request for Quotation "
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: help:purchase.order,partner_ref:0
 msgid ""
 "Reference of the sales order or quotation sent by your supplier. It's mainly"
@@ -456,18 +456,18 @@ msgid ""
 "usually written on the delivery order sent by your supplier."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.config.settings:0 view:purchase.order.group:0
 #: view:purchase.order.line_invoice:0
 msgid "or"
 msgstr "o"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:res.company,po_lead:0
 msgid "Purchase Lead Time"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:process.transition,note:purchase.process_transition_invoicefrompurchase0
 msgid ""
 "The invoice is created automatically if the Invoice control of the purchase "
@@ -475,99 +475,99 @@ msgid ""
 "accountant (Invoice control = Manual)."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:mail.message.subtype,name:purchase.mt_rfq_approved
 msgid "RFQ Approved"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.config.settings:0
 msgid "Apply"
 msgstr "Aplicar"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order,amount_untaxed:0
 msgid "Untaxed Amount"
 msgstr "Base imponible"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:process.transition,note:purchase.process_transition_confirmingpurchaseorder0
 msgid ""
 "The buyer has to approve the RFQ before being sent to the supplier. The RFQ "
 "becomes a confirmed Purchase Order."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:mail.message.subtype,name:purchase.mt_rfq_confirmed
 msgid "RFQ Confirmed"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0
 msgid "Customer Address"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: selection:purchase.order,state:0
 msgid "RFQ Sent"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0
 msgid "Not Invoiced"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0 field:purchase.order,partner_id:0
 #: view:purchase.order.line:0 view:purchase.report:0
 #: field:purchase.report,partner_id:0
 msgid "Supplier"
 msgstr "Proveedor"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: code:addons/purchase/purchase.py:473
 #, python-format
 msgid "Define expense account for this company: \"%s\" (id:%d)."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:process.transition,name:purchase.process_transition_packinginvoice0
 #: model:process.transition,name:purchase.process_transition_productrecept0
 msgid "From a Pick list"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.actions.act_window,name:purchase.action_purchase_order_monthly_categ_graph
 #: view:purchase.report:0
 msgid "Monthly Purchase by Category"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order.line,price_subtotal:0
 msgid "Subtotal"
 msgstr "Subtotal"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order,shipped:0
 msgid "Received"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0
 msgid "Purchase order which are in draft state"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:product.product:0
 msgid "Suppliers"
 msgstr "Proveedores"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:product.product:0
 msgid "To Purchase"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.actions.act_window,help:purchase.purchase_form_action
 msgid ""
 "<p class=\"oe_view_nocontent_create\">\n"
@@ -581,101 +581,101 @@ msgid ""
 "            "
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order.line:0
 msgid "Invoices and Receptions"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:process.transition,note:purchase.process_transition_packinginvoice0
 msgid ""
 "A Pick list generates an invoice. Depending on the Invoicing control of the "
 "sales order, the invoice is based on delivered or on ordered quantities."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.report:0 field:purchase.report,nbr:0
 msgid "# of Lines"
 msgstr "Nº de líneas"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0
 msgid "(update)"
 msgstr "(Actualizar)"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0
 msgid "Calendar View"
 msgstr "Vista calendario"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: help:purchase.order,shipped:0
 msgid "It indicates that a picking has been done"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: code:addons/purchase/purchase.py:590 code:addons/purchase/purchase.py:597
 #, python-format
 msgid "Unable to cancel this purchase order."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.ui.menu,name:purchase.menu_procurement_management_invoice
 msgid "Invoice Control"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.actions.act_window,help:purchase.action_stock_move_report_po
 msgid ""
 "Reception Analysis allows you to easily check and analyse your company order"
 " receptions and the performance of your supplier's deliveries."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0
 msgid "Print"
 msgstr "Imprimir"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order,order_line:0
 msgid "Order Lines"
 msgstr "Líneas de venta"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: help:purchase.order,name:0
 msgid ""
 "Unique number of the purchase order, computed automatically when the "
 "purchase order is created."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.ui.menu,name:purchase.menu_product_pricelist_action2_purchase
 #: model:ir.ui.menu,name:purchase.menu_purchase_config_pricelist
 msgid "Pricelists"
 msgstr "Tarifas"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:product.pricelist.type,name:purchase.pricelist_type_purchase
 #: field:res.partner,property_product_pricelist_purchase:0
 msgid "Purchase Pricelist"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: report:purchase.order:0
 msgid "Total :"
 msgstr "Total :"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order,pricelist_id:0 field:purchase.report,pricelist_id:0
 msgid "Pricelist"
 msgstr "Tarifa"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: selection:purchase.order,state:0
 msgid "Draft PO"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: code:addons/purchase/purchase.py:1001 code:addons/purchase/purchase.py:1016
 #: code:addons/purchase/purchase.py:1020
 #: code:addons/purchase/wizard/purchase_order_group.py:47
@@ -683,150 +683,150 @@ msgstr ""
 msgid "Warning!"
 msgstr "¡Advertencia!"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:process.node,name:purchase.process_node_draftpurchaseorder0
 #: model:process.node,name:purchase.process_node_draftpurchaseorder1
 msgid "RFQ"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0
 msgid "Send by Email"
 msgstr "Enviar por correo-e"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: report:purchase.order:0 view:purchase.order:0
 #: field:purchase.order,date_order:0 field:purchase.order.line,date_order:0
 #: field:purchase.report,date:0
 msgid "Date"
 msgstr "Fecha orden"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.config.settings,group_uom:0
 msgid "Manage different units of measure for products"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:process.node,name:purchase.process_node_invoiceafterpacking0
 #: model:process.node,name:purchase.process_node_invoicecontrol0
 msgid "Draft Invoice"
 msgstr "Factura borrador"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: help:purchase.order,amount_tax:0
 msgid "The tax amount"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order,shipped_rate:0
 msgid "Received Ratio"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: selection:purchase.report,month:0
 msgid "September"
 msgstr "Setiembre"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: selection:purchase.report,state:0
 msgid "Waiting Supplier Ack"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: report:purchase.quotation:0
 msgid "Quotation :"
 msgstr "Solicitud de presupuesto:"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.actions.act_window,name:purchase.action_picking_tree4_picking_to_invoice
 #: model:ir.ui.menu,name:purchase.menu_action_picking_tree4_picking_to_invoice
 msgid "On Incoming Shipments"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: report:purchase.order:0
 msgid "Duties Incl :"
 msgstr "Impuestos :"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order.line:0
 msgid "Stock Moves"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: code:addons/purchase/purchase.py:1240
 #, python-format
 msgid "Draft Purchase Order created"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.ui.menu,name:purchase.menu_product_category_config_purchase
 msgid "Product Categories"
 msgstr "Categorías de producto"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order,notes:0
 msgid "Terms and Conditions"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: help:purchase.order,date_order:0
 msgid "Date on which this document has been created."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order,message_is_follower:0
 msgid "Is a Follower"
 msgstr "Es un seguidor."
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.actions.act_window,name:purchase.action_purchase_order_report_graph
 #: view:purchase.report:0
 msgid "Total Qty and Amount by month"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.report:0
 msgid "Extended Filters..."
 msgstr "Filtros extendidos..."
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: code:addons/purchase/wizard/purchase_order_group.py:48
 #, python-format
 msgid "Please select multiple order to merge in the list view."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0
 msgid "Exception"
 msgstr "Excepción"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.ui.menu,name:purchase.menu_purchase_partner_cat
 msgid "Address Book"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.model,name:purchase.model_res_company
 msgid "Companies"
 msgstr "Empresas"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order.group:0
 msgid "Are you sure you want to merge these orders?"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:account.config.settings,module_purchase_analytic_plans:0
 msgid "Use multiple analytic accounts on orders"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:product.product:0
 msgid "will be created in order to subcontract the job"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.actions.act_window,name:purchase.action_purchase_line_product_tree
 #: model:ir.actions.act_window,name:purchase.open_board_purchase
 #: model:ir.ui.menu,name:purchase.menu_board_purchase
@@ -834,22 +834,22 @@ msgstr ""
 msgid "Purchases"
 msgstr "Compras"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.report:0 field:purchase.report,delay:0
 msgid "Days to Validate"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.config.settings:0
 msgid "Supplier Features"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: report:purchase.order:0 report:purchase.quotation:0
 msgid "Qty"
 msgstr "Ctd."
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:process.transition.action,name:purchase.process_transition_action_approvingcancelpurchaseorder0
 #: model:process.transition.action,name:purchase.process_transition_action_cancelpurchaseorder0
 #: view:purchase.config.settings:0 view:purchase.order.group:0
@@ -857,94 +857,94 @@ msgstr "Ctd."
 msgid "Cancel"
 msgstr "Cancelar"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: sql_constraint:purchase.order:0
 msgid "Order Reference must be unique per Company!"
 msgstr "¡La referencia del pedido debe ser única por compañía!"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:process.transition,name:purchase.process_transition_purchaseinvoice0
 msgid "From a purchase order"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.actions.report.xml,name:purchase.report_purchase_quotation
 #: selection:purchase.report,state:0
 msgid "Request for Quotation"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.report:0
 msgid "Order of Month"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: report:purchase.order:0 field:purchase.order.line,price_unit:0
 msgid "Unit Price"
-msgstr "Unit Price"
+msgstr "Precio unidad"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order,date_approve:0 field:purchase.report,date_approve:0
 msgid "Date Approved"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:product.product:0
 msgid "a draft purchase order"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.report:0
 msgid "Order of Year"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.actions.act_window,name:purchase.act_res_partner_2_purchase_order
 msgid "RFQs and Purchases"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:account.config.settings,group_analytic_account_for_purchases:0
 #: field:purchase.config.settings,group_analytic_account_for_purchases:0
 msgid "Analytic accounting for purchases"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:process.transition,note:purchase.process_transition_confirmingpurchaseorder1
 msgid ""
 "In case there is no supplier for this product, the buyer can fill the form "
 "manually and confirm it. The RFQ becomes a confirmed Purchase Order."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: help:purchase.config.settings,group_purchase_pricelist:0
 msgid ""
 "Allows to manage different prices based on rules per category of Supplier.\n"
 "                Example: 10% for retailers, promotion of 5 EUR on this product, etc."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.model,name:purchase.model_mail_mail
 msgid "Outgoing Mails"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: code:addons/purchase/purchase.py:455
 #, python-format
 msgid "You cannot confirm a purchase order without any purchase order line."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: help:purchase.order,message_ids:0
 msgid "Messages and communication history"
 msgstr "Mensajes e historial de comunicación"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order,warehouse_id:0 field:stock.picking.in,warehouse_id:0
 msgid "Destination Warehouse"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: code:addons/purchase/purchase.py:1001
 #, python-format
 msgid ""
@@ -952,172 +952,172 @@ msgid ""
 " Unit of Measure."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order.line_invoice:0
 msgid "Select an Open Sales Order"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.ui.menu,name:purchase.menu_purchase_unit_measure_purchase
 #: model:ir.ui.menu,name:purchase.menu_purchase_uom_form_action
 msgid "Units of Measure"
 msgstr "Unidades de medida"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.config.settings,group_purchase_pricelist:0
 msgid "Manage pricelist per supplier"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:board.board:0
 msgid "Purchase Dashboard"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: code:addons/purchase/purchase.py:591
 #, python-format
 msgid "First cancel all receptions related to this purchase order."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0
 msgid "Approve Order"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: help:purchase.report,date:0
 msgid "Date on which this document has been created"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0 view:purchase.order.line:0 view:purchase.report:0
 msgid "Group By..."
 msgstr "Agrupar por..."
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0
 msgid "Approved purchase order"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.report:0
 msgid "Purchase Orders Statistics"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0 field:purchase.order,message_unread:0
 msgid "Unread Messages"
 msgstr "Mensajes sin leer"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.ui.menu,name:purchase.menu_purchase_uom_categ_form_action
 msgid "Unit of Measure Categories"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0
 msgid "Set to Draft"
 msgstr "Cambiar a borrador"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: help:purchase.order,origin:0
 msgid ""
 "Reference of the document that generated this purchase order request; a "
 "sales order or an internal procurement request."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order.line:0
 msgid "Notes"
 msgstr "Notas"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.config.settings,module_purchase_requisition:0
 msgid "Manage purchase requisitions"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: report:purchase.order:0 field:purchase.order,amount_tax:0
 #: field:purchase.order.line,taxes_id:0
 msgid "Duties"
 msgstr "Impuestos"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.ui.menu,name:purchase.menu_procurement_management_product
 #: model:ir.ui.menu,name:purchase.menu_procurement_partner_contact_form
 #: model:ir.ui.menu,name:purchase.menu_product_in_config_purchase
 msgid "Products"
 msgstr "Productos"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0
 msgid "Terms and conditions..."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.model,name:purchase.model_stock_move
 msgid "Stock Move"
 msgstr "Moviemiento de stock"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: code:addons/purchase/purchase.py:259 code:addons/purchase/purchase.py:909
 #, python-format
 msgid "Invalid Action!"
 msgstr "¡Acción inválida!"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: report:purchase.order:0 field:purchase.report,validator:0
 msgid "Validated by"
 msgstr "Validado por"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.report:0 field:purchase.report,price_standard:0
 msgid "Products Value"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0
 msgid "Purchase orders which are in exception state"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:process.node,note:purchase.process_node_draftpurchaseorder0
 #: model:process.node,note:purchase.process_node_draftpurchaseorder1
 msgid "Request for Quotations."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0
 msgid "Source"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.model,name:purchase.model_stock_picking
 #: field:purchase.order,picking_ids:0
 msgid "Picking List"
 msgstr "Lista de Movimientos."
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: report:purchase.quotation:0
 msgid "Fax:"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: help:purchase.order,invoice_ids:0
 msgid "Invoices generated for a purchase order"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: selection:purchase.config.settings,default_invoice_method:0
 msgid "Pre-generate draft invoices based on purchase orders"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: help:product.template,purchase_ok:0
 msgid "Specify if the product can be selected in a purchase order line."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:process.transition,note:purchase.process_transition_invoicefrompackinglist0
 msgid ""
 "The invoice is created automatically if the Invoice control of the purchase "
@@ -1125,22 +1125,22 @@ msgid ""
 "accountant (Invoice control = Manual)."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: report:purchase.quotation:0
 msgid "Regards,"
-msgstr ""
+msgstr "Saludos cordiales,"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: selection:purchase.report,month:0
 msgid "July"
 msgstr "Julio"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:process.node,name:purchase.process_node_packinginvoice0
 msgid "Outgoing Products"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:product.product:0
 msgid ""
 "to buy the required quantities to the supplier.\n"
@@ -1148,20 +1148,20 @@ msgid ""
 "                        products."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:product.product:0
 msgid ""
 "a draft\n"
 "                        purchase order"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: code:addons/purchase/purchase.py:319
 #, python-format
 msgid "Please create Invoices."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.actions.act_window,help:purchase.action_picking_tree4_picking_to_invoice
 msgid ""
 "<p class=\"oe_view_nocontent_create\">\n"
@@ -1175,65 +1175,65 @@ msgid ""
 "            "
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.model,name:purchase.model_procurement_order
 msgid "Procurement"
 msgstr "Abastecimiento"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: selection:purchase.order,state:0 selection:purchase.report,state:0
 msgid "Shipping Exception"
 msgstr "Excepción de envío"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: selection:purchase.report,month:0
 msgid "March"
 msgstr "Marzo"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0
 msgid "Receive Invoice"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0
 msgid "Receive Products"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.report:0 field:purchase.report,month:0
 msgid "Month"
 msgstr "Mes"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:process.node,note:purchase.process_node_invoiceafterpacking0
 #: model:process.node,note:purchase.process_node_invoicecontrol0
 msgid "To be reviewed by the accountant."
 msgstr "Para ser revisado por el contador"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.model,name:purchase.model_purchase_config_settings
 msgid "purchase.config.settings"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order,company_id:0 field:purchase.order.line,company_id:0
 #: view:purchase.report:0 field:purchase.report,company_id:0
 msgid "Company"
 msgstr "Compañía"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:process.node,note:purchase.process_node_approvepurchaseorder0
 #: model:process.node,note:purchase.process_node_confirmpurchaseorder0
 msgid "State of the Purchase Order."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order.line,product_uom:0
 msgid "Product Unit of Measure"
 msgstr "Unidad de medida del producto"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.actions.act_window,help:purchase.purchase_pricelist_version_action
 msgid ""
 "<p class=\"oe_view_nocontent_create\">\n"
@@ -1247,122 +1247,122 @@ msgid ""
 "            "
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.actions.act_window,name:purchase.action_view_purchase_line_invoice
 msgid "Create invoices"
 msgstr "Crear facturas"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.model,name:purchase.model_purchase_order_line_invoice
 msgid "Purchase Order Line Make Invoice"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: code:addons/purchase/purchase.py:1225
 #, python-format
 msgid "PO: %s"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:process.node,note:purchase.process_node_packinginvoice0
 msgid "Outgoing products to invoice"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: code:addons/purchase/purchase.py:536
 #, python-format
 msgid "Define purchase journal for this company: \"%s\" (id:%d)."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0
 msgid "Purchase Order "
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: help:purchase.config.settings,group_costing_method:0
 msgid "Allows you to compute product cost price based on average cost."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.actions.act_window,name:purchase.action_purchase_configuration
 #: view:purchase.config.settings:0
 msgid "Configure Purchases"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0
 msgid "Untaxed"
 msgstr "Base"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:process.transition,name:purchase.process_transition_createpackinglist0
 msgid "Pick list generated"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.actions.act_window,name:purchase.purchase_line_form_action2
 #: model:ir.ui.menu,name:purchase.menu_purchase_line_order_draft
 msgid "On Purchase Order Lines"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: report:purchase.quotation:0
 msgid "TVA:"
-msgstr ""
+msgstr "IVA:"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: help:purchase.order,picking_ids:0
 msgid ""
 "This is the list of incoming shipments that have been generated for this "
 "purchase order."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.config.settings,module_purchase_double_validation:0
 msgid "Force two levels of approvals"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.ui.menu,name:purchase.menu_product_pricelist_action2_purchase_type
 msgid "Price Types"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: help:purchase.order,date_approve:0
 msgid "Date on which purchase order has been approved"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:process.node,name:purchase.process_node_approvepurchaseorder0
 #: view:purchase.order:0 selection:purchase.report,state:0
 msgid "Approved"
 msgstr "Aprobado"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: selection:purchase.order,state:0 selection:purchase.order.line,state:0
 #: selection:purchase.report,state:0
 msgid "Done"
 msgstr "Hecho"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.model,name:purchase.model_account_invoice
 #: model:process.transition,name:purchase.process_transition_invoicefrompackinglist0
 #: model:process.transition,name:purchase.process_transition_invoicefrompurchase0
 msgid "Invoice"
 msgstr "Factura"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:process.node,note:purchase.process_node_purchaseorder0
 msgid "Confirmed purchase order to invoice"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:process.node,note:purchase.process_node_productrecept0
 msgid "Incoming products to control"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.actions.act_window,help:purchase.purchase_rfq
 msgid ""
 "<p class=\"oe_view_nocontent_create\">\n"
@@ -1378,12 +1378,12 @@ msgid ""
 "            "
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:process.transition,note:purchase.process_transition_approvingpurchaseorder0
 msgid "The supplier approves the Purchase Order."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: code:addons/purchase/wizard/purchase_order_group.py:80
 #: model:ir.actions.act_window,name:purchase.purchase_form_action
 #: model:ir.ui.menu,name:purchase.menu_purchase_form_action
@@ -1392,44 +1392,44 @@ msgstr ""
 msgid "Purchase Orders"
 msgstr "Pedidos de compra"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order,origin:0
 msgid "Source Document"
 msgstr "Documento origen"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order.group:0
 msgid "Merge orders"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.config.settings,module_purchase_analytic_plans:0
 msgid "Use multiple analytic accounts on purchase orders"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.ui.menu,name:purchase.menu_procurement_management
 #: model:process.process,name:purchase.process_process_purchaseprocess0
 msgid "Purchase"
 msgstr "Compra"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order,create_uid:0 view:purchase.report:0
 #: field:purchase.report,user_id:0
 msgid "Responsible"
 msgstr "Responsable"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0
 msgid "Manually Corrected"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.config.settings,group_costing_method:0
 msgid "Compute product cost price based on average cost"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: code:addons/purchase/purchase.py:349
 #: code:addons/purchase/wizard/purchase_line_invoice.py:115
 #: model:ir.actions.act_window,name:purchase.act_res_partner_2_supplier_invoices
@@ -1438,30 +1438,30 @@ msgstr ""
 msgid "Supplier Invoices"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order,product_id:0 view:purchase.order.line:0
 #: field:purchase.order.line,product_id:0 view:purchase.report:0
 #: field:purchase.report,product_id:0
 msgid "Product"
 msgstr "Producto"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:process.transition,name:purchase.process_transition_confirmingpurchaseorder0
 #: model:process.transition,name:purchase.process_transition_confirmingpurchaseorder1
 msgid "Confirmation"
 msgstr "Confirmación"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: report:purchase.order:0
 msgid "VAT. No. :"
 msgstr "RFC :"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.ui.menu,name:purchase.menu_product_by_category_purchase_form
 msgid "Products by Category"
 msgstr "Productos por categoría"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: help:purchase.order.line,state:0
 msgid ""
 " * The 'Draft' status is set automatically when purchase order in draft status.                                        \n"
@@ -1470,47 +1470,47 @@ msgid ""
 "* The 'Cancelled' status is set automatically when user cancel purchase order."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order,invoiced:0
 msgid "Invoice Received"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order,invoice_method:0
 msgid "Invoicing Control"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:process.transition.action,name:purchase.process_transition_action_approvingpurchaseorder0
 msgid "Approve"
 msgstr "Aprobar"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.report:0
 msgid "Reference UOM"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: selection:purchase.report,month:0
 msgid "May"
 msgstr "Mayo"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:res.groups,name:purchase.group_purchase_manager
 msgid "Manager"
 msgstr "Director"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: selection:purchase.order,invoice_method:0
 msgid "Based on Purchase Order lines"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order,amount_total:0
 msgid "Total"
 msgstr "Total"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: help:account.config.settings,module_purchase_analytic_plans:0
 #: help:purchase.config.settings,module_purchase_analytic_plans:0
 msgid ""
@@ -1518,29 +1518,29 @@ msgid ""
 "                This installs the module purchase_analytic_plans."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order,location_id:0 view:purchase.report:0
 #: field:purchase.report,location_id:0
 msgid "Destination"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order,dest_address_id:0
 msgid "Customer Address (Direct Delivery)"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.actions.client,name:purchase.action_client_purchase_menu
 msgid "Open Purchase Menu"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: code:addons/purchase/purchase.py:1078
 #, python-format
 msgid "No address defined for the supplier"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:email.template,body_html:purchase.email_template_edi_purchase
 msgid ""
 "\n"
@@ -1606,50 +1606,50 @@ msgid ""
 "            "
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: selection:purchase.order,state:0 selection:purchase.report,state:0
 msgid "Invoice Exception"
 msgstr "Excepción de factura"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: help:res.partner,property_product_pricelist_purchase:0
 msgid ""
 "This pricelist will be used, instead of the default one, for purchases from "
 "the current partner"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: report:purchase.order:0
 msgid "Fax :"
-msgstr ""
+msgstr "Fax :"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.model,name:purchase.model_stock_partial_picking
 msgid "Partial Picking Processing Wizard"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:product.pricelist.version,name:purchase.ver0
 msgid "Default Purchase Pricelist Version"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: selection:purchase.order,invoice_method:0
 msgid "Based on generated draft invoice"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.actions.act_window,name:purchase.action_stock_move_report_po
 #: model:ir.ui.menu,name:purchase.menu_action_stock_move_report_po
 msgid "Receptions Analysis"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order,message_ids:0
 msgid "Messages"
 msgstr "Mensajes"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.actions.report.xml,name:purchase.report_purchase_order
 #: model:ir.model,name:purchase.model_purchase_order
 #: model:process.node,name:purchase.process_node_purchaseorder0
@@ -1661,19 +1661,19 @@ msgstr "Mensajes"
 msgid "Purchase Order"
 msgstr "Orden de Compra"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: code:addons/purchase/purchase.py:319 code:addons/purchase/purchase.py:455
 #: code:addons/purchase/purchase.py:473 code:addons/purchase/purchase.py:535
 #, python-format
 msgid "Error!"
 msgstr "¡Error!"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: report:purchase.order:0
 msgid "Net Amount :"
 msgstr "Total neto :"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: help:purchase.order,state:0
 msgid ""
 "The status of the purchase order or the quotation request. A quotation is a "
@@ -1684,60 +1684,60 @@ msgid ""
 "the invoice or in the reception of goods, the status becomes in exception."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: selection:purchase.order,state:0 selection:purchase.order.line,state:0
 #: selection:purchase.report,state:0
 msgid "Cancelled"
 msgstr "Cancelado"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:res.partner,purchase_order_count:0
 msgid "# of Purchase Order"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.model,name:purchase.model_mail_compose_message
 msgid "Email composition wizard"
 msgstr "Asistente de creación de correo-e"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: report:purchase.quotation:0
 msgid "Tel.:"
-msgstr ""
+msgstr "Tel.:"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0
 msgid "Resend Purchase Order"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: report:purchase.order:0
-msgid "Net Price"
-msgstr "Amount"
+msgid "Amount"
+msgstr "Precio neto"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.model,name:purchase.model_purchase_order_line
 #: view:purchase.order.line:0 field:stock.move,purchase_line_id:0
 msgid "Purchase Order Line"
 msgstr "Línea pedido de compra"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:process.transition.action,name:purchase.process_transition_action_confirmpurchaseorder0
 #: view:purchase.order.line_invoice:0
 msgid "Confirm"
 msgstr "Confirmar"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: selection:purchase.config.settings,default_invoice_method:0
 msgid "Based on receptions"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order,partner_ref:0
 msgid "Supplier Reference"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:process.transition,note:purchase.process_transition_productrecept0
 msgid ""
 "A Pick list generates a supplier invoice. Depending on the Invoicing control"
@@ -1745,12 +1745,12 @@ msgid ""
 "quantities."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order,message_follower_ids:0
 msgid "Followers"
 msgstr "Seguidores"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: help:purchase.config.settings,module_purchase_requisition:0
 msgid ""
 "Purchase Requisitions are used when you want to request quotations from several suppliers for a given set of products.\n"
@@ -1758,12 +1758,12 @@ msgid ""
 "            to one supplier or if you want a purchase requisition to negotiate with several suppliers."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order.line,invoice_lines:0
 msgid "Invoice Lines"
 msgstr "Líneas de factura"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.actions.act_window,help:purchase.action_purchase_order_report_all
 msgid ""
 "Purchase Analysis allows you to easily check and analyse your company "
@@ -1771,162 +1771,162 @@ msgid ""
 "negotiation performance, the delivery performance of your suppliers, etc."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:email.template,report_name:purchase.email_template_edi_purchase
 msgid "RFQ_${(object.name or '').replace('/','_')}"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: code:addons/purchase/purchase.py:1016
 #, python-format
 msgid "The selected supplier only sells this product by %s"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:process.transition.action,name:purchase.process_transition_action_invoicefrompurchaseorder0
 msgid "Create invoice"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order.line,move_dest_id:0
 msgid "Reservation Destination"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:email.template,subject:purchase.email_template_edi_purchase
 msgid "${object.company_id.name|safe} Order (Ref ${object.name or 'n/a' })"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.ui.menu,name:purchase.menu_purchase_config_purchase
 msgid "Configuration"
 msgstr "Configuración"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: help:purchase.config.settings,module_purchase_double_validation:0
 msgid ""
 "Provide a double validation mechanism for purchases exceeding minimum amount.\n"
 "                This installs the module purchase_double_validation."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: code:addons/purchase/edi/purchase_order.py:132
 #, python-format
 msgid "EDI Pricelist (%s)"
 msgstr "Tarifa EDI (%s)"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.report,product_uom:0
 msgid "Reference Unit of Measure"
 msgstr "Referencia de unidad de medida"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: report:purchase.order:0 field:purchase.report,validator:0
 msgid "Validated By"
-msgstr ""
+msgstr "Validada por"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.report:0 field:purchase.report,delay_pass:0
 msgid "Days to Deliver"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: selection:purchase.report,month:0
 msgid "April"
 msgstr "Abril"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0 field:purchase.order,invoice_ids:0
 msgid "Invoices"
 msgstr "Facturas"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: selection:purchase.report,month:0
 msgid "December"
 msgstr "Diciembre"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.report:0
 msgid "Total Orders Lines by User per month"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: help:purchase.order,amount_untaxed:0
 msgid "The amount without tax"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:process.node,note:purchase.process_node_packinglist0
 msgid "List of ordered products."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0
 msgid "Incoming Shipments & Invoices"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: selection:purchase.order,state:0
 msgid "Waiting Approval"
 msgstr "Esperando aprobación"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: help:purchase.order,amount_total:0
 msgid "The total amount"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order,invoiced_rate:0 field:purchase.order.line,invoiced:0
 msgid "Invoiced"
 msgstr "Facturado"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:process.node,name:purchase.process_node_confirmpurchaseorder0
 #: selection:purchase.order.line,state:0
 msgid "Confirmed"
 msgstr "Confirmado"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: selection:purchase.order.line,state:0
 msgid "Draft"
 msgstr "Borrador"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.model,name:purchase.model_purchase_order_group
 msgid "Purchase Order Merge"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.actions.act_window,name:purchase.action_email_templates
 msgid "Email Templates"
 msgstr "Plantillas email"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:res.groups,name:purchase.group_purchase_user
 msgid "User"
 msgstr "Usuario"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: selection:purchase.report,month:0
 msgid "November"
 msgstr "Noviembre"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order.line:0
 msgid "Manual Invoices"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: report:purchase.order:0
 msgid "Our Ref."
-msgstr "Nuestra referencia"
+msgstr "Our Ref."
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: selection:purchase.report,month:0
 msgid "January"
 msgstr "Enero"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: help:purchase.order,invoice_method:0
 msgid ""
 "Based on Purchase Order lines: place individual lines in 'Invoice Control > Based on P.O. lines' from where you can selectively create an invoice.\n"
@@ -1934,48 +1934,48 @@ msgid ""
 "Bases on incoming shipments: let you create an invoice when receptions are validated."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.ui.menu,name:purchase.menu_partner_categories_in_form
 msgid "Partner Categories"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.report,state:0
 msgid "Order Status"
 msgstr "Estado del pedido"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: report:purchase.order:0
-msgid "Request for Quotation N°"
-msgstr ""
+msgid ""
+msgstr "Solicitud de presupuesto Nº"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.config.settings:0
 msgid "Invoicing Settings"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.actions.act_window,name:purchase.action_purchase_order_by_user_all
 msgid "Total Orders by User per month"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: selection:purchase.order,invoice_method:0
 msgid "Based on incoming shipments"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: code:addons/purchase/purchase.py:1076
 #, python-format
 msgid "No default supplier defined for this product"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.report:0 field:purchase.report,warehouse_id:0
 msgid "Warehouse"
 msgstr "Almacén"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: code:addons/purchase/purchase.py:1020
 #, python-format
 msgid ""
@@ -1983,55 +1983,55 @@ msgid ""
 "purchase less."
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: report:purchase.order:0 field:purchase.order.line,name:0
 #: report:purchase.quotation:0
 msgid "Item  Description"
 msgstr "Descripión"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: report:purchase.quotation:0
 msgid "Expected Delivery address:"
-msgstr ""
+msgstr "Dirección de entrega prevista:"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: selection:purchase.report,month:0
 msgid "February"
 msgstr "Febrero"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.actions.act_window,name:purchase.action_invoice_pending
 #: model:ir.ui.menu,name:purchase.menu_procurement_management_pending_invoice
 msgid "On Draft Invoices"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.actions.act_window,name:purchase.action_purchase_order_report_all
 #: model:ir.ui.menu,name:purchase.menu_action_purchase_order_report_all
 msgid "Purchase Analysis"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: report:purchase.order:0
-msgid "Your Order Reference"
-msgstr "Your Ref."
+msgid "Your Ref."
+msgstr "Su referencia"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: report:purchase.order:0
 msgid "Purchase Order Confirmation N°"
-msgstr ""
+msgstr "Confirmación pedido de compra Nº"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0
 msgid "Total amount"
 msgstr "Importe total"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.model,name:purchase.model_product_template
 msgid "Product Template"
 msgstr "Plantilla de producto"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order.group:0
 msgid ""
 " Please note that: \n"
@@ -2046,43 +2046,43 @@ msgid ""
 " "
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order,message_summary:0
 msgid "Summary"
 msgstr "Resumen"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.actions.act_window,name:purchase.purchase_pricelist_version_action
 #: model:ir.ui.menu,name:purchase.menu_purchase_pricelist_version_action
 msgid "Pricelist Versions"
 msgstr "Versiones de tarifa"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: field:purchase.order,payment_term_id:0
 msgid "Payment Term"
 msgstr "Plazo de pago"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: help:purchase.order,invoiced:0
 msgid "It indicates that an invoice has been validated"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.order:0
 msgid "Purchase orders which are in draft state"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.report:0 field:purchase.report,name:0
 msgid "Year"
 msgstr "Año"
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: selection:purchase.config.settings,default_invoice_method:0
 msgid "Based on purchase order lines"
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: model:ir.actions.act_window,help:purchase.act_res_partner_2_purchase_order
 msgid ""
 "<p class=\"oe_view_nocontent_create\">\n"
@@ -2095,7 +2095,7 @@ msgid ""
 "            "
 msgstr ""
 
-#. module: purchase
+#. module: ndk_compras_compra
 #: view:purchase.report:0
 msgid "Orders"
 msgstr ""
