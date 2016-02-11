@@ -22,7 +22,7 @@
                             <field name="product_qty" on_change="onchange_product_id(parent.pricelist_id,product_id,product_qty,product_uom,parent.partner_id,parent.date_order,parent.fiscal_position,date_planned,name,price_unit,context)"/>
                             <field name="product_uom" groups="product.group_uom" on_change="onchange_product_uom(parent.pricelist_id,product_id,product_qty,product_uom,parent.partner_id, parent.date_order,parent.fiscal_position,date_planned,name,price_unit,context)"/>
                             <field name="price_unit"/>
-                            <field name="standard_price_currency_id" string="Divisa"
+                            <field name="standard_price_currency_id" string="Divisa" 
                                 on_change="on_change_currency(standard_price_currency_id, price_unit, product_id)"/>
                             <field name="taxes_id" widget="many2many_tags" domain="[('parent_id','=',False),('type_tax_use','!=','sale')]"/>
                             <field name="price_subtotal"/>

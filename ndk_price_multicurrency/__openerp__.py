@@ -22,7 +22,7 @@
 {
     'name': 'HMTK Multicurrency Prices',
     'sequence': 1,
-    'version': '1.4',
+    'version': '1.5',
     'author': 'Humanytek',
     'website': 'http://github.com/humanytek/ndk',
     'category': 'Sales Management',
