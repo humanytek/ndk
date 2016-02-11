@@ -155,8 +155,9 @@ class import_info_ndk(osv.Model):
                         line_expense_wo = info_record.impact * factor
                         purchase_order_line_obj.write(cr, uid, po.id, {'amount_of_expend': line_expense_wo}, context=context)
                         amount_with_expenses = po.amount_of_expend + po.converted_price_subtotal + po.amount_igi
+                        expense_per_piece = amount_with_expenses/po.product_qty
                         #amount_with_expenses = po.amount_of_expend + po.price_subtotal + po.amount_igi
-                        purchase_order_line_obj.write(cr, uid, po.id, {'amount_with_expense': amount_with_expenses}, context=context)
+                        purchase_order_line_obj.write(cr, uid, po.id, {'amount_with_expense': amount_with_expenses, 'expense_per_piece': expense_per_piece}, context=context)
         return True
         
     # 28/10/2015 (felix) Method to convert
@@ -172,7 +173,13 @@ class import_info_ndk(osv.Model):
         'ref_paquete': fields.char('Referencia de paquete', size=64),
         'name': fields.char('Number of Operation', size=128),
         'converted_expense_amount': fields.function(_calc_converted_expense_amount, 
-            type='float', string='Converted expense amount', digits=(10,2))
+            type='float', string='Converted expense amount', digits=(10,2)),
+        'ref_paquete': fields.char('Referencia de paquete', size=64),
+        'currency1': fields.many2one('res.currency', 'Currency'),
+        'currency2': fields.many2one('res.currency', 'Currency'),
+        'currency3': fields.many2one('res.currency', 'Currency'),
+        'rate2' : fields.float('Exchange Rate', digits=(16, 4)),
+        'rate3' : fields.float('Exchange Rate', digits=(16, 4))
     }
     _defaults = {
         'ref_paquete': make_sscc

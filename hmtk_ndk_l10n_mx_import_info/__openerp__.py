@@ -35,7 +35,7 @@ It will work as production lot make better control with quantities.""",
     'data': ['purchase_view.xml',
              'wizard/load_pos_view.xml',
              'import_info_view.xml',
-             
+             'purchase_report.xml'
              ],
     'demo_xml': [],
     'installable': True,

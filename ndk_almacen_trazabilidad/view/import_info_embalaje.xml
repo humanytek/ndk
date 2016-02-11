@@ -15,6 +15,13 @@
                     - Moneda nacional: price_unit_converted
                     - Divisa para "Moneda nacional": currency_converted_id
                 -->
+<!--				<xpath expr="//field[@name='rate']" position="after">               -->
+<!--					<field name="currency1"/>-->
+<!--					<field name="rate2"/>-->
+<!--					<field name="currency2"/>-->
+<!--					<field name="rate3"/>-->
+<!--					<field name="currency3"/>-->
+<!--				</xpath>					-->
                 <xpath expr="//form/notebook/page[@string='Containers']/group[1]/field[@name='po_ids']" position="replace">
                     <field name="po_ids" nolabel="1">
                         <tree editable="bottom" create="false">
@@ -35,6 +42,7 @@
                             <field name="converted_price_subtotal" sum="total" string="Subtotal converted price currency"/>
                             <field name="impact" string="Impacto en %%" sum="total"/>
                             <field name="amount_of_expend" sum="total"/>
+							<field name="expense_per_piece"/>                      
                             <field name="amount_with_expense" sum="total"/>
                         </tree>
                     </field>
@@ -46,10 +54,27 @@
                 </xpath>
                 
                 <!-- 28/10/2015 (felix) Agregar campo "Monto de gastos (MXN)" -->
-                <xpath expr="//form/notebook/page[@string='Containers']/group[2]/field[@name='total_expense']" position="after">
+                <xpath expr="//form/notebook/page[@string='Containers']/group[2]/field[@name='impact']" position="after">
                     <field name="converted_expense_amount" string="Converted expense amount" readonly="1"/>
                 </xpath>
+                <xpath expr="//form/notebook/page[@string='Containers']/group[2]/field[@name='total_expense']" position="attributes"> 
+                	<attribute name="invisible">1</attribute>
+                </xpath>
                 
+                <xpath expr="//form/notebook/page[@string='Products']/field[@name='product_info_ids']" position="replace"> 
+                	<field name="product_info_ids" nolabel="1" colspan="4" mode="tree" string="Products">
+	                    <form>
+	                        <field name="product_id" on_change="onchange_product_id(product_id)"/>
+	                        <field name="qty"/>
+	                        <field name="uom_id"/>
+	                    </form>
+	                    <tree editable="bottom">
+	                        <field name="product_id" on_change="onchange_product_id(product_id)"/>
+	                        <field name="qty" sum="Total"/>
+	                        <field name="uom_id"/>
+                        </tree>
+                    </field>
+                </xpath>
             </field>
         </record>
                     

@@ -22,7 +22,10 @@ msgid "Price"
 msgstr "Costo"
 
 #. module: ndk_almacen_trazabilidad
-#: view:stock.production.lot:0
+#: field:import.info,currency1:0
+#: field:import.info,currency2:0
+#: field:import.info,currency3:0
+#: field:stock.production.lot,currency_id:0
 msgid "Currency"
 msgstr "Moneda"
 
@@ -56,3 +59,8 @@ msgstr "Porcentaje IGI"
 msgid "Converted expense amount"
 msgstr "Monto de Gastos (MXN)"
 
+#. module: ndk_almacen_trazabilidad
+#: field:import.info,rate2:0
+#: field:import.info,rate3:0
+msgid "Exchange Rate"
+msgstr "Tipo de cambio"

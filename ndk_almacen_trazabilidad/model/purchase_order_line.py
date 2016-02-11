@@ -35,10 +35,25 @@ class purchase_order_line_ndk(osv.Model):
         for i in self.browse(cr, uid, ids, context):
             res[i.id] = 0.00
             price_unit = i.price_unit
-            currency_name = i.standard_price_currency_id.name
-            currency_rate_silent = i.standard_price_currency_id.rate_silent
-            if currency_name not in ['MXN',None] and price_unit > 0.00:
-                res[i.id] = price_unit / currency_rate_silent
+            res[i.id] = price_unit
+            if i.info_id:
+                currency_name = i.standard_price_currency_id.name
+                if currency_name not in ['MXN',None] and price_unit > 0.00:
+                    if i.info_id.currency1.id:
+                        if i.standard_price_currency_id.id == i.info_id.currency1.id:
+                            res[i.id] = i.info_id.rate * price_unit
+                    if i.info_id.currency2.id:
+                        if i.standard_price_currency_id.id == i.info_id.currency2.id:
+                            res[i.id] = i.info_id.rate2 * price_unit
+                    if i.info_id.currency3.id:
+                        if i.standard_price_currency_id.id == i.info_id.currency3.id:
+                            res[i.id] = i.info_id.rate3 * price_unit
+#             currency_name = i.standard_price_currency_id.name
+#             currency_rate_silent = i.standard_price_currency_id.rate_silent
+#             if currency_name not in ['MXN',None] and price_unit > 0.00:
+#                 res[i.id] = price_unit / currency_rate_silent
+                else:
+                    res[i.id] = price_unit
             else:
                 res[i.id] = price_unit
         return res
@@ -60,7 +75,7 @@ class purchase_order_line_ndk(osv.Model):
             res[i.id] = 0.00
             res[i.id] = i.price_unit_converted * i.product_qty
         return res
-            
+        
     _columns = {
         'price_unit_converted': fields.function(_calc_price_unit, type='float', 
             string='Converted price unit', digits=(10,2)),
@@ -68,7 +83,8 @@ class purchase_order_line_ndk(osv.Model):
             string='Converted currency', obj='res.currency'),
         'converted_price_subtotal': fields.function(_calc_converted_price_subtotal, 
             type='float', string='Subtotal price converted currency'),
-        'percent_igi': fields.float('Percent IGI', digits=(10,2))
+        'percent_igi': fields.float('Percent IGI', digits=(10,2)),
+        'expense_per_piece': fields.float('Amount of expenses per piece'),
     }
     
     # 30/10/2015 (felix) Method to return values of "amount_igi"

@@ -77,11 +77,11 @@ class purchase_order(osv.osv):
         :return: Value for fields of invoice lines.
         :rtype: dict
         """
-        #real_price_unit = (order_line.price_unit or 0.0) + (order_line.amount_of_expend/ order_line.product_qty) + (order_line.amount_igi/order_line.product_qty)
+        real_price_unit = (order_line.price_unit or 0.0) + (order_line.amount_of_expend/ order_line.product_qty) + (order_line.amount_igi/order_line.product_qty)
         return {
             'name': order_line.name,
             'account_id': account_id,
-            'price_unit' : order_line.price_unit or 0.0,
+            'price_unit': order_line.price_unit  or 0.0,
             'quantity': order_line.product_qty,
             'product_id': order_line.product_id.id or False,
             'uos_id': order_line.product_uom.id or False,
@@ -93,6 +93,7 @@ class purchase_order(osv.osv):
 purchase_order()
 class purchase_order_line(osv.osv):
     _inherit = 'purchase.order.line'
+    _order = 'supplier_id'
     def _get_supplier_id(self, cr, uid, ids, field_name, arg, context={}):
         res = {}
         pos = self.browse(cr, uid, ids, context=context)
@@ -127,7 +128,7 @@ class purchase_order_line(osv.osv):
         'impact': fields.float('Impact'),
         'amount_of_expend': fields.float('Expenditure'),
         'amount_with_expense': fields.float('Amount with Expenses'),
-        'supplier_id': fields.function(_get_supplier_id, type='many2one', string='Supplier', relation='res.partner'),
+        'supplier_id': fields.function(_get_supplier_id, type='many2one', string='Supplier', relation='res.partner', store= True),
         'cubic_metres': fields.function(_get_volume, type="float", string='Cubic metres'),
         'origin': fields.function(_get_origin, type='string', string='Source Document'),
         }
